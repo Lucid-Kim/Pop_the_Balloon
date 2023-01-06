@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Balloon_Bee : Balloon
 {
+    [SerializeField] GameObject bee;
+    [SerializeField] GameObject blooming;
+    float deg;
+    
     void Update()
     {
         Floating();
@@ -18,5 +22,7 @@ public class Balloon_Bee : Balloon
     {
         base.Interact();
         BalloonBeePool.Inst.Release(this.gameObject);
+        Instantiate(bee, this.gameObject.transform.position, Quaternion.identity);
     }
+
 }

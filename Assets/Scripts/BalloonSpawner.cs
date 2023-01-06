@@ -8,43 +8,63 @@ public class BalloonSpawner : MonoBehaviour
     float ranX2 = 0;
     float ranX3 = 0;
     float ranX4 = 0;
-
+    float centerX = 1f;
     int idx1 = 0;
     int idx2 = 0;
-    
-    
-    Coroutine startCor_SpawnBall;
+    int idx3 = 0;
+
+
+    Coroutine startCor_SpawnBall1;
+    Coroutine startCor_SpawnBall2;
     Coroutine startCor_Spawn15Sec;
     void Start()
-    {    
-        startCor_SpawnBall = StartCoroutine("CO_SpawnBalloon");
-        startCor_Spawn15Sec = StartCoroutine("CO_Spawn15Sec");
+    {
+        startCor_SpawnBall1 = StartCoroutine(nameof(CO_SpawnBalloon1));
+        startCor_SpawnBall2 = StartCoroutine(nameof(CO_SpawnBalloon2));
+        startCor_Spawn15Sec = StartCoroutine(nameof(CO_Spawn15Sec));
     }
 
     void Update()
     {
-        
-    }
 
-    IEnumerator CO_SpawnBalloon()
+    }
+    // 1구역 풍선 스폰
+    IEnumerator CO_SpawnBalloon1()
     {
         while (true)
         {
-            ranX1 = Random.Range(-8.0f, -0.3f);
-            ranX2 = Random.Range(0.3f, 8.0f);
-            idx1 = Random.Range(0, 4);
+            ranX1 = Random.Range(-8.0f, -centerX);
+            idx1 = Random.Range(0, 3);
             switch (idx1)
+            {
+                case 0:
+                    BalloonSunPool.Inst.Get(new Vector2(ranX1, -4));
+                    break;
+                case 1:
+                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -4));
+                    break;
+                case 2:
+                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -4));
+                    break;
+
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    // 2구역 풍선 스포
+    IEnumerator CO_SpawnBalloon2()
+    {
+        while (true)
+        {
+            ranX2 = Random.Range(centerX, 8.0f);
+            idx2 = Random.Range(0, 2);
+            switch (idx2)
             {
                 case 0:
                     BalloonWaterPool.Inst.Get(new Vector2(ranX2, -4));
                     break;
                 case 1:
-                    BalloonSunPool.Inst.Get(new Vector2(ranX1, -4));
-                    break;
-                case 2:
-                    BalloonSeedPool.Inst.Get(new Vector2(ranX2, -4));
-                    break;
-                case 3:
                     BalloonShitPool.Inst.Get(new Vector2(ranX2, -4));
                     break;
             }
@@ -52,15 +72,16 @@ public class BalloonSpawner : MonoBehaviour
         }
     }
 
+
     IEnumerator CO_Spawn15Sec()
     {
         while (true)
         {
             yield return new WaitForSeconds(15f);
-            ranX3 = Random.Range(-8.0f, -0.3f);
-            ranX4 = Random.Range(0.3f, 8.0f);
-            idx2 = Random.Range(0, 2);
-            switch (idx2)
+            ranX3 = Random.Range(-8.0f, -centerX);
+            ranX4 = Random.Range(centerX, 8.0f);
+            idx3 = 0;// Random.Range(0, 2);
+            switch (idx3)
             {
                 case 0:
                     BalloonBeePool.Inst.Get(new Vector2(ranX3, -4));

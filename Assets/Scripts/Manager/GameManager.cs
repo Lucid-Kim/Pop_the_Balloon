@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -12,6 +13,8 @@ public class GameManager : Singleton<GameManager>
     GameObject targetBlooming;
     [SerializeField] Sprite witheredImage;
     [SerializeField] Sprite bloomingImage;
+    [SerializeField] GameObject basicGrass;
+    [SerializeField] GameObject endGrass;
     public Queue<GameObject> bloom = new Queue<GameObject>();
     public Queue<GameObject> witheredFlowerQueue = new Queue<GameObject>();
     public bool isGameover;
@@ -29,13 +32,13 @@ public class GameManager : Singleton<GameManager>
         if (isGameover == false)
         {
             //Debug.Log("withered 상태" + isWithered);
-            if ((UIManager.Inst.fertilizerSlider.value <= 0.6f || UIManager.Inst.waterSlider.value <= 0.6f || UIManager.Inst.sunSlider.value <= 0.6f) && isWithered == false)
+            if ((UIManager.Inst.fertilizerSlider.value <= 0.6f || UIManager.Inst.waterSlider.value <= 0.6f || UIManager.Inst.sunSlider.value <= 0.6f) && isWithered == false && bloom.Count != 0)
             {
                 isWithered = true;
-                targetBlooming = bloom.Peek();
+                targetBlooming = bloom.Dequeue();
                 withered = StartCoroutine(CO_WitheredFlower());
             }
-            else if (UIManager.Inst.fertilizerSlider.value > 0.6f & UIManager.Inst.waterSlider.value > 0.6f & UIManager.Inst.sunSlider.value > 0.6f && isWithered == true)
+            else if (UIManager.Inst.fertilizerSlider.value > 0.6f & UIManager.Inst.waterSlider.value > 0.6f & UIManager.Inst.sunSlider.value > 0.6f && isWithered == true && witheredFlowerQueue.Count != 0)
             {
                 if (withered != null)
                 {
@@ -55,6 +58,8 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("게임 끝!");
         isGameover = true;
         balloonSpawner.SetActive(false);
+        basicGrass.SetActive(false);
+        endGrass.SetActive(true);
         UIManager.Inst.GameoverOn();
         Debug.Log(witheredFlowerQueue.Count);
     }
@@ -76,14 +81,14 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("5초 끝 시들어라");
         targetBlooming.GetComponent<SpriteRenderer>().sprite = witheredImage;
         witheredFlowerQueue.Enqueue(targetBlooming);
+        Debug.Log(witheredFlowerQueue.Count);
         while (time < 10f)
         {
             time += Time.deltaTime;
             yield return null;
         }
-        Debug.Log(witheredFlowerQueue.Count);
         isWithered = false;
-        bloom.Dequeue();
+        //bloom.Dequeue();
     }
 
     //IEnumerator CO_RestoredFlower()
@@ -91,6 +96,9 @@ public class GameManager : Singleton<GameManager>
 
     //}
 
-
+    public void SceneMove()
+    {
+        SceneManager.LoadScene("1.StartSCene");
+    }
 
 }

@@ -12,6 +12,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public Slider fertilizerSlider;
     [SerializeField] Image sunSliderImage;
     [SerializeField] Sprite smileSun;
+    [SerializeField] Sprite wrySun;
     [SerializeField] Sprite crySun;
     [Header("이펙트")]
     [SerializeField] Image sunShine;
@@ -20,7 +21,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject gameoverPanel;
     [SerializeField] TextMeshProUGUI flowerCount;
     [SerializeField] TextMeshProUGUI witheredFlowerCount;
-    
+
     public IEnumerator CO_ReduceSlider()
     {
         while (true)
@@ -29,32 +30,53 @@ public class UIManager : Singleton<UIManager>
             sunSlider.value -= 0.02f;
             waterSlider.value -= 0.02f;
             fertilizerSlider.value -= 0.02f;
-            #region 슬라이더 60퍼센트 이하일 때 색과 이미지 변경
-            if (sunSlider.value <= 0.6f)
+            #region 슬라이더 퍼센트마다 색과 이미지 변경
+            if (sunSlider.value < 0.3f)
             {
-                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 0, 0); // 빨간색으로 변경
                 sunSliderImage.sprite = crySun;
             }
+            else if (sunSlider.value < 0.6f)
+            {
+                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255/255f, 102/255f, 0); // 주황색으로 변경
+                sunSliderImage.sprite = wrySun;
+            }
             else
             {
-                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
+                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 206 / 255f, 0); // 노란색으로 변경
                 sunSliderImage.sprite = smileSun;
             }
-            if (waterSlider.value <= 0.6f)
+            #endregion
+
+
+            #region 물 슬라이더 퍼센트마다 색과 이미지 변경
+            if (waterSlider.value < 0.3f)
             {
-                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255/255f, 0, 0); // 빨간색으로 변경
+            }
+            else if (waterSlider.value < 0.6f)
+            {
+                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 102/255f, 0); // 주황색으로 변경
             }
             else
             {
-                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
+                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 206 / 255f, 0); // 노란색으로 변경
             }
-            if (fertilizerSlider.value <= 0.6f)
+            #endregion
+
+            #region 비료 슬라이더 퍼센트마다 색과 이미지 변경
+
+            if (waterSlider.value < 0.3f)
             {
-                fertilizerSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.red;
+                fertilizerSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 0, 0); // 빨간색으로 변경
+            }
+            else if (fertilizerSlider.value < 0.6f)
+            {
+                fertilizerSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 102 / 255f, 0); // 주황색으로 변경
             }
             else
             {
-                fertilizerSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = Color.green;
+                fertilizerSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 206 / 255f, 0); // 노란색으로 변경
             }
             #endregion
             if (GameManager.Inst.isGameover == true) break;
@@ -94,7 +116,7 @@ public class UIManager : Singleton<UIManager>
     {
         sunShine.gameObject.SetActive(true);
         sunImage.gameObject.SetActive(true);
-        
+
     }
 
 }

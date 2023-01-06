@@ -16,7 +16,7 @@ public class Balloon_Shit : Balloon
     public override void Interact()
     {
         base.Interact();
-        float ranX = Random.Range(-8.0f, -0.3f);
+        float ranX = Random.Range(-8.0f, -1f);
         BalloonShitPool.Inst.Release(this.gameObject);
         BalloonFertilizerPool.Inst.Get(new Vector2(ranX, -4));
     }
