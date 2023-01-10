@@ -38,7 +38,7 @@ public class UIManager : Singleton<UIManager>
             }
             else if (sunSlider.value < 0.6f)
             {
-                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255/255f, 102/255f, 0); // 주황색으로 변경
+                sunSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 102 / 255f, 0); // 주황색으로 변경
                 sunSliderImage.sprite = wrySun;
             }
             else
@@ -52,11 +52,11 @@ public class UIManager : Singleton<UIManager>
             #region 물 슬라이더 퍼센트마다 색과 이미지 변경
             if (waterSlider.value < 0.3f)
             {
-                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255/255f, 0, 0); // 빨간색으로 변경
+                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 0, 0); // 빨간색으로 변경
             }
             else if (waterSlider.value < 0.6f)
             {
-                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 102/255f, 0); // 주황색으로 변경
+                waterSlider.transform.GetChild(1).transform.GetChild(0).GetComponent<Image>().color = new Color(255 / 255f, 102 / 255f, 0); // 주황색으로 변경
             }
             else
             {
@@ -105,7 +105,7 @@ public class UIManager : Singleton<UIManager>
     }
     public void UpdateFlowerCount()
     {
-        flowerCount.text = "꽃 : " + GameManager.Inst.bloom.Count;
+        flowerCount.text = "내 점수 : " + (GameManager.Inst.bloom.Count * 10);
     }
 
     public void UpdateWitheredFlowerCount()

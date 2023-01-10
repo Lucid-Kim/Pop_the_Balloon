@@ -51,3 +51,6 @@ TagManager:
   - name: Flower
     uniqueID: 2269019621
     locked: 0
+  - name: Withered
+    uniqueID: 499998239
+    locked: 0

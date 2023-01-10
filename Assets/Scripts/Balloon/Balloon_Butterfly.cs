@@ -18,5 +18,9 @@ public class Balloon_Butterfly : Balloon
     {
         base.Interact();
         BalloonButterflyPool.Inst.Release(gameObject);
+        GameManager.Inst.FeverSpawnerOn();
+        
     }
+
+    
 }

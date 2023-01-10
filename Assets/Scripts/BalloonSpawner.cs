@@ -17,17 +17,13 @@ public class BalloonSpawner : MonoBehaviour
     Coroutine startCor_SpawnBall1;
     Coroutine startCor_SpawnBall2;
     Coroutine startCor_Spawn15Sec;
-    void Start()
+    private void OnEnable()
     {
         startCor_SpawnBall1 = StartCoroutine(nameof(CO_SpawnBalloon1));
         startCor_SpawnBall2 = StartCoroutine(nameof(CO_SpawnBalloon2));
         startCor_Spawn15Sec = StartCoroutine(nameof(CO_Spawn15Sec));
     }
-
-    void Update()
-    {
-
-    }
+    
     // 1구역 풍선 스폰
     IEnumerator CO_SpawnBalloon1()
     {
@@ -77,16 +73,22 @@ public class BalloonSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(3f);
             ranX3 = Random.Range(-8.0f, -centerX);
             ranX4 = Random.Range(centerX, 8.0f);
-            idx3 = 0;// Random.Range(0, 2);
+            idx3 = 3;// Random.Range(0, 4);
             switch (idx3)
             {
                 case 0:
                     BalloonBeePool.Inst.Get(new Vector2(ranX3, -4));
                     break;
                 case 1:
+                    BalloonBeePool.Inst.Get(new Vector2(ranX4, -4));
+                    break;
+                case 2:
+                    BalloonButterflyPool.Inst.Get(new Vector2(ranX3, -4));
+                    break;
+                case 3:
                     BalloonButterflyPool.Inst.Get(new Vector2(ranX4, -4));
                     break;
             }
