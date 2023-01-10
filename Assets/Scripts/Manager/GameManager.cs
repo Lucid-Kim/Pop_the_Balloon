@@ -11,6 +11,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Image readyImage;
     [SerializeField] GameObject balloonSpawner;
     [SerializeField] GameObject feverSpawner;
+    [SerializeField] GameObject rabbitSpawner;
+    [SerializeField] TextMeshProUGUI feverText;
     GameObject targetBlooming;
     GameObject targetWithered;
     GameObject restoredBlooming;
@@ -28,7 +30,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
 
-        StartCoroutine(CO_ReadyOff());
+        StartCoroutine(nameof(CO_ReadyOff));
     }
     private void Update()
     {
@@ -73,7 +75,9 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(3.5f);
         readyImage.gameObject.SetActive(false);
         balloonSpawner.SetActive(true);
+        rabbitSpawner.SetActive(true);
         timer.gameObject.SetActive(true);
+
     }
 
 
@@ -105,6 +109,7 @@ public class GameManager : Singleton<GameManager>
     {
         balloonSpawner.SetActive(false);
         feverSpawner.SetActive(true);
+        feverText.gameObject.SetActive(true);
         StartCoroutine(nameof(CO_FeverSpawnerOff));
     }
 
@@ -112,6 +117,7 @@ public class GameManager : Singleton<GameManager>
     public IEnumerator CO_FeverSpawnerOff()
     {
         yield return new WaitForSeconds(7f);
+        feverText.gameObject.SetActive(false);
         feverSpawner.SetActive(false);
         balloonSpawner.SetActive(true);
     }

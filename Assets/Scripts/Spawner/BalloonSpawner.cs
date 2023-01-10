@@ -12,7 +12,7 @@ public class BalloonSpawner : MonoBehaviour
     int idx1 = 0;
     int idx2 = 0;
     int idx3 = 0;
-
+    int idx4 = 0;
 
     Coroutine startCor_SpawnBall1;
     Coroutine startCor_SpawnBall2;
@@ -73,10 +73,10 @@ public class BalloonSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3f);
-            ranX3 = Random.Range(-8.0f, -centerX);
-            ranX4 = Random.Range(centerX, 8.0f);
-            idx3 = 3;// Random.Range(0, 4);
+            yield return new WaitForSeconds(3f); // ÀÌº¥Æ® Ç³¼± ³ª¿À´Â ÁÖ±â(15ÃÊ)
+            ranX3 = Random.Range(-8.0f, -centerX); // 1±¸¿ª ·£´ý ÁÂÇ¥
+            ranX4 = Random.Range(centerX, 8.0f); // 2±¸¿ª ·£´ý ÁÂÇ¥
+            idx3 = 3;// Random.Range(0, 4); ·£´ýÀ¸·Î ¹Ù²ã¾ßÇÔ
             switch (idx3)
             {
                 case 0:
@@ -94,4 +94,5 @@ public class BalloonSpawner : MonoBehaviour
             }
         }
     }
+
 }
