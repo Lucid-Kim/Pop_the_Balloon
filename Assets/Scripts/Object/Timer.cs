@@ -33,14 +33,14 @@ public class Timer : MonoBehaviour
         secs -= Time.deltaTime;
         TimeSpan t = TimeSpan.FromSeconds(secs);
 
-        string answer = string.Format("{0:D1}:{1:D2}",t.Minutes,t.Seconds);
+        string answer = string.Format("{0:D1}:{1:D2}", t.Minutes, t.Seconds);
         text_Time.text = answer;
-        if (secs <=0)
+        if (secs <= 0)
         {
             secs = 0;
             GameManager.Inst.EndGame();
         }
     }
 
-    
+
 }

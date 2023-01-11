@@ -44,6 +44,6 @@ public class Bee : MonoBehaviour
     {
         float ranX = Random.Range(-8.0f, 8.0f);
         GameObject thisBlooming = Instantiate(blooming, new Vector2(ranX, -4), Quaternion.identity);
-        GameManager.Inst.bloom.Enqueue(thisBlooming);
+        GameManager.Inst.ListEnqueue(thisBlooming);
     }
 }

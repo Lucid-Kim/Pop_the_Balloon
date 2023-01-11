@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Sprite bloomingImage;
     [SerializeField] GameObject basicGrass;
     [SerializeField] GameObject endGrass;
-    public Queue<GameObject> bloom = new Queue<GameObject>();
+    public List<GameObject> bloom = new List<GameObject>();
     public Queue<GameObject> witheredFlowerQueue = new Queue<GameObject>();
     public bool isGameover;
     bool isWithered;
@@ -40,7 +40,7 @@ public class GameManager : Singleton<GameManager>
             if ((UIManager.Inst.fertilizerSlider.value < 0.3f || UIManager.Inst.waterSlider.value < 0.3f || UIManager.Inst.sunSlider.value < 0.3f) && isWithered == false && bloom.Count != 0)
             {
                 isWithered = true;
-                targetBlooming = bloom.Dequeue();
+                targetBlooming = ListDequeue();
                 withered = StartCoroutine(nameof(CO_WitheredFlower));
             }
             //else if (UIManager.Inst.fertilizerSlider.value >= 0.3f & UIManager.Inst.waterSlider.value >= 0.3f & UIManager.Inst.sunSlider.value >= 0.3f && isWithered == true && witheredFlowerQueue.Count != 0)
@@ -122,4 +122,17 @@ public class GameManager : Singleton<GameManager>
         balloonSpawner.SetActive(true);
     }
 
+    public void ListEnqueue(GameObject obj)
+    {
+        bloom.Add(obj);
+        Debug.Log("bloom °¹¼ö" + bloom.Count);
+    }
+
+    public GameObject ListDequeue()
+    {
+        GameObject selectObj = bloom[0];
+        bloom.RemoveAt(0);
+        
+        return selectObj;
+    }
 }

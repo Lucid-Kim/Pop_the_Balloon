@@ -16,7 +16,7 @@ public class Withered : MonoBehaviour
             this.gameObject.SetActive(false);
             restoredBlooming = FlowerPool.Inst.Get(transform.position);
             // 점수 책정할 큐에 꽃 넣어주기
-            GameManager.Inst.bloom.Enqueue(restoredBlooming);
+            GameManager.Inst.ListEnqueue(restoredBlooming);
             Debug.Log(GameManager.Inst.bloom.Count);
         }
     }

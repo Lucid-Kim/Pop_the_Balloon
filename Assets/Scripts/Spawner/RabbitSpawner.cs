@@ -20,7 +20,7 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
 
     IEnumerator CO_SpawnRabbit()
     {
-        yield return new WaitForSeconds(3f); // 토끼 대기 시간(30초)
+        yield return new WaitForSeconds(5f); // 토끼 대기 시간(30초)
         while (true)
         {
             idx = Random.Range(0, 2);
@@ -33,7 +33,7 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
                     RabbitPool.Inst.Get(new Vector2(9, -4));
                     break;
             }
-            yield return new WaitForSeconds(2f); // 토끼 소환 주기(20초)
+            yield return new WaitForSeconds(10f); // 토끼 소환 주기(20초)
         }
     }
 }

@@ -23,8 +23,8 @@ public class Flower : MonoBehaviour
         {
             float ranX = Random.Range(-8.0f, 8.0f);
             FlowerPool.Inst.Release(this.gameObject);
-            GameObject thisBlooming = Instantiate(blooming, new Vector2(ranX,collision.transform.position.y+1), Quaternion.identity);
-            GameManager.Inst.bloom.Enqueue(thisBlooming);
+            GameObject thisBlooming = BloomingPool.Inst.Get(new Vector2(ranX, collision.transform.position.y + 1));
+            GameManager.Inst.ListEnqueue(thisBlooming);
             Debug.Log("Å¥ÀÇ °¹ ¼ö" + GameManager.Inst.bloom.Count);
         }
     }
