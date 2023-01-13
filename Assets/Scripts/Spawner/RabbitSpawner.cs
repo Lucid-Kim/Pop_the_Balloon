@@ -23,17 +23,21 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
         yield return new WaitForSeconds(5f); // 토끼 대기 시간(30초)
         while (true)
         {
-            idx = Random.Range(0, 2);
-            switch (idx)
+            if (GameManager.Inst.bloom.Count != 0)
             {
-                case 0:
-                    RabbitPool.Inst.Get(new Vector2(-9, -4));
-                    break;
-                case 1:
-                    RabbitPool.Inst.Get(new Vector2(9, -4));
-                    break;
+                idx = Random.Range(0, 2);
+                switch (idx)
+                {
+                    case 0:
+                        RabbitPool.Inst.Get(new Vector2(-9, -4));
+                        break;
+                    case 1:
+                        RabbitPool.Inst.Get(new Vector2(9, -4));
+                        break;
+                }
+                yield return new WaitForSeconds(10f); // 토끼 소환 주기(20초)
             }
-            yield return new WaitForSeconds(10f); // 토끼 소환 주기(20초)
+            else yield return null;
         }
     }
 }

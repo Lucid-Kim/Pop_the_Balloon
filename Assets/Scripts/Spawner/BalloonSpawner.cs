@@ -34,13 +34,13 @@ public class BalloonSpawner : MonoBehaviour
             switch (idx1)
             {
                 case 0:
-                    BalloonSunPool.Inst.Get(new Vector2(ranX1, -4));
+                    BalloonSunPool.Inst.Get(new Vector2(ranX1, -5));
                     break;
                 case 1:
-                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -4));
+                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -5));
                     break;
                 case 2:
-                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -4));
+                    BalloonSeedPool.Inst.Get(new Vector2(ranX1, -5));
                     break;
 
             }
@@ -58,10 +58,10 @@ public class BalloonSpawner : MonoBehaviour
             switch (idx2)
             {
                 case 0:
-                    BalloonWaterPool.Inst.Get(new Vector2(ranX2, -4));
+                    BalloonWaterPool.Inst.Get(new Vector2(ranX2, -5));
                     break;
                 case 1:
-                    BalloonShitPool.Inst.Get(new Vector2(ranX2, -4));
+                    BalloonShitPool.Inst.Get(new Vector2(ranX2, -5));
                     break;
             }
             yield return new WaitForSeconds(0.5f);
@@ -80,16 +80,16 @@ public class BalloonSpawner : MonoBehaviour
             switch (idx3)
             {
                 case 0:
-                    BalloonBeePool.Inst.Get(new Vector2(ranX3, -4));
+                    BalloonBeePool.Inst.Get(new Vector2(ranX3, -5));
                     break;
                 case 1:
-                    BalloonBeePool.Inst.Get(new Vector2(ranX4, -4));
+                    BalloonBeePool.Inst.Get(new Vector2(ranX4, -5));
                     break;
                 case 2:
-                    BalloonButterflyPool.Inst.Get(new Vector2(ranX3, -4));
+                    BalloonButterflyPool.Inst.Get(new Vector2(ranX3, -5));
                     break;
                 case 3:
-                    BalloonButterflyPool.Inst.Get(new Vector2(ranX4, -4));
+                    BalloonButterflyPool.Inst.Get(new Vector2(ranX4, -5));
                     break;
             }
         }

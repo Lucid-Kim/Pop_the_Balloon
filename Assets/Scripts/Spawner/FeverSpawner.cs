@@ -24,8 +24,8 @@ public class FeverSpawner : MonoBehaviour
             ranX1 = Random.Range(-8, -centerX);
             ranX2 = Random.Range(centerX, 8);
             
-            BalloonFlowerPool.Inst.Get(new Vector2(ranX1, -4));
-            BalloonFlowerPool.Inst.Get(new Vector2(ranX2, -4));
+            BalloonFlowerPool.Inst.Get(new Vector2(ranX1, -5));
+            BalloonFlowerPool.Inst.Get(new Vector2(ranX2, -5));
             yield return new WaitForSeconds(0.25f);
         }
 

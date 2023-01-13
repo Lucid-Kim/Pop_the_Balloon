@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class BloomingPool : BaseObjectPool<BloomingPool, GameObject>
 {
-    [SerializeField] GameObject blooming;
-
+    [SerializeField] GameObject []blooming;
+    FlowerPool flowerPool = null;
+    int idx;
+    private void Awake()
+    {
+        flowerPool = FindObjectOfType<FlowerPool>();
+    }
+    
     protected override GameObject getPrefab()
     {
-        return blooming;
+        return blooming[idx];
     }
 
     public override GameObject Get(Vector2 position)
     {
+        idx = flowerPool.flowerIdx;
         return base.Get(position);
     }
 

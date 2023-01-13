@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BalloonFlowerPool : BaseObjectPool<BalloonFlowerPool,GameObject>
 {
-    [SerializeField] GameObject BalloonFlower;
+    [SerializeField] GameObject[] BalloonFlower;
+    int ballonFloweridx; // ≤…«≥º± ¿Œµ¶Ω∫
 
     protected override GameObject getPrefab()
     {
-        return BalloonFlower;
+        ballonFloweridx = Random.Range(0, 2);
+        return BalloonFlower[ballonFloweridx];
     }
 
     public override GameObject Get(Vector2 position)

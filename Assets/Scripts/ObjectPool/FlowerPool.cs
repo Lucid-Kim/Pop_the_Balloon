@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FlowerPool : BaseObjectPool<FlowerPool, GameObject>
 {
-    [SerializeField] GameObject flower;
-
+    [SerializeField] GameObject[] flower; // ≤…µÈ «¡∏Æ∆’
+    public int flowerIdx; // ≤… ¿Œµ¶Ω∫
     protected override GameObject getPrefab()
     {
-        return flower;
+        return flower[flowerIdx];
     }
 
     public override GameObject Get(Vector2 position)
     {
+        flowerIdx = Random.Range(0, 3);
         return base.Get(position);
     }
 
