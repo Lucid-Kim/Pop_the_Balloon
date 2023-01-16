@@ -114,3 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158eec2234bc4f44eb80f0ca67ea79c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shitBalloonEffect: {fileID: 8472361327207693304, guid: 829d214bc53a0f54da3f6cd88dd73af3, type: 3}

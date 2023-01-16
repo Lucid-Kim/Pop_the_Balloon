@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Balloon_Shit : Balloon
 {
+    [SerializeField] GameObject shitBalloonEffect;
+    float oldtime;
     void Update()
     {
         Floating();
@@ -16,8 +18,10 @@ public class Balloon_Shit : Balloon
     public override void Interact()
     {
         base.Interact();
+        GameObject shitEff = ShitBalloonParticlePool.Inst.Get(this.gameObject.transform.position + new Vector3(0, 2, 0));
         float ranX = Random.Range(-8.0f, -1f);
         BalloonShitPool.Inst.Release(this.gameObject);
         BalloonFertilizerPool.Inst.Get(new Vector2(ranX, -4));
+        DictionaryPool.Inst.Instantiate(ball)
     }
 }

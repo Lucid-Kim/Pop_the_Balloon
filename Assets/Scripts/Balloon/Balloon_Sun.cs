@@ -19,7 +19,9 @@ public class Balloon_Sun : Balloon
         base.Interact();
         BalloonSunPool.Inst.Release(this.gameObject);
         UIManager.Inst.UpdateSunSlider(0.05f);
-        UIManager.Inst.SunEffect();
-        
+        //UIManager.Inst.SunEffect();
+        SunBalloonParticlePool.Inst.Get(gameObject.transform.position + new Vector3(0, 2, 0));
+        GameObject sunLight = SunLightPool.Inst.Get(new Vector3(-6, 11, 0));
+        sunLight.transform.rotation = Quaternion.Euler(68.9f, 113, 90);
     }
 }

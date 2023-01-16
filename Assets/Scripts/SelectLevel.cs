@@ -8,7 +8,7 @@ public class SelectLevel : MonoBehaviour
 {
     private void Start()
     {
-        SoundManager.Inst.PlayBGM("StartSceneBGM");
+        //SoundManager.Inst.PlayBGM("StartSceneBGM");
 
     }
     public void Click_Easy()
@@ -23,7 +23,7 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Normal");
         SoundManager.Inst.PlaySFX("ClickSound");
         
-        //SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene("2.GameScene");
     }
 
     public void Click_Hard()
@@ -32,7 +32,7 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Hard");
         SoundManager.Inst.PlaySFX("ClickSound");
         
-        //SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene("2.GameScene");
     }
 
     public void Click_Master()
@@ -40,6 +40,6 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Master");
         SoundManager.Inst.PlaySFX("ClickSound");
         
-        //SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene("2.GameScene");
     }
 }

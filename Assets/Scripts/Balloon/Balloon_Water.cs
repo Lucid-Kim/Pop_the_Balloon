@@ -18,14 +18,7 @@ public class Balloon_Water : Balloon
         base.Interact();
         BalloonWaterPool.Inst.Release(this.gameObject);
         UIManager.Inst.UpdateWaterSlider(0.02f);
-        #region 물 오브젝트 위치 선정
-        WaterPool.Inst.Get(new Vector2(0,1.4f));
-        WaterPool.Inst.Get(new Vector2(2.5f,2.1f));
-        WaterPool.Inst.Get(new Vector2(5f,1.4f));
-        WaterPool.Inst.Get(new Vector2(7.5f,2.1f));
-        WaterPool.Inst.Get(new Vector2(-2.5f,2.1f));
-        WaterPool.Inst.Get(new Vector2(-5f,1.4f));
-        WaterPool.Inst.Get(new Vector2(-7.5f,2.1f));
-        #endregion
+        WaterPool.Inst.Get(gameObject.transform.position + new Vector3(0,2,0));
+        HosePool.Inst.Get(new Vector3(9, -4, 0));
     }
 }

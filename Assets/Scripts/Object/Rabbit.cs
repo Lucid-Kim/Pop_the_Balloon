@@ -32,7 +32,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         if (isMove == true && rabbitNum == 1) // 움직일 수 있고 오른쪽에서 출현했을 때
         {
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-            if (transform.position.x <= bloomPosX) // 해당 x좌표에서 멈춰서 애니메이션 추가 예정
+            if (transform.position.x <= bloomPosX + 1) // 해당 꽃 오른쪽에서 멈춰서 애니메이션 추가 예정
             {
                 this.gameObject.layer = 3; // 클릭할 수 있는 레이어로 변경
                 isMove = false;
@@ -42,7 +42,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         else if (isMove == true && rabbitNum == 0)
         {
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            if (transform.position.x >= bloomPosX)
+            if (transform.position.x >= bloomPosX - 1)
             {
                 this.gameObject.layer = 3;
                 isMove = false;

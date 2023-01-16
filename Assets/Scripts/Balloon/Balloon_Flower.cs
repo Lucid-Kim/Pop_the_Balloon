@@ -18,6 +18,7 @@ public class Balloon_Flower : Balloon
         base.Interact();
         BalloonFlowerPool.Inst.Release(this.gameObject);
         FlowerPool.Inst.Get(this.gameObject.transform.position);
+        FlowerBalloonParticlePool.Inst.Get(this.gameObject.transform.position + new Vector3(0, 2, 0));
     }
 
     

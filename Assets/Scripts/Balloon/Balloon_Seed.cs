@@ -18,6 +18,7 @@ public class Balloon_Seed : Balloon
     {
         base.Interact();
         float ranX = Random.Range(1.0f, 8.0f);
+        SeedBalloonParticlePool.Inst.Get(gameObject.transform.position + new Vector3(0, 2, 0));
         BalloonSeedPool.Inst.Release(this.gameObject);
         BalloonFlowerPool.Inst.Get(new Vector2(ranX, -4));
     }
