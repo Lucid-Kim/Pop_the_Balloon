@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour, Object_Interactable
 {
-    [SerializeField] protected GameObject balloon;
+    [SerializeField] protected GameObject[] obj;
+    [SerializeField] protected GameObject eff;
+    protected int ranNum;
     float ranMoveX;
-    float speed = 3;
+    float speed = 5;
     public virtual void Interact()
     {
-        PopEffectPool.Inst.Get(this.gameObject.transform.position + Vector3.up);
+        
     }
 
     protected virtual void Floating()
     {
-        ranMoveX = Random.Range(-0.02f, 0.02f);
-        transform.Translate(ranMoveX,1f * Time.deltaTime * speed, 0);
+        ranMoveX = Random.Range(-0.4f, 0.4f);
+        transform.Translate(ranMoveX * Time.deltaTime * speed , 1f * Time.deltaTime * speed, 0);
     }
 
 }

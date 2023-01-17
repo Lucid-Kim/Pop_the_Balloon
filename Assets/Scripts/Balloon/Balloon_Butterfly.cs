@@ -10,14 +10,14 @@ public class Balloon_Butterfly : Balloon
         Floating();
         if (transform.position.y >= 6)
         {
-            BalloonButterflyPool.Inst.Release(gameObject);
+            DictionaryPool.Inst.Destroy(gameObject);
         }
     }
     // 나비 풍선 클릭했을 때
     public override void Interact()
     {
         base.Interact();
-        BalloonButterflyPool.Inst.Release(gameObject);
+        DictionaryPool.Inst.Destroy(gameObject);
         GameManager.Inst.FeverSpawnerOn();
         
     }

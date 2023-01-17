@@ -11,6 +11,6 @@ public class FlowerEffect : MonoBehaviour
 
     void Release()
     {
-        FlowerBalloonParticlePool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

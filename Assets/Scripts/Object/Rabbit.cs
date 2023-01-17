@@ -14,8 +14,10 @@ public class Rabbit : MonoBehaviour, Object_Interactable
     int idx; // 랜덤한 꽃을 선정하는 인덱스
     float minDis; // 최소거리의 꽃을 구할 때 사용하는 변수
     bool isClick; // 클릭을 했는지 나타내는 변수
+    SpriteRenderer sr;
     private void OnEnable()
     {
+        sr = GetComponent<SpriteRenderer>();
         isMove = true;
         rabbitNum = RabbitSpawner.Inst.idx;
         idx = Random.Range(0, GameManager.Inst.bloom.Count); // 피어난 꽃을 선정하는 인덱스
@@ -31,6 +33,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         //Debug.Log(RabbitSpawner.Inst.idx);
         if (isMove == true && rabbitNum == 1) // 움직일 수 있고 오른쪽에서 출현했을 때
         {
+            sr.flipX = true;
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
             if (transform.position.x <= bloomPosX + 1) // 해당 꽃 오른쪽에서 멈춰서 애니메이션 추가 예정
             {
@@ -41,6 +44,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         }
         else if (isMove == true && rabbitNum == 0)
         {
+            sr.flipX = false;
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
             if (transform.position.x >= bloomPosX - 1)
             {
@@ -58,12 +62,13 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 listCount = GameManager.Inst.bloom.Count;
                 if (isClick == false && GameManager.Inst.bloom.Count != 0)
                 {
-                    BloomingPool.Inst.Release(GameManager.Inst.bloom[idx]);
+                    DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
                     isClick = true;
                 }
                 this.gameObject.layer = 0;
                 transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+                sr.flipX = false;
             }
         }
         else if (isMove == false && rabbitNum == 0)
@@ -74,12 +79,13 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 listCount = GameManager.Inst.bloom.Count;
                 if (isClick == false && GameManager.Inst.bloom.Count != 0)
                 {
-                    BloomingPool.Inst.Release(GameManager.Inst.bloom[idx]);
+                    DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
                     isClick = true;
                 }
                 this.gameObject.layer = 0;
                 transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+                sr.flipX = true;
             }
         }
         DeleteRabbit();
@@ -99,6 +105,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         if (rabbitNum == 1) // 오른쪽에서 나온걸 클릭 했을 때
         {
             isClick = true;
+            sr.flipX = false;
             this.gameObject.layer = 0;
             while (true)
             {
@@ -109,6 +116,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         else
         {
             isClick = true;
+            sr.flipX = true;
             this.gameObject.layer = 0;
             while (true)
             {
@@ -124,13 +132,13 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         if (transform.position.x < -9)
         {
             oldTime = 0;
-            RabbitPool.Inst.Release(this.gameObject);
+            DictionaryPool.Inst.Destroy(this.gameObject);
         }
         // 오른쪽으로 갔을 때 사라지는 로직
         if (transform.position.x > 9)
         {
             oldTime = 0;
-            RabbitPool.Inst.Release(this.gameObject);
+            DictionaryPool.Inst.Destroy(this.gameObject);
         }
     }
     

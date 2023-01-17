@@ -13,7 +13,7 @@ public class Balloon_Bee : Balloon
         Floating();
         if (transform.position.y >= 6)
         {
-            BalloonBeePool.Inst.Release(gameObject);
+            DictionaryPool.Inst.Destroy(this.gameObject);
         }
     }
 
@@ -21,7 +21,7 @@ public class Balloon_Bee : Balloon
     public override void Interact()
     {
         base.Interact();
-        BalloonBeePool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
         Instantiate(bee, this.gameObject.transform.position, Quaternion.identity);
     }
 

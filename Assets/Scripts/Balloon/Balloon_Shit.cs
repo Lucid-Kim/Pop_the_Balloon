@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class Balloon_Shit : Balloon
 {
-    [SerializeField] GameObject shitBalloonEffect;
-    float oldtime;
     void Update()
     {
         Floating();
         if (transform.position.y >= 6)
         {
-            BalloonShitPool.Inst.Release(gameObject);
+            DictionaryPool.Inst.Destroy(gameObject);
         }
     }
     // ¶Ë Ç³¼± Å¬¸¯ÇßÀ» ¶§
     public override void Interact()
     {
         base.Interact();
-        GameObject shitEff = ShitBalloonParticlePool.Inst.Get(this.gameObject.transform.position + new Vector3(0, 2, 0));
         float ranX = Random.Range(-8.0f, -1f);
-        BalloonShitPool.Inst.Release(this.gameObject);
-        BalloonFertilizerPool.Inst.Get(new Vector2(ranX, -4));
-        DictionaryPool.Inst.Instantiate(ball)
+        DictionaryPool.Inst.Instantiate(obj[0], new Vector2(ranX, -4), Quaternion.identity, DictionaryPool.Inst.transform); // ¶Ë Ç³¼± ÅÍÄ¡½Ã ºñ·á Ç³¼± »ý¼º
+        DictionaryPool.Inst.Instantiate(obj[1], this.gameObject.transform.position + new Vector3(0, 2, 0), Quaternion.identity, DictionaryPool.Inst.transform); // Ç³¼± À§Ä¡¿¡ È¿°ú Ãâ·Â
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

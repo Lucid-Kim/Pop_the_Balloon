@@ -11,6 +11,6 @@ public class ShitParticle : MonoBehaviour
 
     void Release()
     {
-        ShitBalloonParticlePool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     int min = 1;
     float sec = 0.5f;
-    float secs = 60;
+    float secs = 90;
     TextMeshProUGUI text_Time;
     private void Awake()
     {

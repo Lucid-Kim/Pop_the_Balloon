@@ -20,7 +20,7 @@ public class Water : MonoBehaviour
     {
         if (collision.gameObject.tag == "Board")
         {
-            WaterPool.Inst.Release(this.gameObject);
+            DictionaryPool.Inst.Destroy(this.gameObject);
             // 여기에 물 슬라이더 올라가는 것 하면 됨
         }
     }

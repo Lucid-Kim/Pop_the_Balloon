@@ -11,6 +11,6 @@ public class SeedParticle : MonoBehaviour
 
     void Release()
     {
-        SeedBalloonParticlePool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

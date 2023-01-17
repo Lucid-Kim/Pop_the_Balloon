@@ -11,6 +11,6 @@ public class SunLight : MonoBehaviour
 
     void Release()
     {
-        SunLightPool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

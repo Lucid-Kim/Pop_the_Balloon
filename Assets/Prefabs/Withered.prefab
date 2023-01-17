@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5741131637312506806}
   - component: {fileID: 3131521571857238107}
-  - component: {fileID: 6734553473048328255}
+  - component: {fileID: -6627557664468045243}
   m_Layer: 0
   m_Name: Withered
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6734553473048328255
+--- !u!114 &-6627557664468045243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,3 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80598b7ef2c99043ab7d11553716b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blooming:
+  - {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}
+  - {fileID: 9022848577138492016, guid: eed79bda9ac82584bbf35b1b2a7138a7, type: 3}
+  - {fileID: 9022848577138492016, guid: 7ad301d3fb773ce4fa39c7868fcb101e, type: 3}

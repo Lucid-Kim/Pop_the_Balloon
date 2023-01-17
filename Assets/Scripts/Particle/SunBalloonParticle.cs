@@ -11,6 +11,6 @@ public class SunBalloonParticle : MonoBehaviour
 
     void Release()
     {
-        SunBalloonParticlePool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

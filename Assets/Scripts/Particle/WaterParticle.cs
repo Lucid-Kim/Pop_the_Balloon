@@ -11,6 +11,6 @@ public class WaterParticle : MonoBehaviour
 
     void Release()
     {
-        WaterPool.Inst.Release(this.gameObject);
+        DictionaryPool.Inst.Destroy(this.gameObject);
     }
 }

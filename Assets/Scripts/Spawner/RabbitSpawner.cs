@@ -6,6 +6,7 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
 {
     public int idx = 0;
     Coroutine startCor_SpawnRabbit;
+    [SerializeField] GameObject rabbit;
     private void OnEnable()
     {
         startCor_SpawnRabbit = StartCoroutine(nameof(CO_SpawnRabbit));
@@ -29,10 +30,10 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
                 switch (idx)
                 {
                     case 0:
-                        RabbitPool.Inst.Get(new Vector2(-9, -4));
+                        DictionaryPool.Inst.Instantiate(rabbit, new Vector2(-9, -4), Quaternion.identity, DictionaryPool.Inst.transform);
                         break;
                     case 1:
-                        RabbitPool.Inst.Get(new Vector2(9, -4));
+                        DictionaryPool.Inst.Instantiate(rabbit, new Vector2(9, -4), Quaternion.identity, DictionaryPool.Inst.transform);
                         break;
                 }
                 yield return new WaitForSeconds(10f); // 토끼 소환 주기(20초)

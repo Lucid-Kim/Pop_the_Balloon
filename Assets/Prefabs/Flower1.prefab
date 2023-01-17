@@ -120,7 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 332a7bc5303d41242b69d81a5fa068ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blooming: {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}
+  blooming:
+  - {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}
+  - {fileID: 9022848577138492016, guid: eed79bda9ac82584bbf35b1b2a7138a7, type: 3}
+  - {fileID: 9022848577138492016, guid: 7ad301d3fb773ce4fa39c7868fcb101e, type: 3}
 --- !u!70 &-2498738850746123022
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

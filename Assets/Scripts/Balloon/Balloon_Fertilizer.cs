@@ -9,7 +9,7 @@ public class Balloon_Fertilizer : Balloon
         Floating();
         if (transform.position.y >= 6)
         {
-            BalloonFertilizerPool.Inst.Release(gameObject);
+            DictionaryPool.Inst.Destroy(gameObject);
         }
     }
 
@@ -17,7 +17,7 @@ public class Balloon_Fertilizer : Balloon
     public override void Interact()
     {
         base.Interact();
-        BalloonFertilizerPool.Inst.Release(this.gameObject);
-        UIManager.Inst.UpdateFertilizerSlider(0.02f);
+        DictionaryPool.Inst.Destroy(this.gameObject);
+        UIManager.Inst.UpdateFertilizerSlider(0.15f);
     }
 }

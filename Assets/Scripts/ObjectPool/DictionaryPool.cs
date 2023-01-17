@@ -6,7 +6,7 @@ public class DictionaryPool : Singleton<DictionaryPool>
 {
     private Dictionary<string, List<GameObject>> instList = new Dictionary<string, List<GameObject>>();
     //Call instantiate
-    public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+    public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent)
     {
         List<GameObject> list = null;
         GameObject instance = null;
@@ -19,7 +19,7 @@ public class DictionaryPool : Singleton<DictionaryPool>
         }
         if (list.Count == 0)
         {
-            instance = GameObject.Instantiate(prefab, position, rotation);
+            instance = GameObject.Instantiate(prefab, position, rotation, parent);
         }
         else if (list.Count > 0)
         {

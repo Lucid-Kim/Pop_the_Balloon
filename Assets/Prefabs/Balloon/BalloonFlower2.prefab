@@ -98,6 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc3010614c1f9f40b94c160fd8e4b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj:
+  - {fileID: 4738311256880757520, guid: 9197aba78f3502849ab739aa3d418e27, type: 3}
+  - {fileID: 4738311256880757520, guid: 9db2024e38fea1f4793bc85b23a4c0cb, type: 3}
+  - {fileID: 4738311256880757520, guid: 4fc4dd8541d8a6a45b87049c689cdb19, type: 3}
+  - {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
+  eff: {fileID: 0}
+  ranBloomingNum: 0
 --- !u!70 &768008482214215773
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

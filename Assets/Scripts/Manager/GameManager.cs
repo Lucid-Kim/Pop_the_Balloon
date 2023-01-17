@@ -7,23 +7,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("게임시작")]
     [SerializeField] TextMeshProUGUI timer;
     [SerializeField] Image readyImage;
+    [Header("스포너")]
     [SerializeField] GameObject balloonSpawner;
     [SerializeField] GameObject feverSpawner;
     [SerializeField] GameObject rabbitSpawner;
     [SerializeField] TextMeshProUGUI feverText;
+    [SerializeField] GameObject witheredPrefab;
     GameObject targetBlooming;
     GameObject targetWithered;
     GameObject restoredBlooming;
     [SerializeField] Sprite witheredImage;
     [SerializeField] Sprite bloomingImage;
-    [SerializeField] GameObject basicGrass;
-    [SerializeField] GameObject endGrass;
     public List<GameObject> bloom = new List<GameObject>();
     public Queue<GameObject> witheredFlowerQueue = new Queue<GameObject>();
     public bool isGameover;
     bool isWithered;
+    public bool isFeverTime;
     Coroutine withered;
     
     // Start is called before the first frame update
@@ -64,8 +66,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("게임 끝!");
         isGameover = true;
         balloonSpawner.SetActive(false);
-        basicGrass.SetActive(false);
-        endGrass.SetActive(true);
+        rabbitSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
         Debug.Log(witheredFlowerQueue.Count);
     }
@@ -84,12 +85,12 @@ public class GameManager : Singleton<GameManager>
     IEnumerator CO_WitheredFlower()
     {
         
-        Debug.Log("3초 시작");
+        //Debug.Log("3초 시작");
         targetBlooming.gameObject.SetActive(false); // 해당 꽃 오브젝트 제거
-        targetWithered = WitheredPool.Inst.Get(targetBlooming.transform.position); // 그 위치에 시든 꽃 오브젝트 생성
+        targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
         yield return new WaitForSeconds(3f);
-        Debug.Log("3초 끝 시들어라");
-        WitheredPool.Inst.Release(targetWithered);
+        //Debug.Log("3초 끝 시들어라");
+        DictionaryPool.Inst.Destroy(targetWithered);
         isWithered = false;
     }
 
@@ -107,6 +108,7 @@ public class GameManager : Singleton<GameManager>
     // 피버 타임 적용 함수
     public void FeverSpawnerOn()
     {
+        isFeverTime = true;
         balloonSpawner.SetActive(false);
         feverSpawner.SetActive(true);
         feverText.gameObject.SetActive(true);
@@ -119,6 +121,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(7f);
         feverText.gameObject.SetActive(false);
         feverSpawner.SetActive(false);
+        isFeverTime = false;
         balloonSpawner.SetActive(true);
     }
 
