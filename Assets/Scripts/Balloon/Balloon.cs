@@ -42,7 +42,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
             }
             yield return new WaitForSeconds(0.1f);   
         }
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
     }
 
 }

@@ -19,7 +19,7 @@ public class Balloon_Flower : Balloon
         base.Interact();
         // ²É Á¾·ù ÀÎµ¦½º ¼³Á¤
         ranBloomingNum = Random.Range(0, 3);
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
 
         // ²É 3Á¾·ù Áß ·£´ýÇÏ°Ô »ý¼º
         DictionaryPool.Inst.Instantiate(obj[ranBloomingNum], this.gameObject.transform.position, Quaternion.identity, DictionaryPool.Inst.transform);

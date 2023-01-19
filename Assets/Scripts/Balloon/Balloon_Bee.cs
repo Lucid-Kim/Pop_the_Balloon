@@ -17,7 +17,7 @@ public class Balloon_Bee : Balloon
     public override void Interact()
     {
         base.Interact();
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
         // 벌 오브젝트 생성
         DictionaryPool.Inst.Instantiate(obj[0], this.gameObject.transform.position, Quaternion.identity, DictionaryPool.Inst.transform);
         

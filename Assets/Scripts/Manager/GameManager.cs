@@ -25,11 +25,15 @@ public class GameManager : Singleton<GameManager>
     bool isWithered; // 꽃이 시듬을 나타내는 bool 값
     public bool isFeverTime; // 피버타임을 나타내는 bool 값
     Coroutine withered; // 꽃이 시들게 만드는 코루틴 변수
-    
-    void Start()
+
+    private void OnEnable()
     {
         StartCoroutine(nameof(CO_ReadyOff));
     }
+    //void Start()
+    //{
+    //    StartCoroutine(nameof(CO_ReadyOff));
+    //}
     private void Update()
     {
         if (isGameover == false)
@@ -60,6 +64,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     IEnumerator CO_ReadyOff()
     {
+        Debug.Log("게임 시작!");
         yield return new WaitForSeconds(3.5f);
         readyImage.gameObject.SetActive(false);
         balloonSpawner.SetActive(true);
@@ -80,7 +85,7 @@ public class GameManager : Singleton<GameManager>
         targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
         yield return new WaitForSeconds(3f);
         //Debug.Log("3초 끝 시들어라");
-        DictionaryPool.Inst.Destroy(targetWithered); // 시든 꽃 오브젝트 제거
+        DictionaryPool.Inst.Release(targetWithered); // 시든 꽃 오브젝트 제거
         isWithered = false;
     }
 

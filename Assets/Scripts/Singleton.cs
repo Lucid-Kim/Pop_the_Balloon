@@ -8,24 +8,46 @@ using UnityEngine;
 /// <typeparam name="T"></typeparam>
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    protected Singleton() { }
-    static T Instance;
+    static private T instance = null;
+    static private object _lock = new object();
+    static private bool applicationQuitting = false;
 
-    public static T Inst
+    static public T Inst
     {
         get
         {
-            if (Instance == null)
+            if (applicationQuitting)
             {
-                Instance = FindObjectOfType(typeof(T)) as T;
-                if (Instance == null)
+                return null;
+            }
+
+            if (instance == null)
+            {
+                instance = FindObjectOfType<T>(typeof(T) as T);
+
+                if (instance == null)
                 {
-                    Instance = new GameObject(typeof(T).ToString(), typeof(T)).GetComponent<T>();
+                    lock (_lock)
+                    {
+                        GameObject instObj = new(typeof(T).ToString(), typeof(T));
+                        instance = instObj.GetComponent<T>();
+                    }
                 }
             }
-            return Instance;
+
+            return instance;
         }
     }
 
+    private void Awake()
+    {
+        if (FindObjectOfType<T>(typeof(T) as T).gameObject != this.gameObject) Destroy(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnApplicationQuit()
+    {
+        applicationQuitting = true;
+    }
 
 }

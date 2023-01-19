@@ -17,7 +17,7 @@ public class Balloon_Water : Balloon
     public override void Interact()
     {
         base.Interact();
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
 
         // 물 슬라이더 15퍼센트 증가
         UIManager.Inst.UpdateWaterSlider(0.15f);

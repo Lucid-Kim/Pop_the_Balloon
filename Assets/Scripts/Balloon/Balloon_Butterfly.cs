@@ -16,7 +16,7 @@ public class Balloon_Butterfly : Balloon
     public override void Interact()
     {
         base.Interact();
-        DictionaryPool.Inst.Destroy(gameObject);
+        DictionaryPool.Inst.Release(gameObject);
 
         // 피버타임 시작
         GameManager.Inst.FeverSpawnerOn();

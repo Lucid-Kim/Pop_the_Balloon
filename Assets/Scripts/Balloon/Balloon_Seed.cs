@@ -19,7 +19,7 @@ public class Balloon_Seed : Balloon
         base.Interact();
         float ranX = Random.Range(1.0f, 8.0f); // 오른쪽을 나타내는 x좌표
         ranNum = Random.Range(0, 2);
-        DictionaryPool.Inst.Destroy(gameObject);
+        DictionaryPool.Inst.Release(gameObject);
 
         // 꽃 풍선 1,2 중에 랜덤으로 생성
         DictionaryPool.Inst.Instantiate(obj[ranNum], new Vector2(ranX, -4), Quaternion.identity, DictionaryPool.Inst.transform); 

@@ -16,7 +16,7 @@ public class Flower : MonoBehaviour
         {
             float ranX = Random.Range(-8.0f, 8.0f);
             int idx = Random.Range(0, 3); // ²É Á¾·ù ·£´ý ¼³Á¤
-            DictionaryPool.Inst.Destroy(this.gameObject);
+            DictionaryPool.Inst.Release(this.gameObject);
 
             // ·£´ýÀ¸·Î ¼³Á¤µÈ ²É »ý¼º
             GameObject thisBlooming = DictionaryPool.Inst.Instantiate(blooming[idx], new Vector2(ranX, collision.transform.position.y + 1), Quaternion.identity, DictionaryPool.Inst.transform); 

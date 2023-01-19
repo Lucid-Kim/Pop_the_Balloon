@@ -23,6 +23,6 @@ public class Balloon_Shit : Balloon
 
         // 풍선 위치에 효과 출력
         DictionaryPool.Inst.Instantiate(obj[1], this.gameObject.transform.position + new Vector3(0, 2, 0), Quaternion.identity, DictionaryPool.Inst.transform); 
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
     }
 }

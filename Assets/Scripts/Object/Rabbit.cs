@@ -56,7 +56,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 listCount = GameManager.Inst.bloom.Count;
                 if (isClick == false && listCount != 0)
                 {
-                    DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
+                    DictionaryPool.Inst.Release(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
                     isClick = true;
                 }
@@ -73,7 +73,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 listCount = GameManager.Inst.bloom.Count;
                 if (isClick == false && listCount != 0)
                 {
-                    DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
+                    DictionaryPool.Inst.Release(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
                     isClick = true;
                 }
@@ -128,13 +128,13 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         if (transform.position.x < -9)
         {
             oldTime = 0;
-            DictionaryPool.Inst.Destroy(this.gameObject);
+            DictionaryPool.Inst.Release(this.gameObject);
         }
         // 오른쪽으로 갔을 때 사라지는 로직
         if (transform.position.x > 9)
         {
             oldTime = 0;
-            DictionaryPool.Inst.Destroy(this.gameObject);
+            DictionaryPool.Inst.Release(this.gameObject);
         }
     }
     

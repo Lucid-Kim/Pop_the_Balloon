@@ -16,7 +16,7 @@ public class Particle : MonoBehaviour
 
     protected virtual void Release()
     {
-        DictionaryPool.Inst.Destroy(this.gameObject);
+        DictionaryPool.Inst.Release(this.gameObject);
     }
 
 }

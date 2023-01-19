@@ -51,7 +51,7 @@ public class DictionaryPool : Singleton<DictionaryPool>
     /// Prefab을 제거하고 해당하는 이름의 Pool에 추가
     /// </summary>
     /// <param name="Prefab"></param>
-    public void Destroy(GameObject Prefab)
+    public void Release(GameObject Prefab)
     {
         List<GameObject> list = null;
         string prefabId = Prefab.name.Replace("(Clone)", "");
@@ -67,5 +67,8 @@ public class DictionaryPool : Singleton<DictionaryPool>
 
     }
 
-    
+    public void DestroyMySelp()
+    {
+        Destroy(this.gameObject);
+    }
 }
