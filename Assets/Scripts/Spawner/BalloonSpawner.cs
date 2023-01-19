@@ -19,8 +19,7 @@ public class BalloonSpawner : MonoBehaviour
     int idx1 = 0;
     int idx2 = 0;
     int idx3 = 0;
-    int idx4 = 0;
-
+    
     Coroutine startCor_SpawnBall1;
     Coroutine startCor_SpawnBall2;
     Coroutine startCor_Spawn15Sec;

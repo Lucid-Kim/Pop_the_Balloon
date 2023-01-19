@@ -8,59 +8,42 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [Header("게임시작")]
-    [SerializeField] TextMeshProUGUI timer;
-    [SerializeField] Image readyImage;
+    [SerializeField] TextMeshProUGUI timer; // 남은 시간을 나타내는 타이머
+    [SerializeField] Image readyImage; // 준비 시간을 나타내는 이미지
     [Header("스포너")]
-    [SerializeField] GameObject balloonSpawner;
-    [SerializeField] GameObject feverSpawner;
-    [SerializeField] GameObject rabbitSpawner;
-    [SerializeField] TextMeshProUGUI feverText;
-    [SerializeField] GameObject witheredPrefab;
-    GameObject targetBlooming;
-    GameObject targetWithered;
-    GameObject restoredBlooming;
-    [SerializeField] Sprite witheredImage;
-    [SerializeField] Sprite bloomingImage;
-    public List<GameObject> bloom = new List<GameObject>();
-    public Queue<GameObject> witheredFlowerQueue = new Queue<GameObject>();
-    public bool isGameover;
-    bool isWithered;
-    public bool isFeverTime;
-    Coroutine withered;
+    [SerializeField] GameObject balloonSpawner; // 풍선 생성기
+    [SerializeField] GameObject feverSpawner; // 피버타임 생성기
+    [SerializeField] GameObject rabbitSpawner; // 토끼 생성기
+    [SerializeField] GameObject witheredPrefab; // 시든 꽃 프리팹
+
+    public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     
-    // Start is called before the first frame update
+    GameObject targetBlooming; // bloom 리스트에서 가장 먼저 추가된 피어있는 꽃(시든 꽃으로 변하기 위한 변수)
+    GameObject targetWithered; // 꽃이 시들고 3초뒤에 사라지게 하기 위한 변수
+    
+    public bool isGameover; // 게임 종료를 나타내는 bool 값
+    bool isWithered; // 꽃이 시듬을 나타내는 bool 값
+    public bool isFeverTime; // 피버타임을 나타내는 bool 값
+    Coroutine withered; // 꽃이 시들게 만드는 코루틴 변수
+    
     void Start()
     {
-
         StartCoroutine(nameof(CO_ReadyOff));
     }
     private void Update()
     {
         if (isGameover == false)
         {
-            //Debug.Log("withered 상태" + isWithered);
+            // 슬라이더 값 3개 중에서 1개라도 30퍼센트 밑으로 내려가면 꽃이 시듦
             if ((UIManager.Inst.fertilizerSlider.value < 0.3f || UIManager.Inst.waterSlider.value < 0.3f || UIManager.Inst.sunSlider.value < 0.3f) && isWithered == false && bloom.Count != 0)
             {
                 isWithered = true;
                 targetBlooming = ListDequeue();
                 withered = StartCoroutine(nameof(CO_WitheredFlower));
             }
-            //else if (UIManager.Inst.fertilizerSlider.value >= 0.3f & UIManager.Inst.waterSlider.value >= 0.3f & UIManager.Inst.sunSlider.value >= 0.3f && isWithered == true && witheredFlowerQueue.Count != 0)
-            //{
-            //    Debug.Log("복구해");
-            //    StopCoroutine(withered);
-            //    // 시든 꽃 -> 원래 꽃으로 변경
-            //    targetWithered.SetActive(false);
-            //    restoredBlooming = FlowerPool.Inst.Get(targetWithered.transform.position);  
-            //    // 점수 책정할 큐에 꽃 넣어주기
-            //    bloom.Enqueue(restoredBlooming);
-            //    //withered = null;
-            //    isWithered = false;
-                
-            //    //여기서
-            //}
         }
     }
+    // 게임 종료시 실행 되는 함수
     public void EndGame()
     {
         Debug.Log("게임 끝!");
@@ -68,9 +51,8 @@ public class GameManager : Singleton<GameManager>
         balloonSpawner.SetActive(false);
         rabbitSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
-        Debug.Log(witheredFlowerQueue.Count);
     }
-
+    // 3초의 준비 시간을 이후에 게임이 시작되게 하는 코루틴
     IEnumerator CO_ReadyOff()
     {
         yield return new WaitForSeconds(3.5f);
@@ -81,7 +63,7 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-
+    // 꽃이 시들게 만드는 코루틴
     IEnumerator CO_WitheredFlower()
     {
         
@@ -90,28 +72,17 @@ public class GameManager : Singleton<GameManager>
         targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
         yield return new WaitForSeconds(3f);
         //Debug.Log("3초 끝 시들어라");
-        DictionaryPool.Inst.Destroy(targetWithered);
+        DictionaryPool.Inst.Destroy(targetWithered); // 시든 꽃 오브젝트 제거
         isWithered = false;
     }
 
-    //IEnumerator CO_RestoredFlower()
-    //{
-
-    //}
-
-    public void SceneMove()
-    {
-        SceneManager.LoadScene("1.StartSCene");
-    }
-
-    
     // 피버 타임 적용 함수
     public void FeverSpawnerOn()
     {
         isFeverTime = true;
         balloonSpawner.SetActive(false);
         feverSpawner.SetActive(true);
-        feverText.gameObject.SetActive(true);
+        UIManager.Inst.feverText.gameObject.SetActive(true);
         StartCoroutine(nameof(CO_FeverSpawnerOff));
     }
 
@@ -119,23 +90,23 @@ public class GameManager : Singleton<GameManager>
     public IEnumerator CO_FeverSpawnerOff()
     {
         yield return new WaitForSeconds(7f);
-        feverText.gameObject.SetActive(false);
+        UIManager.Inst.feverText.gameObject.SetActive(false);
         feverSpawner.SetActive(false);
         isFeverTime = false;
         balloonSpawner.SetActive(true);
     }
 
+    // 스코어 산정을 위한 피어있는 꽃 리스트에 추가하는 함수
     public void ListEnqueue(GameObject obj)
     {
         bloom.Add(obj);
-        Debug.Log("bloom 갯수" + bloom.Count);
     }
 
+    // 피어있는 꽃 리스트에서 제일 먼저 들어간 꽃을 가져오는 함수
     public GameObject ListDequeue()
     {
         GameObject selectObj = bloom[0];
         bloom.RemoveAt(0);
-        
         return selectObj;
     }
 }

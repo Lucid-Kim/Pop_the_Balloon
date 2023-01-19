@@ -6,15 +6,13 @@ public class Rabbit : MonoBehaviour, Object_Interactable
 {
     float bloomPosX = 0; // 선정된 꽃의 x 좌표
     float moveSpeed = 5f; // 움직이는 속도
-    Vector3 myPos;
     bool isMove; // 움직이는게 가능한지 확인
-    int rabbitNum; // 토끼 위치를 나타내는 숫자
-    float oldTime;
+    int rabbitNum; // 토끼 출발위치를 나타내는 숫자
+    float oldTime; // 토끼가 꽃을 먹는 시간 설정을 위한 시간
     int listCount; // bloom List의 갯수
     int idx; // 랜덤한 꽃을 선정하는 인덱스
-    float minDis; // 최소거리의 꽃을 구할 때 사용하는 변수
     bool isClick; // 클릭을 했는지 나타내는 변수
-    SpriteRenderer sr;
+    SpriteRenderer sr; // 토끼의 움직이는 방향을 나타내기 위한 SpriteRenderer
     private void OnEnable()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -22,15 +20,12 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         rabbitNum = RabbitSpawner.Inst.idx;
         idx = Random.Range(0, GameManager.Inst.bloom.Count); // 피어난 꽃을 선정하는 인덱스
         bloomPosX = GameManager.Inst.bloom[idx].transform.position.x; // 해당 꽃의 x 좌표
-        minDis = 100;
         isClick = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(isMove);
-        //Debug.Log(RabbitSpawner.Inst.idx);
         if (isMove == true && rabbitNum == 1) // 움직일 수 있고 오른쪽에서 출현했을 때
         {
             sr.flipX = true;
@@ -42,11 +37,11 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 return;
             }
         }
-        else if (isMove == true && rabbitNum == 0)
+        else if (isMove == true && rabbitNum == 0) // 움직일 수 있고 왼쪽에서 출현했을 때
         {
             sr.flipX = false;
             transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            if (transform.position.x >= bloomPosX - 1)
+            if (transform.position.x >= bloomPosX - 1) // 해당 꽃 왼쪽에서 멈춰서 애니메이션 추가 예정
             {
                 this.gameObject.layer = 3;
                 isMove = false;
@@ -54,30 +49,30 @@ public class Rabbit : MonoBehaviour, Object_Interactable
             }
         }
 
-        if (isMove == false && rabbitNum == 1) // 움직일 수 없는 상태이며 오른쪽에서 출현했을 때
+        if (isMove == false && rabbitNum == 1) // 움직일 수 없는 상태이며 오른쪽에서 출현했을 때(멈춰서 꽃을 먹는 애니메이션)
         {   
             oldTime += Time.deltaTime;
             if (oldTime >= 5f)
             {
                 listCount = GameManager.Inst.bloom.Count;
-                if (isClick == false && GameManager.Inst.bloom.Count != 0)
+                if (isClick == false && listCount != 0)
                 {
                     DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
                     isClick = true;
                 }
-                this.gameObject.layer = 0;
+                this.gameObject.layer = 0; // 
                 transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
                 sr.flipX = false;
             }
         }
-        else if (isMove == false && rabbitNum == 0)
+        else if (isMove == false && rabbitNum == 0) // 움직일 수 없는 상태이며 왼쪽에서 출현했을 때(멈춰서 꽃을 먹는 애니메이션)
         {
             oldTime += Time.deltaTime;
             if (oldTime >= 5f)
             {
                 listCount = GameManager.Inst.bloom.Count;
-                if (isClick == false && GameManager.Inst.bloom.Count != 0)
+                if (isClick == false && listCount != 0)
                 {
                     DictionaryPool.Inst.Destroy(GameManager.Inst.bloom[idx]); // 선택된 꽃 삭제
                     GameManager.Inst.bloom.RemoveAt(idx);
@@ -113,7 +108,7 @@ public class Rabbit : MonoBehaviour, Object_Interactable
                 yield return null;
             }
         }
-        else
+        else // 왼쪽에서 나온걸 클릭 했을 때
         {
             isClick = true;
             sr.flipX = true;
@@ -125,7 +120,9 @@ public class Rabbit : MonoBehaviour, Object_Interactable
             }
         }
     }
-
+    /// <summary>
+    /// 토끼가 일정 지역을 갔을 때 사라지는 함수
+    /// </summary>
     void DeleteRabbit()
     {
         // 왼쪽으로 갔을 때 사라지는 로직

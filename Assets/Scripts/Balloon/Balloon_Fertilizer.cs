@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Balloon_Fertilizer : Balloon
 {
-    void Update()
+    private void OnEnable()
     {
         Floating();
-        if (transform.position.y >= 6)
-        {
-            DictionaryPool.Inst.Destroy(gameObject);
-        }
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 
     // 비료 풍선 클릭했을 때
@@ -18,6 +18,8 @@ public class Balloon_Fertilizer : Balloon
     {
         base.Interact();
         DictionaryPool.Inst.Destroy(this.gameObject);
+
+        // 비료 슬라이더 15퍼센트 증가
         UIManager.Inst.UpdateFertilizerSlider(0.15f);
     }
 }

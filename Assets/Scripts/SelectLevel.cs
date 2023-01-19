@@ -11,13 +11,14 @@ public class SelectLevel : MonoBehaviour
         //SoundManager.Inst.PlayBGM("StartSceneBGM");
 
     }
+    // 쉬움 버튼 클릭했을 때 씬 전환
     public void Click_Easy()
     {
         Debug.Log("Easy");
         
         SceneManager.LoadScene("2.GameScene");
     }
-
+    // 보통 버튼 클릭했을 때 씬 전환
     public void Click_Normal()
     {
         Debug.Log("Normal");
@@ -25,7 +26,7 @@ public class SelectLevel : MonoBehaviour
         
         SceneManager.LoadScene("2.GameScene");
     }
-
+    // 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Hard()
     {
 
@@ -34,7 +35,7 @@ public class SelectLevel : MonoBehaviour
         
         SceneManager.LoadScene("2.GameScene");
     }
-
+    // 매우 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Master()
     {
         Debug.Log("Master");

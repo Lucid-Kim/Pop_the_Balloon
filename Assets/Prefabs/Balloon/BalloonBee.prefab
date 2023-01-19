@@ -114,5 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b30b65eb8097634ba521a3b96094b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obj:
+  - {fileID: 4738311256880757520, guid: 3ec7c6167606f304aaf608a3f607a504, type: 3}
+  - {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}
+  - {fileID: 9022848577138492016, guid: eed79bda9ac82584bbf35b1b2a7138a7, type: 3}
+  - {fileID: 9022848577138492016, guid: 7ad301d3fb773ce4fa39c7868fcb101e, type: 3}
   bee: {fileID: 4738311256880757520, guid: 3ec7c6167606f304aaf608a3f607a504, type: 3}
   blooming: {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}

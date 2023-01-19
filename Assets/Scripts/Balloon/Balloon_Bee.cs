@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Balloon_Bee : Balloon
 {
-    [SerializeField] GameObject bee;
-    [SerializeField] GameObject blooming;
-    float deg;
-    
-    void Update()
+    private void OnEnable()
     {
         Floating();
-        if (transform.position.y >= 6)
-        {
-            DictionaryPool.Inst.Destroy(this.gameObject);
-        }
+    }
+    protected override void Update()
+    {
+        base.Update();
     }
 
     // ¹ú Ç³¼± Å¬¸¯ÇßÀ» ¶§
@@ -22,7 +18,9 @@ public class Balloon_Bee : Balloon
     {
         base.Interact();
         DictionaryPool.Inst.Destroy(this.gameObject);
-        Instantiate(bee, this.gameObject.transform.position, Quaternion.identity);
+        // ¹ú ¿ÀºêÁ§Æ® »ý¼º
+        DictionaryPool.Inst.Instantiate(obj[0], this.gameObject.transform.position, Quaternion.identity, DictionaryPool.Inst.transform);
+        
     }
 
 }

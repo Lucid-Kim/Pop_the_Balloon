@@ -8,21 +8,25 @@ using UnityEngine.SceneManagement;
 public class UIManager : Singleton<UIManager>
 {
     [Header("슬라이더")]
-    [SerializeField] public Slider sunSlider;
-    [SerializeField] public Slider waterSlider;
-    [SerializeField] public Slider fertilizerSlider;
-    [SerializeField] Image sunSliderImage;
-    [SerializeField] Sprite smileSun;
-    [SerializeField] Sprite wrySun;
-    [SerializeField] Sprite crySun;
+    [SerializeField] public Slider sunSlider; // 해 슬라이더
+    [SerializeField] public Slider waterSlider; // 물 슬라이더
+    [SerializeField] public Slider fertilizerSlider; // 비료 슬라이더
+    [SerializeField] Image sunSliderImage; // 해 슬라이더를 나타내는 해의 얼굴
+    [SerializeField] Sprite smileSun; // 웃는 해의 얼굴(1단계)
+    [SerializeField] Sprite wrySun; // 찡그린 해의 얼굴(2단계)
+    [SerializeField] Sprite crySun; // 우는 해의 얼굴(3단계)
     
     [Header("게임오버")]
-    [SerializeField] GameObject gameoverPanel;
-    [SerializeField] TextMeshProUGUI score;
-    [SerializeField] GameObject restartBtn;
-    [SerializeField] GameObject rankWindow;
+    [SerializeField] GameObject gameoverPanel; // 게임 종료시 나오는 판넬
+    [SerializeField] TextMeshProUGUI score; // 점수를 나타내는 텍스트
+    [SerializeField] GameObject restartBtn; // 재시작 버튼
+    [SerializeField] GameObject rankWindow; // 랭크를 나타내는 창
+    Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
 
-    Coroutine rankWindowOn;
+    [SerializeField] public TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
+
+    
+    // 모든 슬라이더가 일정하게 줄어들게 하는 코루틴 (현재 0.5초 당 2퍼센트씩 줄어들게 설정)
     public IEnumerator CO_ReduceSlider()
     {
         while (true)
@@ -85,6 +89,7 @@ public class UIManager : Singleton<UIManager>
             if (GameManager.Inst.isGameover == true) break;
         }
     }
+    // 게임 오버시 실행되는 함수
     public void GameoverOn()
     {
         gameoverPanel.gameObject.SetActive(true);
@@ -92,25 +97,31 @@ public class UIManager : Singleton<UIManager>
         rankWindowOn = StartCoroutine(nameof(CO_UpdateScoreRank));
     }
 
+    // 물 슬라이더 조절 함수
     public void UpdateWaterSlider(float value)
     {
         waterSlider.value += value;
     }
 
+    // 해 슬라이더 조절 함수
     public void UpdateSunSlider(float value)
     {
         sunSlider.value += value;
     }
 
+    // 물 슬라이더 조절 함수
     public void UpdateFertilizerSlider(float value)
     {
         fertilizerSlider.value += value;
     }
+
+    // 스코어를 나타내는 함수
     public void UpdateScore()
     {
         score.text = "내 점수 : " + (GameManager.Inst.bloom.Count * 10);
     }
 
+    // 랭크를 나타내는 코루틴
     IEnumerator CO_UpdateScoreRank()
     {
         Debug.Log("3초전");

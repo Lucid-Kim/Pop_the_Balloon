@@ -178,6 +178,7 @@ MonoBehaviour:
   score: {fileID: 1689807153}
   restartBtn: {fileID: 1364620851}
   rankWindow: {fileID: 4800044138803480719}
+  feverText: {fileID: 1958747980}
 --- !u!1 &37942359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,10 +2873,7 @@ MonoBehaviour:
   balloonSpawner: {fileID: 2108578268}
   feverSpawner: {fileID: 1409504357}
   rabbitSpawner: {fileID: 431948335}
-  feverText: {fileID: 1958747980}
   witheredPrefab: {fileID: 9022848577138492016, guid: eea49d9e831298d43bf7b43d4354f9fa, type: 3}
-  witheredImage: {fileID: 21300000, guid: 2403a4a7bfd50fd43ae07ad4441fc018, type: 3}
-  bloomingImage: {fileID: 21300000, guid: 3e1f526c74a6df54b94a2a73e6ed45a1, type: 3}
   bloom: []
   isGameover: 0
   isFeverTime: 0
