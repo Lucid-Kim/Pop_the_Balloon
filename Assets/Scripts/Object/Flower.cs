@@ -5,8 +5,11 @@ using UnityEngine;
 public class Flower : MonoBehaviour
 {
     [SerializeField] GameObject [] blooming;
-    
-    // 바닥과 충돌했을 때 피어나는 꽃 생성 함수
+
+    /// <summary>
+    /// 바닥과 충돌했을 때 피어나는 꽃 생성 함수
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Board")

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FeverSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject[] balloonFlower;
+    [SerializeField] GameObject[] balloonFlower; // 采 浅急甸 坷宏璃飘
     
-    float ranX1;
-    float ranX2;
-    float centerX = 1f;
-    int ranNum1;
-    int ranNum2;
+    float ranX1;        // 1备开(哭率) 罚待 x谅钎
+    float ranX2;        // 2备开(坷弗率) 罚待 x谅钎
+    float centerX = 1f; // 吝居急阑 搓瘤 臼霸 急沥茄 x谅钎
+    int ranNum1;        // 1备开(哭率) 积己瞪 采 浅急 牢郸胶
+    int ranNum2;        // 2备开(坷弗率) 积己瞪 采 浅急 牢郸胶
 
     Coroutine feverTime;
     private void OnEnable()
@@ -18,8 +18,11 @@ public class FeverSpawner : MonoBehaviour
         feverTime = StartCoroutine(nameof(CO_FeverTime));
     }
     
-    // 1备开 2备开 公茄 积己
-
+    
+    /// <summary>
+    /// 采 浅急捞 瘤加利栏肺 积己
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_FeverTime()
     {
         while(true)

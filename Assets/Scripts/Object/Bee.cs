@@ -21,8 +21,10 @@ public class Bee : MonoBehaviour
         }
     }
 
-    
-    // 원을 그리게 움직이는 모션
+
+    /// <summary>
+    /// 원을 그리게 움직이는 모션
+    /// </summary>
     void CircularMotion()
     {
         deg += Time.deltaTime * speed;
@@ -42,7 +44,9 @@ public class Bee : MonoBehaviour
         }
     }
 
-    // 아래 구역에서 피어나는 꽃 생성 함수
+    /// <summary>
+    /// 아래 구역에서 피어나는 꽃 생성 함수
+    /// </summary>
     void CreateBlooming()
     {
         float ranX = Random.Range(-8.0f, 8.0f); // 생성 될 x좌표

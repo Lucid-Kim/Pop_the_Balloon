@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class BalloonSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject balloonWater;
-    [SerializeField] GameObject balloonSun;
-    [SerializeField] GameObject balloonButterfly;
-    [SerializeField] GameObject balloonBee;
-    [SerializeField] GameObject balloonSeed;
-    [SerializeField] GameObject balloonShit;
-    float ranX1 = 0;
-    float ranX2 = 0;
-    float ranX3 = 0;
-    float ranX4 = 0;
-    float centerX = 1f;
-    float spawnPosY = -4;
-    int idx1 = 0;
-    int idx2 = 0;
-    int idx3 = 0;
-    
+    [SerializeField] GameObject balloonWater;     // 물 풍선
+    [SerializeField] GameObject balloonSun;       // 해 풍선
+    [SerializeField] GameObject balloonButterfly; // 나비 풍선
+    [SerializeField] GameObject balloonBee;       // 벌 풍선
+    [SerializeField] GameObject balloonSeed;      // 씨 풍선
+    [SerializeField] GameObject balloonShit;      // 똥 풍선
+    float ranX1 = 0;                              // 1구역(왼쪽) 랜덤 x좌표
+    float ranX2 = 0;                              // 2구역(오른쪽) 랜덤 x좌표
+    float ranX3 = 0;                              // 이벤트 풍선 1구역(왼쪽) 랜덤 x좌표
+    float ranX4 = 0;                              // 이벤트 풍선 2구역(오른쪽) 랜덤 x좌표
+    float centerX = 1f;                           // 중앙선을 닿지 않게 선정한 x좌표
+    float spawnPosY = -4;                         // 풍선의 생성되는 y좌표
+    int idx1 = 0;                                 // 1구역에 생성되는 풍선들의 종류 인덱스
+    int idx2 = 0;                                 // 2구역에 생성되는 풍선들의 종류 인덱스
+    int idx3 = 0;                                 // 1,2구역에 생성되는 이벤트 풍선들의 종류 인덱스
+
     Coroutine startCor_SpawnBall1;
     Coroutine startCor_SpawnBall2;
     Coroutine startCor_Spawn15Sec;
@@ -30,7 +30,10 @@ public class BalloonSpawner : MonoBehaviour
         startCor_Spawn15Sec = StartCoroutine(nameof(CO_Spawn15Sec));
     }
 
-    // 1구역 풍선 스폰
+    /// <summary>
+    /// 1구역 풍선 스폰
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_SpawnBalloon1()
     {
         while (true)
@@ -54,7 +57,10 @@ public class BalloonSpawner : MonoBehaviour
         }
     }
 
-    // 2구역 풍선 스포
+    /// <summary>
+    /// 2구역 풍선 스포
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_SpawnBalloon2()
     {
         while (true)
@@ -74,7 +80,10 @@ public class BalloonSpawner : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 이벤트 풍선 스폰 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_Spawn15Sec()
     {
         while (true)
@@ -82,7 +91,7 @@ public class BalloonSpawner : MonoBehaviour
             yield return new WaitForSeconds(15f); // 이벤트 풍선 나오는 주기(15초)
             ranX3 = Random.Range(-8.0f, -centerX); // 1구역 랜덤 좌표
             ranX4 = Random.Range(centerX, 8.0f); // 2구역 랜덤 좌표
-            idx3 = Random.Range(0, 4); // 랜덤으로 바꿔야함
+            idx3 = Random.Range(0, 4); 
             switch (idx3)
             {
                 case 0:

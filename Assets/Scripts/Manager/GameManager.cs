@@ -43,7 +43,9 @@ public class GameManager : Singleton<GameManager>
             }
         }
     }
-    // 게임 종료시 실행 되는 함수
+    /// <summary>
+    /// 게임 종료시 실행 되는 함수
+    /// </summary>
     public void EndGame()
     {
         Debug.Log("게임 끝!");
@@ -52,7 +54,10 @@ public class GameManager : Singleton<GameManager>
         rabbitSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
     }
-    // 3초의 준비 시간을 이후에 게임이 시작되게 하는 코루틴
+    /// <summary>
+    /// 3초의 준비 시간을 이후에 게임이 시작되게 하는 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_ReadyOff()
     {
         yield return new WaitForSeconds(3.5f);
@@ -63,7 +68,10 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-    // 꽃이 시들게 만드는 코루틴
+    /// <summary>
+    /// 꽃이 시들게 만드는 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_WitheredFlower()
     {
         
@@ -76,7 +84,9 @@ public class GameManager : Singleton<GameManager>
         isWithered = false;
     }
 
-    // 피버 타임 적용 함수
+    /// <summary>
+    /// 피버 타임 적용 함수
+    /// </summary>
     public void FeverSpawnerOn()
     {
         isFeverTime = true;
@@ -86,7 +96,10 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(nameof(CO_FeverSpawnerOff));
     }
 
-    // 피버 타임 해제 코루틴
+    /// <summary>
+    /// 피버 타임 해제 코루틴
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator CO_FeverSpawnerOff()
     {
         yield return new WaitForSeconds(7f);
@@ -96,13 +109,19 @@ public class GameManager : Singleton<GameManager>
         balloonSpawner.SetActive(true);
     }
 
-    // 스코어 산정을 위한 피어있는 꽃 리스트에 추가하는 함수
+    /// <summary>
+    /// 스코어 산정을 위한 피어있는 꽃 리스트에 추가하는 함수
+    /// </summary>
+    /// <param name="obj"></param>
     public void ListEnqueue(GameObject obj)
     {
         bloom.Add(obj);
     }
 
-    // 피어있는 꽃 리스트에서 제일 먼저 들어간 꽃을 가져오는 함수
+    /// <summary>
+    /// 피어있는 꽃 리스트에서 제일 먼저 들어간 꽃을 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
     public GameObject ListDequeue()
     {
         GameObject selectObj = bloom[0];

@@ -25,8 +25,11 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] public TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
 
-    
-    // 모든 슬라이더가 일정하게 줄어들게 하는 코루틴 (현재 0.5초 당 2퍼센트씩 줄어들게 설정)
+
+    /// <summary>
+    /// 모든 슬라이더가 일정하게 줄어들게 하는 코루틴 (현재 0.5초 당 2퍼센트씩 줄어들게 설정)
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator CO_ReduceSlider()
     {
         while (true)
@@ -89,7 +92,9 @@ public class UIManager : Singleton<UIManager>
             if (GameManager.Inst.isGameover == true) break;
         }
     }
-    // 게임 오버시 실행되는 함수
+    /// <summary>
+    /// 게임 오버시 실행되는 함수
+    /// </summary>
     public void GameoverOn()
     {
         gameoverPanel.gameObject.SetActive(true);
@@ -97,31 +102,45 @@ public class UIManager : Singleton<UIManager>
         rankWindowOn = StartCoroutine(nameof(CO_UpdateScoreRank));
     }
 
-    // 물 슬라이더 조절 함수
+    /// <summary>
+    /// 물 슬라이더 조절 함수
+    /// </summary>
+    /// <param name="value"></param>
     public void UpdateWaterSlider(float value)
     {
         waterSlider.value += value;
     }
 
-    // 해 슬라이더 조절 함수
+    /// <summary>
+    /// 해 슬라이더 조절 함수
+    /// </summary>
+    /// <param name="value"></param>
     public void UpdateSunSlider(float value)
     {
         sunSlider.value += value;
     }
 
-    // 물 슬라이더 조절 함수
+    /// <summary>
+    /// 물 슬라이더 조절 함수
+    /// </summary>
+    /// <param name="value"></param>
     public void UpdateFertilizerSlider(float value)
     {
         fertilizerSlider.value += value;
     }
 
-    // 스코어를 나타내는 함수
+    /// <summary>
+    /// 스코어를 나타내는 함수
+    /// </summary>
     public void UpdateScore()
     {
         score.text = "내 점수 : " + (GameManager.Inst.bloom.Count * 10);
     }
 
-    // 랭크를 나타내는 코루틴
+    /// <summary>
+    /// 랭크를 나타내는 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_UpdateScoreRank()
     {
         Debug.Log("3초전");

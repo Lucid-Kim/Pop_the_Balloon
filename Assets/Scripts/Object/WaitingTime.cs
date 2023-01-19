@@ -12,17 +12,15 @@ public class WaitingTime : MonoBehaviour
     {
         text_WaitTime = GetComponent<TextMeshProUGUI>();
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         ReduceTime();
     }
 
+    /// <summary>
+    /// 시작전 대기시간을 알려주는 함수
+    /// </summary>
     void ReduceTime()
     {
         waitTime -= Time.deltaTime;

@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
         StartCoroutine(UIManager.Inst.CO_ReduceSlider());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.Inst.isGameover == false)
@@ -25,7 +24,9 @@ public class Timer : MonoBehaviour
             ReduceTime();
         }
     }
-
+    /// <summary>
+    /// 시간 감소에 따른 텍스트 감소 함수
+    /// </summary>
     void ReduceTime()
     {
         secs -= Time.deltaTime;

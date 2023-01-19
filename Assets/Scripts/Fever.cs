@@ -5,7 +5,10 @@ using TMPro;
 
 public class Fever : MonoBehaviour
 {
-    // 반짝이는 Fever 문구
+    
+    /// <summary>
+    /// 반짝이는 Fever 문구
+    /// </summary>
     TextMeshProUGUI feverText;
     private void Awake()
     {

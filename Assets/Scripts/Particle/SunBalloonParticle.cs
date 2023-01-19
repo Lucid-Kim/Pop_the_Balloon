@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunBalloonParticle : MonoBehaviour
+public class SunBalloonParticle : Particle
 {
     private void OnEnable()
     {
-        Invoke(nameof(Release), 1f);
+        base.DelayRelease(1f);
     }
 
-    void Release()
-    {
-        DictionaryPool.Inst.Destroy(this.gameObject);
-    }
 }

@@ -6,6 +6,15 @@ public class DictionaryPool : Singleton<DictionaryPool>
 {
     private Dictionary<string, List<GameObject>> instList = new Dictionary<string, List<GameObject>>();
     //Call instantiate
+
+    /// <summary>
+    /// prefab 이라는 Pool에서 가져오고 Pool이 비어있다면 오브젝트를 생성
+    /// </summary>
+    /// <param name="prefab"></param>
+    /// <param name="position"></param>
+    /// <param name="rotation"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
     public GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent)
     {
         List<GameObject> list = null;
@@ -38,7 +47,10 @@ public class DictionaryPool : Singleton<DictionaryPool>
             return null;
         }
     }
-    //Call bringObject & Pooling
+    /// <summary>
+    /// Prefab을 제거하고 해당하는 이름의 Pool에 추가
+    /// </summary>
+    /// <param name="Prefab"></param>
     public void Destroy(GameObject Prefab)
     {
         List<GameObject> list = null;

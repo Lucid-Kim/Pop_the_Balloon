@@ -6,22 +6,19 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
 {
     public int idx = 0;
     Coroutine startCor_SpawnRabbit;
-    [SerializeField] GameObject rabbit;
+    [SerializeField] GameObject rabbit; // 토끼 오브젝트
     private void OnEnable()
     {
         startCor_SpawnRabbit = StartCoroutine(nameof(CO_SpawnRabbit));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
+    /// <summary>
+    /// 토끼 생성
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_SpawnRabbit()
     {
-        yield return new WaitForSeconds(5f); // 토끼 대기 시간(30초)
+        yield return new WaitForSeconds(5f); // 토끼 대기 시간
         while (true)
         {
             if (GameManager.Inst.bloom.Count != 0)
@@ -36,7 +33,7 @@ public class RabbitSpawner : Singleton<RabbitSpawner>
                         DictionaryPool.Inst.Instantiate(rabbit, new Vector2(9, -4), Quaternion.identity, DictionaryPool.Inst.transform);
                         break;
                 }
-                yield return new WaitForSeconds(10f); // 토끼 소환 주기(20초)
+                yield return new WaitForSeconds(10f); // 토끼 소환 주기
             }
             else yield return null;
         }

@@ -13,7 +13,7 @@ public class Balloon_Bee : Balloon
         base.Update();
     }
 
-    // ¹ú Ç³¼± Å¬¸¯ÇßÀ» ¶§
+    // ¹ú Ç³¼± Å¬¸¯ÇßÀ» ¶§ 
     public override void Interact()
     {
         base.Interact();

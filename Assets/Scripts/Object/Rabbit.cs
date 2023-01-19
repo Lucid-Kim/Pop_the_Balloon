@@ -23,7 +23,6 @@ public class Rabbit : MonoBehaviour, Object_Interactable
         isClick = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isMove == true && rabbitNum == 1) // 움직일 수 있고 오른쪽에서 출현했을 때

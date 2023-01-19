@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunLight : MonoBehaviour
+public class SunLight : Particle
 {
     private void OnEnable()
     {
-        Invoke(nameof(Release), 5f);
+        base.DelayRelease(5f);
     }
 
-    void Release()
-    {
-        DictionaryPool.Inst.Destroy(this.gameObject);
-    }
 }
