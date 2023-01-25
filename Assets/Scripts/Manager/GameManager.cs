@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable()
     {
         StartCoroutine(nameof(CO_ReadyOff));
+        //StartCoroutine(CO_ReadyOff());
     }
     //void Start()
     //{
@@ -58,6 +59,7 @@ public class GameManager : Singleton<GameManager>
         rabbitSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
     }
+
     /// <summary>
     /// 3초의 준비 시간을 이후에 게임이 시작되게 하는 코루틴
     /// </summary>
@@ -66,6 +68,7 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("게임 시작!");
         yield return new WaitForSeconds(3.5f);
+        Debug.Log("3초 끝");
         readyImage.gameObject.SetActive(false);
         balloonSpawner.SetActive(true);
         rabbitSpawner.SetActive(true);
@@ -133,4 +136,5 @@ public class GameManager : Singleton<GameManager>
         bloom.RemoveAt(0);
         return selectObj;
     }
+
 }

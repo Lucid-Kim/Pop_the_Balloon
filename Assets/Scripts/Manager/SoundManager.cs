@@ -9,45 +9,15 @@ public class Sound
     public AudioClip clip;
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
-    #region SingleTon
-    private static SoundManager instance = null;
-
-    public static SoundManager Inst
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SoundManager>();
-
-                if (instance == null)
-                {
-                    instance = new GameObject().AddComponent<SoundManager>();
-                }
-            }
-
-            return instance;
-        }
-    }
-    #endregion
-
+    
     [SerializeField] Sound[] sfx = null;
     [SerializeField] Sound[] bgm = null;
 
     [SerializeField] AudioSource bgmPlayer = null;
     [SerializeField] AudioSource[] sfxPlayer = null;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
     public void PlayBGM(string p_bgmName)
     {
         for (int i = 0; i < bgm.Length; i++)
