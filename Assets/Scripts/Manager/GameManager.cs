@@ -137,4 +137,10 @@ public class GameManager : Singleton<GameManager>
         return selectObj;
     }
 
+    public void Restart()
+    {
+        DictionaryPool.Inst.DestroyMySelp();
+        SceneManager.LoadScene("1.StartSCene");
+    }
+
 }

@@ -560,7 +560,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2096220945}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6036661291438729330, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -576,15 +576,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_AnchorMax.x
@@ -604,23 +604,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalPosition.x
@@ -640,23 +640,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -776,11 +776,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a061cb375e5d14c00aac968d5df805c8, type: 3}
   Image_BGM: {fileID: 317502106}
   Image_SFX: {fileID: 317502105}
---- !u!224 &317502115 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-  m_PrefabInstance: {fileID: 317502103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &431948335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2218,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1709155759}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SceneMove
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3598,7 +3593,6 @@ RectTransform:
   - {fileID: 1958747978}
   - {fileID: 1364620852}
   - {fileID: 4800044138803480718}
-  - {fileID: 317502115}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
