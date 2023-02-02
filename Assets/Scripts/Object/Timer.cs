@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(UIManager.Inst.CO_ReduceSlider());
+        //StartCoroutine(UIManager.Inst.CO_ReduceSlider());
     }
 
     void Update()

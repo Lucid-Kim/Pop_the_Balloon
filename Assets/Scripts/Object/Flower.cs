@@ -14,12 +14,13 @@ public class Flower : MonoBehaviour
     {
         if (collision.gameObject.tag == "Board")
         {
-            float ranX = Random.Range(-8.0f, 8.0f);
+            float ranX = Random.Range(-8, 9); // 꽃 위치를 설정하는 랜덤값
+            int ranY = Random.Range(1, 4);
             int idx = Random.Range(0, 3); // 꽃 종류 랜덤 설정
             DictionaryPool.Inst.Release(this.gameObject);
-
+            
             // 랜덤으로 설정된 꽃 생성
-            GameObject thisBlooming = DictionaryPool.Inst.Instantiate(blooming[idx], new Vector2(ranX, collision.transform.position.y + 1), Quaternion.identity, DictionaryPool.Inst.transform); 
+            GameObject thisBlooming = DictionaryPool.Inst.Instantiate(blooming[idx], new Vector2(ranX, collision.transform.position.y + ranY), Quaternion.identity, DictionaryPool.Inst.transform);
             GameManager.Inst.ListEnqueue(thisBlooming); // 피어난 꽃 리스트 추가
         }
     }

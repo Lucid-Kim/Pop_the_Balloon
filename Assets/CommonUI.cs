@@ -8,7 +8,7 @@ using System;
 
 public class CommonUI : MonoBehaviour
 {
-    public string startSceneName = "1.StartSCene";
+    public string startSceneName = "0.SelectModeScene";
     public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
 
 

@@ -37,16 +37,16 @@ public class GameManager : Singleton<GameManager>
     //}
     private void Update()
     {
-        if (isGameover == false)
-        {
-            // 슬라이더 값 3개 중에서 1개라도 30퍼센트 밑으로 내려가면 꽃이 시듦
-            if ((UIManager.Inst.fertilizerSlider.value < 0.3f || UIManager.Inst.waterSlider.value < 0.3f || UIManager.Inst.sunSlider.value < 0.3f) && isWithered == false && bloom.Count != 0)
-            {
-                isWithered = true;
-                targetBlooming = ListDequeue();
-                withered = StartCoroutine(nameof(CO_WitheredFlower));
-            }
-        }
+        //if (isGameover == false)
+        //{
+        //    // 슬라이더 값 3개 중에서 1개라도 30퍼센트 밑으로 내려가면 꽃이 시듦
+        //    if ((UIManager.Inst.fertilizerSlider.value < 0.3f || UIManager.Inst.waterSlider.value < 0.3f || UIManager.Inst.sunSlider.value < 0.3f) && isWithered == false && bloom.Count != 0)
+        //    {
+        //        isWithered = true;
+        //        targetBlooming = ListDequeue();
+        //        withered = StartCoroutine(nameof(CO_WitheredFlower));
+        //    }
+        //}
     }
     /// <summary>
     /// 게임 종료시 실행 되는 함수
@@ -80,17 +80,17 @@ public class GameManager : Singleton<GameManager>
     /// 꽃이 시들게 만드는 코루틴
     /// </summary>
     /// <returns></returns>
-    IEnumerator CO_WitheredFlower()
-    {
+    //IEnumerator CO_WitheredFlower()
+    //{
         
-        //Debug.Log("3초 시작");
-        targetBlooming.gameObject.SetActive(false); // 해당 꽃 오브젝트 제거
-        targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
-        yield return new WaitForSeconds(3f);
-        //Debug.Log("3초 끝 시들어라");
-        DictionaryPool.Inst.Release(targetWithered); // 시든 꽃 오브젝트 제거
-        isWithered = false;
-    }
+    //    //Debug.Log("3초 시작");
+    //    targetBlooming.gameObject.SetActive(false); // 해당 꽃 오브젝트 제거
+    //    targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
+    //    yield return new WaitForSeconds(3f);
+    //    //Debug.Log("3초 끝 시들어라");
+    //    DictionaryPool.Inst.Release(targetWithered); // 시든 꽃 오브젝트 제거
+    //    isWithered = false;
+    //}
 
     /// <summary>
     /// 피버 타임 적용 함수
@@ -140,7 +140,7 @@ public class GameManager : Singleton<GameManager>
     public void Restart()
     {
         DictionaryPool.Inst.DestroyMySelp();
-        SceneManager.LoadScene("1.StartSCene");
+        SceneManager.LoadScene("1.StartScene");
     }
 
 }
