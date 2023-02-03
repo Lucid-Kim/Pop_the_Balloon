@@ -174,8 +174,9 @@ MonoBehaviour:
   smileSun: {fileID: 21300000, guid: 1aa155803be01be4a9c212935adcbce2, type: 3}
   wrySun: {fileID: 21300000, guid: dec9f11c828f7744ebea75ed9fc04281, type: 3}
   crySun: {fileID: 21300000, guid: e188eead333fffd41b249fdf87e1e3ba, type: 3}
+  ingameScore: {fileID: 2146434120}
   gameoverPanel: {fileID: 1233637512}
-  score: {fileID: 1689807153}
+  gameoverScore: {fileID: 1689807153}
   restartBtn: {fileID: 1364620851}
   rankWindow: {fileID: 4800044138803480719}
   feverText: {fileID: 1958747980}
@@ -562,18 +563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6036661291438729330, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661291438729330, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661291441766898, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -608,18 +597,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
@@ -674,108 +651,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_CommonBtn
       objectReference: {fileID: 0}
-    - target: {fileID: 6036661292720274232, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661292720274232, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661292956082697, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661292956082697, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_Close
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661293049866617, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661293049866617, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_Exit
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661293278394435, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661293278394435, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_Help
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661293489790995, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661293489790995, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_Setting
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036661293557755943, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 317502108}
-    - target: {fileID: 6036661293557755943, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Btn_Restart
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
---- !u!1 &317502104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6036661292482412430, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-  m_PrefabInstance: {fileID: 317502103}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &317502105 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6036661292720274238, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-  m_PrefabInstance: {fileID: 317502103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &317502106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6036661291438729328, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-  m_PrefabInstance: {fileID: 317502103}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &317502107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6036661291441766898, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
-  m_PrefabInstance: {fileID: 317502103}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &317502108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317502104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4010164d7dc0040a75d39814c4d6ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startSceneName: 1.StartSCene
-  MainPackageName: com.DefaultCompany.MinigameTownTest
-  UIPanel: {fileID: 317502107}
-  TogleImages:
-  - {fileID: 21300000, guid: f3ad69e0ccb5e41ccb3311f2f6eaa769, type: 3}
-  - {fileID: 21300000, guid: a061cb375e5d14c00aac968d5df805c8, type: 3}
-  Image_BGM: {fileID: 317502106}
-  Image_SFX: {fileID: 317502105}
 --- !u!1 &431948335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,6 +2747,7 @@ MonoBehaviour:
   rabbitSpawner: {fileID: 431948335}
   witheredPrefab: {fileID: 9022848577138492016, guid: eea49d9e831298d43bf7b43d4354f9fa, type: 3}
   bloom: []
+  score: 0
   isGameover: 0
   isFeverTime: 0
 --- !u!4 &1709155760
@@ -3779,12 +3657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182ff89d1ffe6e04cba8add0502f6a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonWater: {fileID: 9056243567346716219, guid: ec083e98239206949874da1b208b726f, type: 3}
-  balloonSun: {fileID: 9056243567346716219, guid: 22c5fae78338412469bf2885a1f3240b, type: 3}
-  balloonButterfly: {fileID: 9056243567346716219, guid: 77da02f55ca324c449bcc093ca8d8420, type: 3}
-  balloonBee: {fileID: 9056243567346716219, guid: 38577015d6abbe44d983777367751517, type: 3}
-  balloonSeed: {fileID: 9056243567346716219, guid: f1fe9cb51fafd654cb4a80214302fdeb, type: 3}
-  balloonShit: {fileID: 9056243567346716219, guid: 71899f0e5e25e1047a7b68270bf975e6, type: 3}
+  balloonWater1: {fileID: 9056243567346716219, guid: ec083e98239206949874da1b208b726f, type: 3}
+  balloonSun1: {fileID: 9056243567346716219, guid: 22c5fae78338412469bf2885a1f3240b, type: 3}
+  balloonFlower1: {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
 --- !u!4 &2108578270
 Transform:
   m_ObjectHideFlags: 0
@@ -3813,7 +3688,7 @@ GameObject:
   - component: {fileID: 2146434120}
   - component: {fileID: 2146434122}
   m_Layer: 5
-  m_Name: Score
+  m_Name: IngameScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3836,7 +3711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -34.68}
+  m_AnchoredPosition: {x: 0, y: -34.680054}
   m_SizeDelta: {x: 537.4, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2146434120
@@ -3859,7 +3734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC810\uC218 : 000"
+  m_text: "\uC810\uC218 : 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c956831d1dd7fb498997ee34b12979f, type: 2}
   m_sharedMaterial: {fileID: 4003543749313522711, guid: 7c956831d1dd7fb498997ee34b12979f, type: 2}

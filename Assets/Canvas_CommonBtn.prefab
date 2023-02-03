@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_BGM
         m_Mode: 1
@@ -150,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6036661291441766899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 6036661292482412425}
   - component: {fileID: 6036661292482412424}
   - component: {fileID: 6036661292482412431}
+  - component: {fileID: 317502108}
   m_Layer: 5
   m_Name: Canvas_CommonBtn
   m_TagString: Untagged
@@ -471,6 +472,26 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &317502108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036661292482412430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4010164d7dc0040a75d39814c4d6ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSceneName: 1.StartSCene
+  MainPackageName: com.DefaultCompany.MinigameTownTest
+  UIPanel: {fileID: 6036661291441766898}
+  TogleImages:
+  - {fileID: 21300000, guid: f3ad69e0ccb5e41ccb3311f2f6eaa769, type: 3}
+  - {fileID: 21300000, guid: a061cb375e5d14c00aac968d5df805c8, type: 3}
+  Image_BGM: {fileID: 6036661291438729328}
+  Image_SFX: {fileID: 6036661292720274238}
 --- !u!1 &6036661292720274236
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_SFX
         m_Mode: 1
@@ -725,7 +746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_Close
         m_Mode: 1
@@ -858,7 +879,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_Exit
         m_Mode: 1
@@ -991,7 +1012,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_Help
         m_Mode: 1
@@ -1124,7 +1145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_Setting
         m_Mode: 1
@@ -1257,7 +1278,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 317502108}
         m_TargetAssemblyTypeName: CommonUI, Assembly-CSharp
         m_MethodName: Btn_Restart
         m_Mode: 1

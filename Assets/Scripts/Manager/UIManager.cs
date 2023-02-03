@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("슬라이더")]
+    [Header("인게임")]
     [SerializeField] public Slider sunSlider; // 해 슬라이더
     [SerializeField] public Slider waterSlider; // 물 슬라이더
     [SerializeField] public Slider fertilizerSlider; // 비료 슬라이더
@@ -15,15 +15,16 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] Sprite smileSun; // 웃는 해의 얼굴(1단계)
     [SerializeField] Sprite wrySun; // 찡그린 해의 얼굴(2단계)
     [SerializeField] Sprite crySun; // 우는 해의 얼굴(3단계)
+    [SerializeField] TextMeshProUGUI ingameScore; // 인게임 안에서 점수를 나타내는 텍스트
     
     [Header("게임오버")]
     [SerializeField] GameObject gameoverPanel; // 게임 종료시 나오는 판넬
-    [SerializeField] TextMeshProUGUI score; // 점수를 나타내는 텍스트
+    [SerializeField] TextMeshProUGUI gameoverScore; // 게임 종료시 점수를 나타내는 텍스트
     [SerializeField] GameObject restartBtn; // 재시작 버튼
     [SerializeField] GameObject rankWindow; // 랭크를 나타내는 창
     Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
 
-    [SerializeField] public TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
+    [SerializeField] TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
 
 
     /// <summary>
@@ -98,7 +99,7 @@ public class UIManager : Singleton<UIManager>
     public void GameoverOn()
     {
         gameoverPanel.gameObject.SetActive(true);
-        UpdateScore();
+        GameoverScore();
         rankWindowOn = StartCoroutine(nameof(CO_UpdateScoreRank));
     }
 
@@ -130,13 +131,20 @@ public class UIManager : Singleton<UIManager>
     }
 
     /// <summary>
-    /// 스코어를 나타내는 함수
+    /// 게임 종료시 스코어를 나타내는 함수
+    /// </summary>
+    public void GameoverScore()
+    {
+        gameoverScore.text = "내 점수 : " + GameManager.Inst.score;
+    }
+
+    /// <summary>
+    /// 인게임에서 스코어를 나타내는 함수
     /// </summary>
     public void UpdateScore()
     {
-        score.text = "내 점수 : " + (GameManager.Inst.bloom.Count * 10);
+        ingameScore.text = "점수 : " + GameManager.Inst.score;
     }
-
     /// <summary>
     /// 랭크를 나타내는 코루틴
     /// </summary>
@@ -151,4 +159,8 @@ public class UIManager : Singleton<UIManager>
         rankWindow.SetActive(true);
     }
 
+    public void FeverTextActive(bool isOn)
+    {
+        feverText.gameObject.SetActive(isOn);
+    }
 }

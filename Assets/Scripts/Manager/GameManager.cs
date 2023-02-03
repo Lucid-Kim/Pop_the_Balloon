@@ -15,9 +15,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject feverSpawner; // 피버타임 생성기
     [SerializeField] GameObject rabbitSpawner; // 토끼 생성기
     [SerializeField] GameObject witheredPrefab; // 시든 꽃 프리팹
+    int region2Count; // 2구역 풍선 갯수
+    
 
     public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
-    
+    public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     GameObject targetBlooming; // bloom 리스트에서 가장 먼저 추가된 피어있는 꽃(시든 꽃으로 변하기 위한 변수)
     GameObject targetWithered; // 꽃이 시들고 3초뒤에 사라지게 하기 위한 변수
     
@@ -31,10 +33,7 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(nameof(CO_ReadyOff));
         //StartCoroutine(CO_ReadyOff());
     }
-    //void Start()
-    //{
-    //    StartCoroutine(nameof(CO_ReadyOff));
-    //}
+    
     private void Update()
     {
         //if (isGameover == false)
@@ -100,7 +99,7 @@ public class GameManager : Singleton<GameManager>
         isFeverTime = true;
         balloonSpawner.SetActive(false);
         feverSpawner.SetActive(true);
-        UIManager.Inst.feverText.gameObject.SetActive(true);
+        UIManager.Inst.FeverTextActive(true);
         StartCoroutine(nameof(CO_FeverSpawnerOff));
     }
 
@@ -111,7 +110,7 @@ public class GameManager : Singleton<GameManager>
     public IEnumerator CO_FeverSpawnerOff()
     {
         yield return new WaitForSeconds(7f);
-        UIManager.Inst.feverText.gameObject.SetActive(false);
+        UIManager.Inst.FeverTextActive(false);
         feverSpawner.SetActive(false);
         isFeverTime = false;
         balloonSpawner.SetActive(true);
@@ -137,6 +136,24 @@ public class GameManager : Singleton<GameManager>
         return selectObj;
     }
 
+    /// <summary>
+    /// 2구역 풍선의 갯수를 추가하는 함수
+    /// </summary>
+    /// <param name="num"></param>
+    public void Region2AddCount(int num)
+    {
+        region2Count += num;
+    }
+
+    /// <summary>
+    /// 2구역에 풍선을 생성해도 되는지 파악하는 bool 값
+    /// </summary>
+    /// <returns></returns>
+    public bool Region2Spawned()
+    {
+        if (region2Count < 8) return true;
+        else return false;
+    }
     public void Restart()
     {
         DictionaryPool.Inst.DestroyMySelp();
