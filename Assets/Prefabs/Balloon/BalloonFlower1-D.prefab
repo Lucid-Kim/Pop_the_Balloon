@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9056243567346716218}
   - component: {fileID: 1461798452755360031}
   m_Layer: 3
-  m_Name: BalloonFlower1
+  m_Name: BalloonFlower1-D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,3 +117,7 @@ MonoBehaviour:
   obj:
   - {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
   - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
+  - {fileID: 9056243567346716219, guid: cfff8a6f63f9c114da028afa7a6503cf, type: 3}
+  - {fileID: 9056243567346716219, guid: 1ea050a477b9194499261eed6a074a7f, type: 3}
+  - {fileID: 9056243567346716219, guid: a822d544189d3434e838534790de24f6, type: 3}
+  - {fileID: 9056243567346716219, guid: cec2aa59f9ee1f64f83ac2401f4546d1, type: 3}

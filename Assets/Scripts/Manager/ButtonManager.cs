@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    string selectLevelScene = "1.StartScene"; // 난이도 선택 씬이름 설정
+    string selectLevelScene = "1.StartScene"; // 난이도 선택 씬 이름 설정
+    string personalScene = "2.PersonalGameScene"; // 개인 모드 씬 이름 설정
+    string collaborationScene = "2.CollaborationGameScene"; // 협동 모드 씬 이름 설정
     private void Start()
     {
         //SoundManager.Inst.PlayBGM("StartSceneBGM");
@@ -16,7 +18,7 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("Easy");
         GameDatas.Inst.difficulty = DIFFICULTY.EASY;
-        SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene(personalScene);
     }
     // 보통 버튼 클릭했을 때 씬 전환
     public void Click_Normal()
@@ -24,7 +26,7 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("Normal");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.NORMAL;
-        SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene(personalScene);
     }
     // 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Hard()
@@ -33,7 +35,7 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("Hard");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.HARD;
-        SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene(personalScene);
     }
     // 매우 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Master()
@@ -41,7 +43,7 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("Master");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
-        SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene(personalScene);
     }
 
     public void Click_Personal()
@@ -59,6 +61,6 @@ public class ButtonManager : MonoBehaviour
     public void Click_Collaboration()
     {
         GameDatas.Inst.mode = Mode.COLLABORATION;
-        SceneManager.LoadScene("2.GameScene");
+        SceneManager.LoadScene(collaborationScene);
     }
 }

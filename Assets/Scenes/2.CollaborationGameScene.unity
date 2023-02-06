@@ -2173,8 +2173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonFlower:
-  - {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
   - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
+  - {fileID: 9056243567346716219, guid: cfff8a6f63f9c114da028afa7a6503cf, type: 3}
+  - {fileID: 9056243567346716219, guid: 1ea050a477b9194499261eed6a074a7f, type: 3}
+  - {fileID: 9056243567346716219, guid: a822d544189d3434e838534790de24f6, type: 3}
+  - {fileID: 9056243567346716219, guid: cec2aa59f9ee1f64f83ac2401f4546d1, type: 3}
 --- !u!4 &1409504359
 Transform:
   m_ObjectHideFlags: 0
@@ -3659,7 +3662,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloonWater1: {fileID: 9056243567346716219, guid: ec083e98239206949874da1b208b726f, type: 3}
   balloonSun1: {fileID: 9056243567346716219, guid: 22c5fae78338412469bf2885a1f3240b, type: 3}
-  balloonFlower1: {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
+  balloonFlower1:
+  - {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
+  - {fileID: 9056243567346716219, guid: 47b2e7b696b1e794480dada9e1715887, type: 3}
+  - {fileID: 9056243567346716219, guid: 9e8202c3c42a8374db7fbe0cc748fd60, type: 3}
+  - {fileID: 9056243567346716219, guid: d4c61f9bb35ed854a836a770a86e06cc, type: 3}
+  - {fileID: 9056243567346716219, guid: 6598d30c1a90b054aa61d2a5f6529107, type: 3}
+  butterfly: {fileID: 9056243567346716219, guid: 77da02f55ca324c449bcc093ca8d8420, type: 3}
 --- !u!4 &2108578270
 Transform:
   m_ObjectHideFlags: 0
