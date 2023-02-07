@@ -16,7 +16,7 @@ public class BalloonSpawner : MonoBehaviour
     float spawnPosY = -4;                          // 풍선의 생성되는 y좌표
     int balloonIdx = 0;                            // 풍선 종류를 선정해주는 인덱스
     int flowerIdx = 0;                             // 1구역에 생성되는 꽃풍선들의 종류 인덱스
-    
+
     Coroutine startCor_SpawnTime1;
     Coroutine startCor_SpawnTime2;
     Coroutine startCor_SpawnTime3;
@@ -40,7 +40,7 @@ public class BalloonSpawner : MonoBehaviour
             time += spawnCycle;
             ranX = Random.Range(-8.0f, -centerX);
             flowerIdx = Random.Range(0, 5);
-            DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);        
+            DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
             yield return new WaitForSeconds(spawnCycle);
         }
     }
@@ -55,18 +55,12 @@ public class BalloonSpawner : MonoBehaviour
         {
             time += spawnCycle;
             ranX = Random.Range(-8.0f, -centerX);
-            balloonIdx = Random.Range(0, 2);
+            balloonIdx = Random.Range(1, 11);
             flowerIdx = Random.Range(0, 5);
-            switch (balloonIdx)
-            {
-                case 0:
-                    DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
-                    break;
-                case 1:
-                    DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
-                    break;
 
-            }
+            if (balloonIdx <= 7) DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+
             yield return new WaitForSeconds(spawnCycle);
         }
     }
@@ -81,21 +75,18 @@ public class BalloonSpawner : MonoBehaviour
         {
             time += spawnCycle;
             ranX = Random.Range(-8.0f, -centerX);
-            balloonIdx = Random.Range(0, 2);
-            switch (balloonIdx)
-            {
-                case 0:
-                    DictionaryPool.Inst.Instantiate(balloonSun1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
-                    break;
-                case 1:
-                    DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
-                    break;
+            balloonIdx = Random.Range(1, 11);
+            if (balloonIdx <= 2) DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else if (balloonIdx <= 6) DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else DictionaryPool.Inst.Instantiate(balloonSun1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
 
-            }
             yield return new WaitForSeconds(spawnCycle);
         }
     }
-    
+    /// <summary>
+    /// 나비 생성(협동모드)
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CO_SpawnButterfly()
     {
         yield return new WaitForSeconds(5f);

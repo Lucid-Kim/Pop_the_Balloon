@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 9056243567346716218}
   - component: {fileID: 8118212243657088005}
+  - component: {fileID: -881330971478216472}
   m_Layer: 3
   m_Name: BalloonButterfly
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 816991405
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 59615e1454ebec74aaa0d8a502190e10, type: 3}
+  m_Sprite: {fileID: -1177587224, guid: 7b66e3f3325cf3d41b93334c20ccc956, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,3 +149,23 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   period: 5
+--- !u!95 &-881330971478216472
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9056243567346716219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad06bd51861157c4886facc94741e121, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

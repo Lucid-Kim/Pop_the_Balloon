@@ -24,8 +24,22 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject rankWindow; // 랭크를 나타내는 창
     Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
 
+    [Header("점수")]
+    [SerializeField] TextMeshProUGUI bestScoreText; // 최고점수를 나타내는 텍스트
+    [SerializeField] int rankNum; // 점수의 등수
+    [SerializeField] GameObject rankInfo; // 랭크를 나타내는 정보 프리팹
+    [SerializeField] ScrollRect rankScrollview;
+    string keyName = "BestScore";
+    List<int> bestScore = new List<int>(); // 최고점수
+    int tmpScore = 0; // 임시 점수
+
     [SerializeField] TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
 
+    private void Awake()
+    {
+        //bestScoreText = rankInfo.transform.GetChild(1).gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        //rankNum = rankInfo.transform.GetChild(0).gameObject
+    }
 
     /// <summary>
     /// 모든 슬라이더가 일정하게 줄어들게 하는 코루틴 (현재 0.5초 당 2퍼센트씩 줄어들게 설정)
@@ -135,6 +149,7 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public void GameoverScore()
     {
+        ScoreSet(GameManager.Inst.score);
         gameoverScore.text = "내 점수 : " + GameManager.Inst.score;
     }
 
@@ -154,13 +169,63 @@ public class UIManager : Singleton<UIManager>
         Debug.Log("3초전");
         yield return new WaitForSeconds(3f);
         Debug.Log("3초후 랭크 나와");
-        gameoverPanel.gameObject.SetActive(false);
-        restartBtn.SetActive(true);
-        rankWindow.SetActive(true);
+        SceneManager.LoadScene("RankScene");
+        //gameoverPanel.gameObject.SetActive(false);
+        //restartBtn.SetActive(true);
+        //rankWindow.SetActive(true);
     }
 
     public void FeverTextActive(bool isOn)
     {
         feverText.gameObject.SetActive(isOn);
     }
+
+    /// <summary>
+    /// 현재 점수를 저장하는 함수
+    /// </summary>
+    /// <param name="curScore"></param>
+    public void ScoreSet(int curScore)
+    {
+        PlayerPrefs.SetInt("CurScore", curScore); // 현재점수 저장
+
+        for (int i = 0; i < bestScore.Count; i++)
+        {
+            // 저장된 최고 점수 가져오기
+            bestScore[i] = PlayerPrefs.GetInt(i + keyName);
+
+            // 현재 점수가 랭킹에 오를 수 있다면
+            while (bestScore[i] < curScore)
+            {
+                // 자리 바꾸기
+                tmpScore = bestScore[i];
+                bestScore[i] = curScore;
+
+                // 현재 점수 랭킹에 저장
+                PlayerPrefs.SetInt(i + keyName, curScore);
+
+                // 다음 점수를 확인을 반복하기 위한 점수 변경
+                curScore = tmpScore;
+            }
+        }
+
+        // 랭킹에 맞게 점수 저장
+        for (int i = 0; i < bestScore.Count; i++)
+        {
+            PlayerPrefs.SetInt(i + keyName, bestScore[i]);
+        }
+    }
+
+    public void ShowScore()
+    {
+        for (int i = 0; i < bestScore.Count; i++)
+        {
+            Instantiate(rankInfo, rankScrollview.content);
+            rankInfo.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = i + 1 + " 등";
+            rankInfo.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = bestScore[i].ToString();
+        }
+
+    }
+
+
+
 }

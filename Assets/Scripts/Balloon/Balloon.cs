@@ -18,7 +18,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
     /// </summary>
     protected Camera cam;
     
-    float speed = 5;
+    protected float speed = 5;
     int movedir = 0;
     public virtual void Interact()
     {
@@ -34,6 +34,10 @@ public class Balloon : MonoBehaviour, Object_Interactable
         transform.Translate(0, 1f * Time.deltaTime * speed, 0); // 일정하게 올라가게 설정
     }
 
+    protected virtual void UpdateSpeed(float value)
+    {
+        speed = value;
+    }
     protected virtual void Floating()
     {
         StartCoroutine(nameof(CO_Floating));

@@ -11,12 +11,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] TextMeshProUGUI timer; // 남은 시간을 나타내는 타이머
     [SerializeField] Image readyImage; // 준비 시간을 나타내는 이미지
     [Header("스포너")]
-    [SerializeField] GameObject balloonSpawner; // 풍선 생성기
+    [SerializeField] GameObject balloonSpawner; // 협동모드 풍선 생성기
+    [SerializeField] GameObject personalSpawner; // 개인모드 풍선 생성기
     [SerializeField] GameObject feverSpawner; // 피버타임 생성기
-    [SerializeField] GameObject rabbitSpawner; // 토끼 생성기
     [SerializeField] GameObject witheredPrefab; // 시든 꽃 프리팹
     int region2Count; // 2구역 풍선 갯수
-    
 
     public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
@@ -28,10 +27,11 @@ public class GameManager : Singleton<GameManager>
     public bool isFeverTime; // 피버타임을 나타내는 bool 값
     Coroutine withered; // 꽃이 시들게 만드는 코루틴 변수
 
+    
     private void OnEnable()
     {
         StartCoroutine(nameof(CO_ReadyOff));
-        //StartCoroutine(CO_ReadyOff());
+        
     }
     
     private void Update()
@@ -55,7 +55,6 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("게임 끝!");
         isGameover = true;
         balloonSpawner.SetActive(false);
-        rabbitSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
     }
 
@@ -69,10 +68,17 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(3.5f);
         Debug.Log("3초 끝");
         readyImage.gameObject.SetActive(false);
-        balloonSpawner.SetActive(true);
-        rabbitSpawner.SetActive(true);
         timer.gameObject.SetActive(true);
 
+        switch(GameDatas.Inst.mode)
+        {
+            case Mode.PERSONAL:
+                personalSpawner.SetActive(true);
+                break;
+            case Mode.COLLABORATION:
+                balloonSpawner.SetActive(true);
+                break;
+        }
     }
 
     /// <summary>
