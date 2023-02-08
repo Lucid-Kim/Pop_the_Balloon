@@ -16,6 +16,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] Sprite wrySun; // 찡그린 해의 얼굴(2단계)
     [SerializeField] Sprite crySun; // 우는 해의 얼굴(3단계)
     [SerializeField] TextMeshProUGUI ingameScore; // 인게임 안에서 점수를 나타내는 텍스트
+    [SerializeField] TextMeshProUGUI addedScore;  // 풍선을 터치했을 때 나오는 텍스트
     
     [Header("게임오버")]
     [SerializeField] GameObject gameoverPanel; // 게임 종료시 나오는 판넬
@@ -161,6 +162,17 @@ public class UIManager : Singleton<UIManager>
         ingameScore.text = "점수 : " + GameManager.Inst.score;
     }
     /// <summary>
+    /// pos위치에 value 값의 텍스트 출력하는 함수
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="value"></param>
+    public void AddedScore(Vector3 pos, int value)
+    {
+        DictionaryPool.Inst.Instantiate(addedScore.gameObject, pos, Quaternion.identity, GameObject.Find("UI").transform);
+        addedScore.text = "+" + value;
+    }
+
+    /// <summary>
     /// 랭크를 나타내는 코루틴
     /// </summary>
     /// <returns></returns>
@@ -169,8 +181,8 @@ public class UIManager : Singleton<UIManager>
         Debug.Log("3초전");
         yield return new WaitForSeconds(3f);
         Debug.Log("3초후 랭크 나와");
-        SceneManager.LoadScene("RankScene");
-        //gameoverPanel.gameObject.SetActive(false);
+        gameoverPanel.gameObject.SetActive(false);
+
         //restartBtn.SetActive(true);
         //rankWindow.SetActive(true);
     }

@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("∞‘¿” ≥°!");
         isGameover = true;
         balloonSpawner.SetActive(false);
+        personalSpawner.SetActive(false);
         UIManager.Inst.GameoverOn();
     }
 

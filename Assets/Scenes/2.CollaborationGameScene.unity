@@ -175,6 +175,7 @@ MonoBehaviour:
   wrySun: {fileID: 21300000, guid: dec9f11c828f7744ebea75ed9fc04281, type: 3}
   crySun: {fileID: 21300000, guid: e188eead333fffd41b249fdf87e1e3ba, type: 3}
   ingameScore: {fileID: 2146434120}
+  addedScore: {fileID: 0}
   gameoverPanel: {fileID: 1233637512}
   gameoverScore: {fileID: 1689807153}
   restartBtn: {fileID: 1364620851}
@@ -2255,10 +2256,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloonFlower:
   - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
-  - {fileID: 9056243567346716219, guid: cfff8a6f63f9c114da028afa7a6503cf, type: 3}
-  - {fileID: 9056243567346716219, guid: 1ea050a477b9194499261eed6a074a7f, type: 3}
-  - {fileID: 9056243567346716219, guid: a822d544189d3434e838534790de24f6, type: 3}
-  - {fileID: 9056243567346716219, guid: cec2aa59f9ee1f64f83ac2401f4546d1, type: 3}
+  - {fileID: 9056243567346716219, guid: 09526b5c30b59db4489b2b7c0dfe5d94, type: 3}
+  - {fileID: 9056243567346716219, guid: a4ed8aa411977d24d8ebece70b207abb, type: 3}
+  - {fileID: 9056243567346716219, guid: 0907f864fb43a4e499d41c58c88182a8, type: 3}
+  - {fileID: 9056243567346716219, guid: 8ff71bbd5cb55294fa3487810a1f3c7f, type: 3}
 --- !u!4 &1409504359
 Transform:
   m_ObjectHideFlags: 0
@@ -3745,11 +3746,12 @@ MonoBehaviour:
   balloonSun1: {fileID: 9056243567346716219, guid: 22c5fae78338412469bf2885a1f3240b, type: 3}
   balloonFlower1:
   - {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
-  - {fileID: 9056243567346716219, guid: 47b2e7b696b1e794480dada9e1715887, type: 3}
-  - {fileID: 9056243567346716219, guid: 9e8202c3c42a8374db7fbe0cc748fd60, type: 3}
-  - {fileID: 9056243567346716219, guid: d4c61f9bb35ed854a836a770a86e06cc, type: 3}
-  - {fileID: 9056243567346716219, guid: 6598d30c1a90b054aa61d2a5f6529107, type: 3}
+  - {fileID: 9056243567346716219, guid: 5df57eec561e74a478ce7d4b1ae9ecc1, type: 3}
+  - {fileID: 9056243567346716219, guid: d8492fd15db5a1f40b210ab776a81df8, type: 3}
+  - {fileID: 9056243567346716219, guid: f8022c338d1fdc547a3df8530046ede1, type: 3}
+  - {fileID: 9056243567346716219, guid: d9bcd34750d63b44da734d5b9e400df9, type: 3}
   butterfly: {fileID: 8590694031426323043, guid: ba0695a19e49e7b4b893b6103ebfc2a4, type: 3}
+  spawnCycle: 2
 --- !u!4 &2108578270
 Transform:
   m_ObjectHideFlags: 0

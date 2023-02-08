@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9056243567346716228}
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 9056243567346716218}
-  - component: {fileID: 1461798452755360031}
+  - component: {fileID: 889469553956195578}
   m_Layer: 3
   m_Name: BalloonFlower1-C
   m_TagString: Untagged
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 2.94}
   serializedVersion: 2
   m_Radius: 2.72
---- !u!114 &1461798452755360031
+--- !u!114 &889469553956195578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,13 +111,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 9056243567346716219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f71f8bc08f5ac847bc7e9c91b103ed5, type: 3}
+  m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
   - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
-  - {fileID: 9056243567346716219, guid: cfff8a6f63f9c114da028afa7a6503cf, type: 3}
-  - {fileID: 9056243567346716219, guid: 1ea050a477b9194499261eed6a074a7f, type: 3}
-  - {fileID: 9056243567346716219, guid: a822d544189d3434e838534790de24f6, type: 3}
-  - {fileID: 9056243567346716219, guid: cec2aa59f9ee1f64f83ac2401f4546d1, type: 3}
+  - {fileID: 9056243567346716219, guid: 09526b5c30b59db4489b2b7c0dfe5d94, type: 3}
+  - {fileID: 9056243567346716219, guid: a4ed8aa411977d24d8ebece70b207abb, type: 3}
+  - {fileID: 9056243567346716219, guid: 0907f864fb43a4e499d41c58c88182a8, type: 3}
+  - {fileID: 9056243567346716219, guid: 8ff71bbd5cb55294fa3487810a1f3c7f, type: 3}
+  speed: 5
+  collaborationIdx: 1
+  isFlowered: 1
+  objPosition: {x: 0, y: 0, z: 0}
+  objRotation: {x: 0, y: 0, z: 0}
+  isScored: 0
+  addedScore: 0

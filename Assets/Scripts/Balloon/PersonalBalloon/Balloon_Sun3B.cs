@@ -14,7 +14,7 @@ public class Balloon_Sun3B : Balloon
     private void OnEnable()
     {
         Floating();
-        UpdateSpeed(6f);
+        
     }
 
     protected override void Update()
@@ -24,7 +24,7 @@ public class Balloon_Sun3B : Balloon
     public override void Interact()
     {
         base.Interact();
-        GameManager.Inst.Region2AddCount(-1);
+        
         // 게임매니저에서 관리하는 점수 올리기
         GameManager.Inst.score += addedScore;
         // 해 빛 효과 생성

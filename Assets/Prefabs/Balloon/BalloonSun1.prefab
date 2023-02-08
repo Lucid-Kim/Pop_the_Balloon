@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9056243567346716228}
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 9056243567346716218}
-  - component: {fileID: 719383683879559812}
+  - component: {fileID: -4025395272614841569}
   m_Layer: 3
   m_Name: BalloonSun1
   m_TagString: Untagged
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 2.8}
   serializedVersion: 2
   m_Radius: 4.2
---- !u!114 &719383683879559812
+--- !u!114 &-4025395272614841569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,9 +111,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9056243567346716219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7addce9eaa10e4ba50da007df43d22, type: 3}
+  m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 8750190999484902906, guid: 79519f75af9d31047883605e252696b1, type: 3}
   - {fileID: 9056243567346716219, guid: 1dadffef6e9955a46a32333dabbc9313, type: 3}
+  speed: 5
+  collaborationIdx: 1
+  isFlowered: 0
+  objPosition: {x: 0, y: 0, z: 0}
+  objRotation: {x: 0, y: 0, z: 0}
+  isScored: 0
+  addedScore: 0

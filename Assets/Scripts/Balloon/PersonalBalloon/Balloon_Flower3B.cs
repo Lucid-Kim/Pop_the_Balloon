@@ -7,14 +7,10 @@ public class Balloon_Flower3B : Balloon
     TextMeshProUGUI scoreText;
     int addedScore = 15;
     
-    private void Awake()
-    {
-        scoreText = obj[2].GetComponent<TextMeshProUGUI>();
-    }
     private void OnEnable()
     {
         Floating();
-        UpdateSpeed(6f);
+        
     }
 
     protected override void Update()
@@ -31,8 +27,10 @@ public class Balloon_Flower3B : Balloon
         DictionaryPool.Inst.Instantiate(obj[1], new Vector3(ranPosX, -4, 0), Quaternion.identity, DictionaryPool.Inst.transform);
 
         // 점수 올라가는 텍스트 생성
-        DictionaryPool.Inst.Instantiate(obj[2], cam.WorldToScreenPoint(transform.position + new Vector3(0, 1, 0)), Quaternion.identity, GameObject.Find("UI").transform);
+        GameObject temp = DictionaryPool.Inst.Instantiate(obj[2], cam.WorldToScreenPoint(transform.position + new Vector3(0, 1, 0)), Quaternion.identity, GameObject.Find("UI").transform);
+        scoreText = temp.GetComponent<TextMeshProUGUI>();
         scoreText.text = "+" + addedScore;
+        //UIManager.Inst.AddedScore(cam.WorldToScreenPoint(transform.position + new Vector3(0, 1, 0)), addedScore);
 
         // UI 텍스트 점수 변경
         UIManager.Inst.UpdateScore();

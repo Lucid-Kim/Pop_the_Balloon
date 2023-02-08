@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9056243567346716228}
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 768008482214215773}
-  - component: {fileID: 840251680528868652}
+  - component: {fileID: 6830772501831902855}
   m_Layer: 3
   m_Name: BalloonFlower2-E
   m_TagString: Untagged
@@ -102,7 +102,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 3.91}
   m_Size: {x: 4.33, y: 7.09}
   m_Direction: 0
---- !u!114 &840251680528868652
+--- !u!114 &6830772501831902855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,10 +111,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 9056243567346716219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85cae68599f25074794ee222098ee22f, type: 3}
+  m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
   - {fileID: 9022848577138492016, guid: a94e4ebf30c8b6641b55932cb8aee1e5, type: 3}
   - {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
+  speed: 5
+  collaborationIdx: 2
+  isFlowered: 1
+  objPosition: {x: 0, y: 0, z: 0}
+  objRotation: {x: 0, y: 0, z: 0}
+  isScored: 1
+  addedScore: 10

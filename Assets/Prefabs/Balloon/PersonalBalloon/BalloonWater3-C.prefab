@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9056243567346716228}
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 9056243567346716218}
-  - component: {fileID: 6639151223357168833}
+  - component: {fileID: 7409825044412736290}
   m_Layer: 3
   m_Name: BalloonWater3-C
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9056243567346716219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.177778, y: 0.177778, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 3.77}
   serializedVersion: 2
   m_Radius: 3.44
---- !u!114 &6639151223357168833
+--- !u!114 &7409825044412736290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,10 +111,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 9056243567346716219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e0e652cdf637b4e8410b0e812d5f87, type: 3}
+  m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 1750631925974100096, guid: 89fa028b4d196984a8beec802f02fcb6, type: 3}
   - {fileID: 5043797341632271700, guid: 2ab1608793e9c8346aac8bcdb8f39f2b, type: 3}
   - {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
+  speed: 7
+  collaborationIdx: 0
+  isFlowered: 0
+  objPosition: {x: 9, y: -4, z: 0}
+  objRotation: {x: 0, y: 0, z: 0}
+  isScored: 1
+  addedScore: 20

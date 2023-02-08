@@ -175,6 +175,7 @@ MonoBehaviour:
   wrySun: {fileID: 21300000, guid: dec9f11c828f7744ebea75ed9fc04281, type: 3}
   crySun: {fileID: 21300000, guid: e188eead333fffd41b249fdf87e1e3ba, type: 3}
   ingameScore: {fileID: 2146434120}
+  addedScore: {fileID: 3040289702735653534, guid: dfed79753adfe674cb9094044f552a26, type: 3}
   gameoverPanel: {fileID: 1233637512}
   gameoverScore: {fileID: 1689807153}
   restartBtn: {fileID: 1364620851}
@@ -1592,14 +1593,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonFlowerA: {fileID: 9056243567346716219, guid: 75e84bafd4b3f594099eef132e2613b1, type: 3}
-  balloonFlowerB: {fileID: 9056243567346716219, guid: 752344b28d3355a4db3aaef381dd5240, type: 3}
-  balloonFlowerC: {fileID: 9056243567346716219, guid: 4093e293e2c23b140a68561886f2a257, type: 3}
-  balloonWaterA: {fileID: 9056243567346716219, guid: 883291f94c7d35d42a34f0b243b75869, type: 3}
-  balloonWaterB: {fileID: 9056243567346716219, guid: 067aaf303812d2e48a3ab3db5e14e9a2, type: 3}
-  balloonWaterC: {fileID: 9056243567346716219, guid: 5d45e2873e2bc884ba2cc3c563480911, type: 3}
-  balloonSunA: {fileID: 9056243567346716219, guid: ec346c47c51603948bf55673fd8c9d75, type: 3}
-  balloonSunB: {fileID: 9056243567346716219, guid: 33535c818bd41da4da18610641c4c5f5, type: 3}
-  balloonSunC: {fileID: 9056243567346716219, guid: 82ee66fbdc317a14f81cf4e1c394f556, type: 3}
+  balloonFlowerB: {fileID: 9056243567346716219, guid: f746445efe8039b41a0204cc637579a3, type: 3}
+  balloonFlowerC: {fileID: 9056243567346716219, guid: dcccd3e656afe22428d640f335116df8, type: 3}
+  period2BalloonLayer1:
+  - {fileID: 9056243567346716219, guid: 75e84bafd4b3f594099eef132e2613b1, type: 3}
+  - {fileID: 9056243567346716219, guid: ec346c47c51603948bf55673fd8c9d75, type: 3}
+  period2BalloonLayer2:
+  - {fileID: 9056243567346716219, guid: f746445efe8039b41a0204cc637579a3, type: 3}
+  - {fileID: 9056243567346716219, guid: 7236d3ce9e35be94dbc921c33f15cff8, type: 3}
+  period2BalloonLayer3:
+  - {fileID: 9056243567346716219, guid: dcccd3e656afe22428d640f335116df8, type: 3}
+  - {fileID: 9056243567346716219, guid: c038ffed478008846bd65f1a6b35bc3e, type: 3}
+  period3BalloonLayer1:
+  - {fileID: 9056243567346716219, guid: 75e84bafd4b3f594099eef132e2613b1, type: 3}
+  - {fileID: 9056243567346716219, guid: ec346c47c51603948bf55673fd8c9d75, type: 3}
+  - {fileID: 9056243567346716219, guid: 883291f94c7d35d42a34f0b243b75869, type: 3}
+  period3BalloonLayer2:
+  - {fileID: 9056243567346716219, guid: f746445efe8039b41a0204cc637579a3, type: 3}
+  - {fileID: 9056243567346716219, guid: 7236d3ce9e35be94dbc921c33f15cff8, type: 3}
+  - {fileID: 9056243567346716219, guid: fbfc5e1dad0c03a40851ba0803a4f86f, type: 3}
+  period3BalloonLayer3:
+  - {fileID: 9056243567346716219, guid: dcccd3e656afe22428d640f335116df8, type: 3}
+  - {fileID: 9056243567346716219, guid: c038ffed478008846bd65f1a6b35bc3e, type: 3}
+  - {fileID: 9056243567346716219, guid: 9f534f0336062d14c9504b1f953446e7, type: 3}
+  spawnCycle1: 1.5
+  spawnCycle2: 2.5
+  spawnCycle3: 3.5
+  balloonBombA: {fileID: 9056243567346716219, guid: 210fe54ebacd75445a8450a40c186a50, type: 3}
+  balloonBombB: {fileID: 9056243567346716219, guid: a8ac67089a751f14590161617ff6ac3a, type: 3}
+  balloonBombC: {fileID: 9056243567346716219, guid: 60886c9f04d6eb1409f6bef9698cf610, type: 3}
+  bombCycle1: 5
+  bombCycle2: 6
+  bombCycle3: 7
 --- !u!1 &1061598943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,11 +3589,12 @@ MonoBehaviour:
   balloonSun1: {fileID: 9056243567346716219, guid: 22c5fae78338412469bf2885a1f3240b, type: 3}
   balloonFlower1:
   - {fileID: 9056243567346716219, guid: 74b87f0b3fab1414e88aa50b2309f0b6, type: 3}
-  - {fileID: 9056243567346716219, guid: 47b2e7b696b1e794480dada9e1715887, type: 3}
-  - {fileID: 9056243567346716219, guid: 9e8202c3c42a8374db7fbe0cc748fd60, type: 3}
-  - {fileID: 9056243567346716219, guid: d4c61f9bb35ed854a836a770a86e06cc, type: 3}
-  - {fileID: 9056243567346716219, guid: 6598d30c1a90b054aa61d2a5f6529107, type: 3}
+  - {fileID: 9056243567346716219, guid: 5df57eec561e74a478ce7d4b1ae9ecc1, type: 3}
+  - {fileID: 9056243567346716219, guid: d8492fd15db5a1f40b210ab776a81df8, type: 3}
+  - {fileID: 9056243567346716219, guid: f8022c338d1fdc547a3df8530046ede1, type: 3}
+  - {fileID: 9056243567346716219, guid: d9bcd34750d63b44da734d5b9e400df9, type: 3}
   butterfly: {fileID: 9056243567346716219, guid: 77da02f55ca324c449bcc093ca8d8420, type: 3}
+  spawnCycle: 2
 --- !u!4 &2108578270
 Transform:
   m_ObjectHideFlags: 0

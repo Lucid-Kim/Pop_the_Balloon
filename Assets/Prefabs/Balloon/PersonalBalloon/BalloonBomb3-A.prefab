@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9056243567346716228}
   - component: {fileID: 9056243567346716229}
   - component: {fileID: 9056243567346716218}
-  - component: {fileID: 724721766163749747}
+  - component: {fileID: 7409825044412736290}
   m_Layer: 3
-  m_Name: BalloonWater2
+  m_Name: BalloonBomb3-A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2025947675
   m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1cfdf8cde72af904ca0c947c044667a0, type: 3}
-  m_Color: {r: 0.77853173, g: 0.40899786, b: 0.9528302, a: 1}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 6a8ebb99f6d4de746bd4cb9ce492f80e, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 3.77}
   serializedVersion: 2
   m_Radius: 3.44
---- !u!114 &724721766163749747
+--- !u!114 &7409825044412736290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 1750631925974100096, guid: 89fa028b4d196984a8beec802f02fcb6, type: 3}
-  - {fileID: 5043797341632271700, guid: 2ab1608793e9c8346aac8bcdb8f39f2b, type: 3}
+  - {fileID: 8472361327207693304, guid: 829d214bc53a0f54da3f6cd88dd73af3, type: 3}
+  - {fileID: 6766550280034863832, guid: be0355ba5bf3f384a96102b235b2050c, type: 3}
   - {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
   speed: 5
-  collaborationIdx: 2
+  collaborationIdx: 0
   isFlowered: 0
-  objPosition: {x: 9, y: -4, z: 0}
+  objPosition: {x: 0, y: 0, z: 0}
   objRotation: {x: 0, y: 0, z: 0}
   isScored: 1
-  addedScore: 10
+  addedScore: -5
