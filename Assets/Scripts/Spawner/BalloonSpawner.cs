@@ -10,7 +10,7 @@ public class BalloonSpawner : MonoBehaviour
     [SerializeField] GameObject butterfly;         // 나비 오브젝트
     [Header("생성 주기(초)")]
     [SerializeField] float spawnCycle = 2f;        // 생성주기
-    float time;                                    // 지나가는 시간을 나타내는 변수  
+    float time;                                    // 지나가는 시간을 나타내는 변수
     float ranX = 0;                                // 1구역(왼쪽) 랜덤 x좌표
     float centerX = 1f;                            // 중앙선을 닿지 않게 선정한 x좌표
     float spawnPosY = -4;                          // 풍선의 생성되는 y좌표
@@ -43,6 +43,7 @@ public class BalloonSpawner : MonoBehaviour
             DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
             yield return new WaitForSeconds(spawnCycle);
         }
+
     }
     /// <summary>
     /// 2구간 풍선 스폰(협동모드)
@@ -89,7 +90,7 @@ public class BalloonSpawner : MonoBehaviour
     /// <returns></returns>
     IEnumerator CO_SpawnButterfly()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(30f);
         Instantiate(butterfly, new Vector3(-8, -2, 0), Quaternion.identity);
     }
 }

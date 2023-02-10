@@ -29,7 +29,7 @@ public class FeverSpawner : MonoBehaviour
         {
             ranX1 = Random.Range(centerX, 8);
             ranY = Random.Range(-1f, 3f);
-            ranNum1 = Random.Range(0, 5); // 오른쪽에 생성될 꽃의 종류
+            ranNum1 = Random.Range(0, balloonFlower.Length); // 오른쪽에 생성될 꽃의 종류
             
             DictionaryPool.Inst.Instantiate(balloonFlower[ranNum1], new Vector2(ranX1, ranY), Quaternion.identity, DictionaryPool.Inst.transform); // 오른쪽 구역 꽃풍선 생성
             

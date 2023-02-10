@@ -2099,10 +2099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloonFlower:
   - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
-  - {fileID: 9056243567346716219, guid: cfff8a6f63f9c114da028afa7a6503cf, type: 3}
-  - {fileID: 9056243567346716219, guid: 1ea050a477b9194499261eed6a074a7f, type: 3}
-  - {fileID: 9056243567346716219, guid: a822d544189d3434e838534790de24f6, type: 3}
-  - {fileID: 9056243567346716219, guid: cec2aa59f9ee1f64f83ac2401f4546d1, type: 3}
 --- !u!4 &1409504359
 Transform:
   m_ObjectHideFlags: 0

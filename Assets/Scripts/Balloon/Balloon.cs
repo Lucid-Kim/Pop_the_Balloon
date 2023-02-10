@@ -4,34 +4,35 @@ using UnityEngine;
 using TMPro;
 public class Balloon : MonoBehaviour, Object_Interactable
 {
+    
     [SerializeField] protected GameObject[] obj; // 풍선마다의 출력하는 이펙트나 추가되는 오브젝트
+    [SerializeField] GameObject balloonEffect;
+    [SerializeField] GameObject effect;
+    [SerializeField] GameObject scorePrefab;
     [SerializeField] float speed = 5; // 풍선이 뜨는 속도
     [SerializeField] int collaborationIdx; // 협동모드 구역을 나타내는 인덱스
 
     [SerializeField] bool isFlowered;     // 풍선이 꽃 풍선인지 확인하는 bool 값
-    [SerializeField] Vector3 objPosition; // 오브젝트의 위치 변경이 필요할 때 사용하는 변수
-    [SerializeField] Vector3 objRotation; // 오브젝트의 회전 변경이 필요할 때 사용하는 변수
+    [SerializeField] Vector3 objPosition; // 오브젝트의 위치 변경이 필요할 때 사용하는 변수 obj[1] 의 위치
+    [SerializeField] Vector3 objRotation; // 오브젝트의 회전 변경이 필요할 때 사용하는 변수 obj[1] 의 회전값
 
     [Header("점수 확인용")]
     [SerializeField] bool isScored; // 점수 표시되어야 하는지 확인하는 bool 값
     [SerializeField] int addedScore; // 추가되는 점수
     TextMeshProUGUI scoreText; // 
 
-
-    int balloonIdx;          // 1구역에 생성되는 풍선의 인덱스
-    protected float ranPosX; // 2구역에 생성하기위한 랜덤 X좌표
-    protected float ranPosY; // 2구역에 생성하기위한 랜덤 Y좌표
+    
     protected Camera cam;    // 2구역 풍선의 점수를 나타내는 텍스트를 스크린 포지션으로 가져오기 위한 메인 캠
-
     int movedir = 0;
+
     private void OnEnable()
     {
         Floating();
     }
     public virtual void Interact()
     {
-        ranPosX = Random.Range(1f, 8f);
-        ranPosY = Random.Range(-4.5f, 2f);
+        float ranPosX = Random.Range(1f, 8f);  // 2구역에 생성하기위한 랜덤 X좌표
+        float ranPosY = Random.Range(-4.5f, 2f); // 2구역에 생성하기위한 랜덤 Y좌표
         cam = Camera.main;
         DictionaryPool.Inst.Release(gameObject);
         // 풍선 터지는 오브젝트 생성
@@ -42,7 +43,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
         {
             if (isFlowered == true)
             {
-                balloonIdx = Random.Range(1, 6);
+                int balloonIdx = Random.Range(1, 6);
                 // 2구역에 꽃풍선 생성
                 DictionaryPool.Inst.Instantiate(obj[balloonIdx], new Vector2(ranPosX, ranPosY), Quaternion.identity, DictionaryPool.Inst.transform);
             }

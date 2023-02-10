@@ -65,9 +65,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     IEnumerator CO_ReadyOff()
     {
-        Debug.Log("게임 시작!");
         yield return new WaitForSeconds(3.5f);
-        Debug.Log("3초 끝");
         readyImage.gameObject.SetActive(false);
         timer.gameObject.SetActive(true);
 

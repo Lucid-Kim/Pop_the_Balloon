@@ -151,7 +151,7 @@ public class UIManager : Singleton<UIManager>
     public void GameoverScore()
     {
         ScoreSet(GameManager.Inst.score);
-        gameoverScore.text = "내 점수 : " + GameManager.Inst.score;
+        gameoverScore.text = $"내 점수 : {GameManager.Inst.score}";
     }
 
     /// <summary>
@@ -159,19 +159,9 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public void UpdateScore()
     {
-        ingameScore.text = "점수 : " + GameManager.Inst.score;
+        ingameScore.text = $"점수 : {GameManager.Inst.score}";
     }
-    /// <summary>
-    /// pos위치에 value 값의 텍스트 출력하는 함수
-    /// </summary>
-    /// <param name="pos"></param>
-    /// <param name="value"></param>
-    public void AddedScore(Vector3 pos, int value)
-    {
-        DictionaryPool.Inst.Instantiate(addedScore.gameObject, pos, Quaternion.identity, GameObject.Find("UI").transform);
-        addedScore.text = "+" + value;
-    }
-
+    
     /// <summary>
     /// 랭크를 나타내는 코루틴
     /// </summary>
@@ -187,7 +177,7 @@ public class UIManager : Singleton<UIManager>
         //rankWindow.SetActive(true);
     }
 
-    public void FeverTextActive(bool isOn)
+    public void FeverTextActive(bool isOn = true)
     {
         feverText.gameObject.SetActive(isOn);
     }
