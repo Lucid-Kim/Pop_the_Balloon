@@ -102,7 +102,6 @@ public class GameManager : Singleton<GameManager>
     public void FeverSpawnerOn()
     {
         isFeverTime = true;
-        balloonSpawner.SetActive(false);
         feverSpawner.SetActive(true);
         UIManager.Inst.FeverTextActive(true);
         StartCoroutine(nameof(CO_FeverSpawnerOff));
@@ -118,7 +117,6 @@ public class GameManager : Singleton<GameManager>
         UIManager.Inst.FeverTextActive(false);
         feverSpawner.SetActive(false);
         isFeverTime = false;
-        balloonSpawner.SetActive(true);
     }
 
     /// <summary>

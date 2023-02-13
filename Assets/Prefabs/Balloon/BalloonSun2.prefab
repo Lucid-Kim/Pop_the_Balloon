@@ -114,13 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj:
-  - {fileID: 8750190999484902906, guid: 79519f75af9d31047883605e252696b1, type: 3}
-  - {fileID: 197101590772094178, guid: bdd10fc80ef448846a604511cf6b9bb2, type: 3}
-  - {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
+  balloonEffect: {fileID: 8750190999484902906, guid: 79519f75af9d31047883605e252696b1, type: 3}
+  effect: {fileID: 197101590772094178, guid: bdd10fc80ef448846a604511cf6b9bb2, type: 3}
+  scorePrefab: {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
   speed: 5
   collaborationIdx: 2
-  isFlowered: 0
   objPosition: {x: -6, y: 11, z: 0}
   objRotation: {x: 68.9, y: 113, z: 90}
   isScored: 1

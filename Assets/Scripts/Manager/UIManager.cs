@@ -21,6 +21,7 @@ public class UIManager : Singleton<UIManager>
     [Header("게임오버")]
     [SerializeField] GameObject gameoverPanel; // 게임 종료시 나오는 판넬
     [SerializeField] TextMeshProUGUI gameoverScore; // 게임 종료시 점수를 나타내는 텍스트
+    [SerializeField] TextMeshProUGUI gameoverBestScore; // 게임 종료시 최고 점수를 나타내는 텍스트
     [SerializeField] GameObject restartBtn; // 재시작 버튼
     [SerializeField] GameObject rankWindow; // 랭크를 나타내는 창
     Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
@@ -31,8 +32,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject rankInfo; // 랭크를 나타내는 정보 프리팹
     [SerializeField] ScrollRect rankScrollview;
     string keyName = "BestScore";
-    List<int> bestScore = new List<int>(); // 최고점수
-    int tmpScore = 0; // 임시 점수
+    int bestScore = 0;
 
     [SerializeField] TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
 
@@ -115,7 +115,7 @@ public class UIManager : Singleton<UIManager>
     {
         gameoverPanel.gameObject.SetActive(true);
         GameoverScore();
-        rankWindowOn = StartCoroutine(nameof(CO_UpdateScoreRank));
+        
     }
 
     /// <summary>
@@ -151,7 +151,8 @@ public class UIManager : Singleton<UIManager>
     public void GameoverScore()
     {
         ScoreSet(GameManager.Inst.score);
-        gameoverScore.text = $"내 점수 : {GameManager.Inst.score}";
+        gameoverScore.text = $"이번 기록 : {GameManager.Inst.score}";
+        gameoverBestScore.text = $"최고 기록 : {bestScore}";
     }
 
     /// <summary>
@@ -183,51 +184,21 @@ public class UIManager : Singleton<UIManager>
     }
 
     /// <summary>
-    /// 현재 점수를 저장하는 함수
+    /// 현재 점수가 최고 점수보다 높으면 최고점수를 바꿔주는 함수
     /// </summary>
     /// <param name="curScore"></param>
     public void ScoreSet(int curScore)
     {
-        PlayerPrefs.SetInt("CurScore", curScore); // 현재점수 저장
+        bestScore = PlayerPrefs.GetInt("BestScore");
 
-        for (int i = 0; i < bestScore.Count; i++)
+        if (curScore > bestScore)
         {
-            // 저장된 최고 점수 가져오기
-            bestScore[i] = PlayerPrefs.GetInt(i + keyName);
-
-            // 현재 점수가 랭킹에 오를 수 있다면
-            while (bestScore[i] < curScore)
-            {
-                // 자리 바꾸기
-                tmpScore = bestScore[i];
-                bestScore[i] = curScore;
-
-                // 현재 점수 랭킹에 저장
-                PlayerPrefs.SetInt(i + keyName, curScore);
-
-                // 다음 점수를 확인을 반복하기 위한 점수 변경
-                curScore = tmpScore;
-            }
-        }
-
-        // 랭킹에 맞게 점수 저장
-        for (int i = 0; i < bestScore.Count; i++)
-        {
-            PlayerPrefs.SetInt(i + keyName, bestScore[i]);
+            bestScore = curScore;
+            PlayerPrefs.SetInt("BestScore", bestScore);
         }
     }
 
-    public void ShowScore()
-    {
-        for (int i = 0; i < bestScore.Count; i++)
-        {
-            Instantiate(rankInfo, rankScrollview.content);
-            rankInfo.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = i + 1 + " 등";
-            rankInfo.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = bestScore[i].ToString();
-        }
-
-    }
-
+    
 
 
 }

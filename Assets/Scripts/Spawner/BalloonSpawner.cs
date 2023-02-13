@@ -21,11 +21,13 @@ public class BalloonSpawner : MonoBehaviour
     Coroutine startCor_SpawnTime2;
     Coroutine startCor_SpawnTime3;
     Coroutine startCor_Spawnbutterfly;
+    WaitForSeconds spawnCycleSeconds;
     private void OnEnable()
     {
+        spawnCycleSeconds = new WaitForSeconds(spawnCycle);
         startCor_SpawnTime1 = StartCoroutine(nameof(CO_1TimePeriod));
-        startCor_SpawnTime2 = StartCoroutine(nameof(CO_2TimePeriod));
-        startCor_SpawnTime3 = StartCoroutine(nameof(CO_3TimePeriod));
+        //startCor_SpawnTime2 = StartCoroutine(nameof(CO_2TimePeriod));
+        //startCor_SpawnTime3 = StartCoroutine(nameof(CO_3TimePeriod));
         startCor_Spawnbutterfly = StartCoroutine(nameof(CO_SpawnButterfly));
     }
 
@@ -38,12 +40,54 @@ public class BalloonSpawner : MonoBehaviour
         while (time <= 20)
         {
             time += spawnCycle;
+            if (GameManager.Inst.isFeverTime == true)
+            {
+                yield return spawnCycleSeconds;
+                continue;
+            }
+            Debug.Log("ÇÇ¹ö ³¡³µ´Ù");
             ranX = Random.Range(-8.0f, -centerX);
             flowerIdx = Random.Range(0, 5);
             DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
-            yield return new WaitForSeconds(spawnCycle);
+            yield return spawnCycleSeconds;
         }
+        // 2±¸°£ Ç³¼± ½ºÆù(Çùµ¿ ¸ðµå)
+        while (time <= 40)
+        {
+            time += spawnCycle;
+            if (GameManager.Inst.isFeverTime == true)
+            {
+                yield return spawnCycleSeconds;
+                continue;
+            }
+            Debug.Log("ÇÇ¹ö ³¡³µ´Ù");
+            ranX = Random.Range(-8.0f, -centerX);
+            balloonIdx = Random.Range(1, 11);
+            flowerIdx = Random.Range(0, 5);
 
+            if (balloonIdx <= 7) DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+
+            yield return spawnCycleSeconds;
+        }
+        // 3±¸°£ Ç³¼± ½ºÆù(Çùµ¿ ¸ðµå)
+        while (time <= 60)
+        {
+            time += spawnCycle;
+            if (GameManager.Inst.isFeverTime == true)
+            {
+                yield return spawnCycleSeconds;
+                continue;
+            }
+            ranX = Random.Range(-8.0f, -centerX);
+            balloonIdx = Random.Range(1, 11);
+            flowerIdx = Random.Range(0, 5);
+            if (balloonIdx <= 2) DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else if (balloonIdx <= 6) DictionaryPool.Inst.Instantiate(balloonWater1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+            else DictionaryPool.Inst.Instantiate(balloonSun1, new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
+
+            yield return spawnCycleSeconds;
+        }
     }
     /// <summary>
     /// 2±¸°£ Ç³¼± ½ºÆù(Çùµ¿¸ðµå)
