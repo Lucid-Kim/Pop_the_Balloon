@@ -21,19 +21,30 @@ public class GameManager : Singleton<GameManager>
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     GameObject targetBlooming; // bloom 리스트에서 가장 먼저 추가된 피어있는 꽃(시든 꽃으로 변하기 위한 변수)
     GameObject targetWithered; // 꽃이 시들고 3초뒤에 사라지게 하기 위한 변수
-    
+
     public bool isGameover; // 게임 종료를 나타내는 bool 값
     bool isWithered; // 꽃이 시듬을 나타내는 bool 값
     public bool isFeverTime; // 피버타임을 나타내는 bool 값
     Coroutine withered; // 꽃이 시들게 만드는 코루틴 변수
 
-    
+
     private void OnEnable()
     {
         StartCoroutine(nameof(CO_ReadyOff));
-        
+
+        switch (GameDatas.Inst.mode)
+        {
+            case Mode.COLLABORATION:
+                SoundManager.Inst.PlayBGM("CollaborationBGM");
+                break;
+            case Mode.PERSONAL:
+                SoundManager.Inst.PlayBGM("PersonalBGM");
+                break;
+        }
+
+
     }
-    
+
     private void Update()
     {
         //if (isGameover == false)
@@ -69,7 +80,7 @@ public class GameManager : Singleton<GameManager>
         readyImage.gameObject.SetActive(false);
         timer.gameObject.SetActive(true);
 
-        switch(GameDatas.Inst.mode)
+        switch (GameDatas.Inst.mode)
         {
             case Mode.PERSONAL:
                 personalSpawner.SetActive(true);
@@ -86,7 +97,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     //IEnumerator CO_WitheredFlower()
     //{
-        
+
     //    //Debug.Log("3초 시작");
     //    targetBlooming.gameObject.SetActive(false); // 해당 꽃 오브젝트 제거
     //    targetWithered = DictionaryPool.Inst.Instantiate(witheredPrefab, targetBlooming.transform.position, Quaternion.identity, DictionaryPool.Inst.transform); // 그 위치에 시든 꽃 오브젝트 생성
@@ -157,10 +168,6 @@ public class GameManager : Singleton<GameManager>
         if (region2Count < 8) return true;
         else return false;
     }
-    public void Restart()
-    {
-        DictionaryPool.Inst.DestroyMySelp();
-        SceneManager.LoadScene("1.StartScene");
-    }
+
 
 }

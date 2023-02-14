@@ -30,11 +30,12 @@ public class Balloon : MonoBehaviour, Object_Interactable
     public virtual void Interact()
     {
         float ranPosX = Random.Range(centerPosX, maxPosX);  // 2구역에 생성하기위한 랜덤 X좌표
-        float ranPosY = Random.Range(-4.5f, 2f); // 2구역에 생성하기위한 랜덤 Y좌표
+        float ranPosY = Random.Range(-3f, 2f); // 2구역에 생성하기위한 랜덤 Y좌표
         cam = Camera.main;
         DictionaryPool.Inst.Release(gameObject);
         // 풍선 터지는 오브젝트 생성
         DictionaryPool.Inst.Instantiate(balloonEffect, gameObject.transform.position + new Vector3(0, 1, 0), Quaternion.identity, DictionaryPool.Inst.transform);
+        SoundManager.Inst.PlaySFX("BalloonPopSFX");
 
         // 협동모드이며 1구역 풍선이라면
         if (GameDatas.Inst.mode == Mode.COLLABORATION && collaborationIdx == 1 && GameManager.Inst.Region2Spawned() == true)
@@ -103,13 +104,18 @@ public class Balloon : MonoBehaviour, Object_Interactable
     protected virtual void ShowScoreText()
     {
         // 점수 올라가는 텍스트 생성
-        GameObject temp = DictionaryPool.Inst.Instantiate(scorePrefab, cam.WorldToScreenPoint(transform.position + new Vector3(0, 1, 0)), Quaternion.identity, GameObject.Find("UI").transform);
+        GameObject temp = DictionaryPool.Inst.Instantiate(scorePrefab, cam.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("UI").transform);
         scoreText = temp.GetComponent<TextMeshProUGUI>();
         if (addedScore >= 0)
         {
             scoreText.text = "+" + addedScore;
         }
-        else scoreText.text = addedScore.ToString();
+        else
+        {
+            scoreText.text = addedScore.ToString();
+            SoundManager.Inst.PlaySFX("BombSFX");
+        }
+
         // 게임매니저에서 관리하는 점수 올리기
         GameManager.Inst.score += addedScore;
         // UI 텍스트 점수 변경

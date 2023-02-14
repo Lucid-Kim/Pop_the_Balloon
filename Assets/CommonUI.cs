@@ -3,36 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
-
 
 public class CommonUI : MonoBehaviour
 {
-    public string startSceneName = "0.SelectModeScene";
+    public string startSceneName = "";
     public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
 
 
     public GameObject UIPanel;
-    public static bool isSFXOn => isSFXOn;
-    public static bool isBGMOn => isBGMOn;
 
-
-    bool SFXOn;
-    bool BGMOn;
+    bool SFXOn = true;
+    bool BGMOn = true;
 
     [SerializeField] Sprite[] TogleImages;
     [SerializeField] Image Image_BGM;
     [SerializeField] Image Image_SFX;
+
+
+    public static CommonUI Inst;
+
+    private void Awake()
+    {
+        if (Inst == null)
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            //이미 Inst가 존재하면, 생성하는 대신 Inst를 활성화시키는 방식.
+            Inst.gameObject.SetActive(true);
+            Destroy(gameObject);
+        }
+
+    }
     public void Btn_Setting()
     {
         UIPanel.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
     }
 
     public void Btn_Restart()
     {
-        DictionaryPool.Inst.DestroyMySelp();
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
+        UIPanel.SetActive(false);
+        SoundManager.Inst.StopBGM();
         SceneManager.LoadScene(startSceneName);
 
     }
@@ -40,7 +56,7 @@ public class CommonUI : MonoBehaviour
     public void Btn_Exit()
     {
 #if UNITY_ANDROID
-        if(!IsAppInstalled(MainPackageName))
+        if (!IsAppInstalled(MainPackageName))
         {
             Debug.Log("앱이 깔려있지 않습니다");
             return;
@@ -75,7 +91,7 @@ public class CommonUI : MonoBehaviour
         {
             launchIntent = packageManager.Call<AndroidJavaObject>("getLaunchIntentForPackage", bundleID);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             Debug.Log("exception" + ex.Message);
             //여기에서 앱이 설치 되지 않았을때의 예외처리.
@@ -91,19 +107,21 @@ public class CommonUI : MonoBehaviour
     }
     public void Btn_Help()
     {
-
+        Debug.Log("미?구현");
     }
     public void Btn_BGM()
     {
         if (BGMOn)
         {
+            SoundManager.Inst.setBGMVolume(0);
             BGMOn = false;
-            Image_BGM.sprite = TogleImages[0];
+            Image_BGM.sprite = TogleImages[1];
         }
         else
         {
+            SoundManager.Inst.setBGMVolume(1);
             BGMOn = true;
-            Image_BGM.sprite = TogleImages[1];
+            Image_BGM.sprite = TogleImages[0];
         }
     }
 
@@ -111,20 +129,21 @@ public class CommonUI : MonoBehaviour
     {
         if (SFXOn)
         {
+            SoundManager.Inst.setSFXVolume(0);
             SFXOn = false;
-            Image_SFX.sprite = TogleImages[0];
+            Image_SFX.sprite = TogleImages[1];
         }
         else
         {
+            SoundManager.Inst.setSFXVolume(1);
             SFXOn = true;
-            Image_SFX.sprite = TogleImages[1];
+            Image_SFX.sprite = TogleImages[0];
         }
     }
 
     public void Btn_Close()
     {
         UIPanel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
-
 }

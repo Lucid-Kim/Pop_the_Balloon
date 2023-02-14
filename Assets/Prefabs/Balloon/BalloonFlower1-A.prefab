@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9056243567346716219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -2025947675
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 96fe6e1fc29d6fc4a8a7d5b3d68a4019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ce92bcecc5417a4985eb9edce6e8b3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,9 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.94}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.72
+  m_Radius: 1.11
 --- !u!114 &-5268171762800419056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0ffab9762b4a140816e1c829f4ac3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonEffect: {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
+  balloonEffect: {fileID: 6027188574065865782, guid: fd493cd25a108404b8191587d43e3ae5, type: 3}
   effect: {fileID: 0}
   scorePrefab: {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
   speed: 5
@@ -124,8 +124,8 @@ MonoBehaviour:
   isScored: 0
   addedScore: 0
   flowerPrefab:
-  - {fileID: 9056243567346716219, guid: 9d2eab3b24ebd4143bb33629ddbd743b, type: 3}
-  - {fileID: 9056243567346716219, guid: 09526b5c30b59db4489b2b7c0dfe5d94, type: 3}
-  - {fileID: 9056243567346716219, guid: a4ed8aa411977d24d8ebece70b207abb, type: 3}
-  - {fileID: 9056243567346716219, guid: 0907f864fb43a4e499d41c58c88182a8, type: 3}
-  - {fileID: 9056243567346716219, guid: 8ff71bbd5cb55294fa3487810a1f3c7f, type: 3}
+  - {fileID: 5279671239682065530, guid: 3bbb925d5e727aa4cb147b54c726d26d, type: 3}
+  - {fileID: 1136857754328483212, guid: 0bcc7e485c28889408628bbd145e593b, type: 3}
+  - {fileID: 3801379885835028609, guid: 207ec8d51373f7c4da31ca0a2c123fd8, type: 3}
+  - {fileID: 6708316420597086921, guid: 18b0d9acfd297604dbbe13a2f20fa4a9, type: 3}
+  - {fileID: 2884654798790481096, guid: 8bc70aa8561cad348a89ab21d41e31bc, type: 3}

@@ -10,20 +10,18 @@ public class ButtonManager : MonoBehaviour
     string collaborationScene = "2.CollaborationGameScene"; // 협동 모드 씬 이름 설정
     private void Start()
     {
-        //SoundManager.Inst.PlayBGM("StartSceneBGM");
-
+        SoundManager.Inst.PlayBGM("SelectModeBGM");
     }
     // 쉬움 버튼 클릭했을 때 씬 전환
     public void Click_Easy()
     {
-        Debug.Log("Easy");
+        SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.EASY;
         SceneManager.LoadScene(personalScene);
     }
     // 보통 버튼 클릭했을 때 씬 전환
     public void Click_Normal()
     {
-        Debug.Log("Normal");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.NORMAL;
         SceneManager.LoadScene(personalScene);
@@ -31,8 +29,6 @@ public class ButtonManager : MonoBehaviour
     // 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Hard()
     {
-
-        Debug.Log("Hard");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.HARD;
         SceneManager.LoadScene(personalScene);
@@ -40,7 +36,6 @@ public class ButtonManager : MonoBehaviour
     // 매우 어려움 버튼 클릭했을 때 씬 전환
     public void Click_Master()
     {
-        Debug.Log("Master");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
         SceneManager.LoadScene(personalScene);
@@ -48,12 +43,14 @@ public class ButtonManager : MonoBehaviour
 
     public void Click_Personal()
     {
+        SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.mode = Mode.PERSONAL;
         SceneManager.LoadScene(selectLevelScene);
     }
 
     public void Click_Battle()
     {
+        SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.mode = Mode.BATTLE;
         SceneManager.LoadScene("2.GameScene");
     }

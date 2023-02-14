@@ -28,7 +28,7 @@ public class FeverSpawner : MonoBehaviour
         while(true)
         {
             ranX1 = Random.Range(centerX, 8);
-            ranY = Random.Range(-1f, 3f);
+            ranY = Random.Range(-3f, 2f);
             ranNum1 = Random.Range(0, balloonFlower.Length); // 坷弗率俊 积己瞪 采狼 辆幅
             
             DictionaryPool.Inst.Instantiate(balloonFlower[ranNum1], new Vector2(ranX1, ranY), Quaternion.identity, DictionaryPool.Inst.transform); // 坷弗率 备开 采浅急 积己

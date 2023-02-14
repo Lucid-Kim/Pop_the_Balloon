@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
+    [SerializeField] float delayTime;
+    private void OnEnable()
+    {
+        Destroy(gameObject, delayTime);
+    }
+
     /// <summary>
     /// delayTime 이후에 이펙트가 사라지는 함수
     /// </summary>

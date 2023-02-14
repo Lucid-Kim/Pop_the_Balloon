@@ -45,7 +45,7 @@ public class BalloonSpawner : MonoBehaviour
                 yield return spawnCycleSeconds;
                 continue;
             }
-            Debug.Log("乔滚 场车促");
+            
             ranX = Random.Range(-8.0f, -centerX);
             flowerIdx = Random.Range(0, 5);
             DictionaryPool.Inst.Instantiate(balloonFlower1[flowerIdx], new Vector2(ranX, spawnPosY), Quaternion.identity, DictionaryPool.Inst.transform);
@@ -60,7 +60,7 @@ public class BalloonSpawner : MonoBehaviour
                 yield return spawnCycleSeconds;
                 continue;
             }
-            Debug.Log("乔滚 场车促");
+            
             ranX = Random.Range(-8.0f, -centerX);
             balloonIdx = Random.Range(1, 11);
             flowerIdx = Random.Range(0, 5);

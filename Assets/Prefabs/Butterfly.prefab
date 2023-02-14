@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5241776409918284997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,12 +98,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.7}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.94
+  m_Radius: 3.0749998
 --- !u!114 &8808992733550760029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   period: 5
+  butterflyEffect: {fileID: 6239487914319739730, guid: a25eee8c37f35c747a086e6e4d123391, type: 3}
 --- !u!95 &8742218158147878064
 Animator:
   serializedVersion: 4
@@ -169,3 +171,65 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &2828521485048939897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8590694031426322972}
+    m_Modifications:
+    - target: {fileID: 8064393224920050526, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_Name
+      value: FX_ButterflyFollower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+--- !u!4 &5241776409918284997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8070004760189903292, guid: cc7e2ab3a4105824c906995f4ca12280, type: 3}
+  m_PrefabInstance: {fileID: 2828521485048939897}
+  m_PrefabAsset: {fileID: 0}

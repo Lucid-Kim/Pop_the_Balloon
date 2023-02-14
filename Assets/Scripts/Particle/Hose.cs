@@ -6,6 +6,7 @@ public class Hose : Particle
 {
     private void OnEnable()
     {
+        SoundManager.Inst.PlaySFX("WaterSFX");
         base.DelayRelease(2f);
     }
 

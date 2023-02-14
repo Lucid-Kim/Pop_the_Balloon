@@ -150,9 +150,12 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public void GameoverScore()
     {
-        ScoreSet(GameManager.Inst.score);
+        if (GameDatas.Inst.mode == Mode.COLLABORATION)
+        {
+            ScoreSet(GameManager.Inst.score);
+            gameoverBestScore.text = $"최고 기록 : {bestScore}";
+        }
         gameoverScore.text = $"이번 기록 : {GameManager.Inst.score}";
-        gameoverBestScore.text = $"최고 기록 : {bestScore}";
     }
 
     /// <summary>

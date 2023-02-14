@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9056243567346716219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: -2025947675
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 4bf41b3b079a3e04181d2836e0a6ee77, type: 3}
-  m_Color: {r: 1, g: 0.495283, b: 0.495283, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c370c654fb1347c44bf98d1fa44b1d75, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,12 +96,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.8}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.2
+  m_Radius: 1.84
 --- !u!114 &-8696110819754928230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991e15890a66801479c7225290cfec78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonEffect: {fileID: 8750190999484902906, guid: 79519f75af9d31047883605e252696b1, type: 3}
+  balloonEffect: {fileID: 7123775120141262733, guid: cea4135b3c05e3f489ef66f658801365, type: 3}
   effect: {fileID: 197101590772094178, guid: bdd10fc80ef448846a604511cf6b9bb2, type: 3}
   scorePrefab: {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
   speed: 5
