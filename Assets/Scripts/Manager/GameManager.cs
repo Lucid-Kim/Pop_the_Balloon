@@ -9,14 +9,14 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("게임시작")]
     [SerializeField] TextMeshProUGUI timer; // 남은 시간을 나타내는 타이머
-    [SerializeField] Image readyImage; // 준비 시간을 나타내는 이미지
+    [SerializeField] Animator readyAni; // 준비시간을 나타내는 애니메이션
     [Header("스포너")]
     [SerializeField] GameObject balloonSpawner; // 협동모드 풍선 생성기
     [SerializeField] GameObject personalSpawner; // 개인모드 풍선 생성기
     [SerializeField] GameObject feverSpawner; // 피버타임 생성기
     [SerializeField] GameObject witheredPrefab; // 시든 꽃 프리팹
     int region2Count; // 2구역 풍선 갯수
-
+    
     public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     GameObject targetBlooming; // bloom 리스트에서 가장 먼저 추가된 피어있는 꽃(시든 꽃으로 변하기 위한 변수)
@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnEnable()
     {
+        readyAni.SetTrigger("Start");
         StartCoroutine(nameof(CO_ReadyOff));
 
         switch (GameDatas.Inst.mode)
@@ -76,8 +77,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     IEnumerator CO_ReadyOff()
     {
-        yield return new WaitForSeconds(3.5f);
-        readyImage.gameObject.SetActive(false);
+        yield return new WaitForSeconds(4f);
         timer.gameObject.SetActive(true);
 
         switch (GameDatas.Inst.mode)

@@ -42,27 +42,49 @@ public class PersonalSpawner : MonoBehaviour
 
     private void Start()
     {
+        switch(GameDatas.Inst.difficulty)
+        {
+            case DIFFICULTY.NORMAL:
+                Spawn3LayerBalloon();
+
+                StartCoroutine(CO_BombSpawn(balloonBombC, timeBomb3, bombCycle3)); // 3레이어 폭탄 생성코루틴
+                break;
+            case DIFFICULTY.HARD:
+                Spawn3LayerBalloon();
+
+                StartCoroutine(CO_BombSpawn(balloonBombB, timeBomb2, bombCycle2)); // 2레이어 폭탄 생성코루틴
+                StartCoroutine(CO_BombSpawn(balloonBombC, timeBomb3, bombCycle3)); // 3레이어 폭탄 생성코루틴
+                break;
+            case DIFFICULTY.MASTER:
+                Spawn3LayerBalloon();
+
+                StartCoroutine(CO_BombSpawn(balloonBombA, timeBomb1, bombCycle1)); // 1레이어 폭탄 생성코루틴
+                StartCoroutine(CO_BombSpawn(balloonBombB, timeBomb2, bombCycle2)); // 2레이어 폭탄 생성코루틴
+                StartCoroutine(CO_BombSpawn(balloonBombC, timeBomb3, bombCycle3)); // 3레이어 폭탄 생성코루틴
+                break;
+        }
         // 1구간 스폰 코루틴
         StartCoroutine(CO_1TimePeriod(balloonFlowerA, time1, spawnCycle1)); // 1레이어 풍선 생성코루틴
         StartCoroutine(CO_1TimePeriod(balloonFlowerB, time2, spawnCycle2)); // 2레이어 풍선 생성코루틴
-        StartCoroutine(CO_1TimePeriod(balloonFlowerC, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
+        
 
         // 2구간 스폰 코루틴
         StartCoroutine(CO_2TimePeriod(period2BalloonLayer1, time1, spawnCycle1)); // 1레이어 풍선 생성코루틴
         StartCoroutine(CO_2TimePeriod(period2BalloonLayer2, time2, spawnCycle2)); // 2레이어 풍선 생성코루틴
-        StartCoroutine(CO_2TimePeriod(period2BalloonLayer3, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
+        
 
         // 3구간 스폰 코루틴
         StartCoroutine(CO_3TimePeriod(period3BalloonLayer1, time1, spawnCycle1)); // 1레이어 풍선 생성코루틴
         StartCoroutine(CO_3TimePeriod(period3BalloonLayer2, time2, spawnCycle2)); // 2레이어 풍선 생성코루틴
-        StartCoroutine(CO_3TimePeriod(period3BalloonLayer3, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
-
-        // 폭탄 스폰 코루틴
-        StartCoroutine(CO_BombSpawn(balloonBombA, timeBomb1, bombCycle1)); // 1레이어 폭탄 생성코루틴
-        StartCoroutine(CO_BombSpawn(balloonBombB, timeBomb2, bombCycle2)); // 2레이어 폭탄 생성코루틴
-        StartCoroutine(CO_BombSpawn(balloonBombC, timeBomb3, bombCycle3)); // 3레이어 폭탄 생성코루틴
+        
     }
 
+    void Spawn3LayerBalloon()
+    {
+        StartCoroutine(CO_1TimePeriod(balloonFlowerC, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
+        StartCoroutine(CO_2TimePeriod(period2BalloonLayer3, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
+        StartCoroutine(CO_3TimePeriod(period3BalloonLayer3, time3, spawnCycle3)); // 3레이어 풍선 생성코루틴
+    }
 
     /// <summary>
     /// 1구간 풍선 스폰 코루틴

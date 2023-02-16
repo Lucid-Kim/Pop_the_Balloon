@@ -10,8 +10,8 @@ public class Balloon : MonoBehaviour, Object_Interactable
     [SerializeField] float speed = 5; // 풍선이 뜨는 속도
     [SerializeField] protected int collaborationIdx; // 협동모드 구역을 나타내는 인덱스
 
-    [SerializeField] Vector3 objPosition; // 오브젝트의 위치 변경이 필요할 때 사용하는 변수 obj[1] 의 위치
-    [SerializeField] Vector3 objRotation; // 오브젝트의 회전 변경이 필요할 때 사용하는 변수 obj[1] 의 회전값
+    [SerializeField] Vector3 objPosition; // 오브젝트의 위치 변경이 필요할 때 사용하는 변수 effect 의 위치
+    [SerializeField] Vector3 objRotation; // 오브젝트의 회전 변경이 필요할 때 사용하는 변수 effect 의 회전값
 
     [Header("점수 확인용")]
     [SerializeField] protected bool isScored; // 점수 표시되어야 하는지 확인하는 bool 값
@@ -26,6 +26,53 @@ public class Balloon : MonoBehaviour, Object_Interactable
     private void OnEnable()
     {
         Floating();
+    }
+
+    private void Start()
+    {
+        if (GameDatas.Inst.mode == Mode.COLLABORATION) // 협동 모드 일 경우
+        {
+            if (collaborationIdx == 1)
+            {
+                speed = 2;
+            }
+        }
+        else // 개인 모드 일 경우
+        {
+            if (addedScore < 0) // 폭탄 풍선일 경우
+            {
+                switch (GameDatas.Inst.difficulty)
+                {
+                    case DIFFICULTY.NORMAL:
+                        speed = 4;
+                        break;
+                    case DIFFICULTY.HARD:
+                        speed = 3;
+                        break;
+                    case DIFFICULTY.MASTER:
+                        speed = 2;
+                        break;
+                }
+            }
+            else // 일반 풍선일 경우
+            {
+                switch (GameDatas.Inst.difficulty)
+                {
+                    case DIFFICULTY.EASY:
+                        speed = 2;
+                        break;
+                    case DIFFICULTY.NORMAL:
+                        speed = 3;
+                        break;
+                    case DIFFICULTY.HARD:
+                        speed = 4;
+                        break;
+                    case DIFFICULTY.MASTER:
+                        speed = 5;
+                        break;
+                }
+            }
+        }
     }
     public virtual void Interact()
     {

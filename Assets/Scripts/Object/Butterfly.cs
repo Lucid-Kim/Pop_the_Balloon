@@ -19,7 +19,6 @@ public class Butterfly : MonoBehaviour, Object_Interactable
     {
         if (transform.position.x <= 9)
         {
-            
             posX = transform.position.x + Time.deltaTime * speed;
             curTime += Time.deltaTime;
             if (curTime >= period)
