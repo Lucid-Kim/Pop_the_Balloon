@@ -48,6 +48,7 @@ public class CommonUI : MonoBehaviour
         Time.timeScale = 1f;
         gameObject.SetActive(false);
         UIPanel.SetActive(false);
+        DictionaryPool.Inst.DestroyMySelp();
         SoundManager.Inst.StopBGM();
         SceneManager.LoadScene(startSceneName);
 

@@ -163,7 +163,7 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public void UpdateScore()
     {
-        ingameScore.text = $"Á¡¼ö : {GameManager.Inst.score}";
+        ingameScore.text = GameManager.Inst.score.ToString();
     }
     
     /// <summary>
