@@ -51,6 +51,7 @@ public class CommonUI : MonoBehaviour
         DictionaryPool.Inst.DestroyMySelp();
         SoundManager.Inst.StopBGM();
         SceneManager.LoadScene(startSceneName);
+        UIManager.Inst.GameoverOn(false);
 
     }
 

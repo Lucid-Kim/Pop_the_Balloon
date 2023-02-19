@@ -111,9 +111,9 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// 게임 오버시 실행되는 함수
     /// </summary>
-    public void GameoverOn()
+    public void GameoverOn(bool isGameover)
     {
-        gameoverPanel.gameObject.SetActive(true);
+        gameoverPanel.gameObject.SetActive(isGameover);
         GameoverScore();
         
     }

@@ -569,6 +569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317502108, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
+      propertyPath: startSceneName
+      value: 0.SelectModeScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1233637512, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1420,7 +1424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870298701649315584, guid: f6d6d5046d22bb04cb0d905d77067a4d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4870298701649315584, guid: f6d6d5046d22bb04cb0d905d77067a4d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3124,7 +3128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945946538256262019, guid: 364ed08a481e244feb7ebc6028148c39, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1945946538256262019, guid: 364ed08a481e244feb7ebc6028148c39, type: 3}
       propertyPath: m_AnchorMax.x

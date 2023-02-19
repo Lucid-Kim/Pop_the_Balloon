@@ -485,6 +485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317502108, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
+      propertyPath: startSceneName
+      value: 0.SelectModeScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6036661292482412426, guid: 5e383b699524f44419ead6dacee9b199, type: 3}
       propertyPath: m_Pivot.x
       value: 0

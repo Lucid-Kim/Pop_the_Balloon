@@ -68,7 +68,7 @@ public class GameManager : Singleton<GameManager>
         isGameover = true;
         balloonSpawner.SetActive(false);
         personalSpawner.SetActive(false);
-        UIManager.Inst.GameoverOn();
+        UIManager.Inst.GameoverOn(true);
     }
 
     /// <summary>
