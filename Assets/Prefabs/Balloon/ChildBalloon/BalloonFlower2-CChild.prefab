@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloonEffect: {fileID: 4985773093272345233, guid: 9c2f12cfc4bb8844c83761e517d4e3d5, type: 3}
   effect: {fileID: 0}
-  scorePrefab: {fileID: 6330257748724398826, guid: dfed79753adfe674cb9094044f552a26, type: 3}
+  scorePrefab: {fileID: 3907021952806850143, guid: 7839281d5dbe77f46aab004074bbb3ec, type: 3}
   speed: 5
   collaborationIdx: 2
   objPosition: {x: 0, y: 0, z: 0}

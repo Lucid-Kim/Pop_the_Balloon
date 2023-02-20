@@ -45,7 +45,7 @@ public class Balloon_Flower : Balloon
         }
         if (isScored == true) // 점수 텍스트가 있어야 한다면
         {
-            base.ShowScoreText();
+            base.ShowScore();
         }
     }
 }

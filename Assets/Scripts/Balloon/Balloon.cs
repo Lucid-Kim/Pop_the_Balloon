@@ -104,7 +104,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
 
         if (isScored == true) // 점수 텍스트가 있어야 한다면
         {
-            ShowScoreText();
+            ShowScore();
         }
     }
     protected virtual void Update()
@@ -146,23 +146,19 @@ public class Balloon : MonoBehaviour, Object_Interactable
     }
 
     /// <summary>
-    /// 점수를 UI 텍스트로 보여주는 함수
+    /// 점수를 이미지로 보여주는 함수
     /// </summary>
-    protected virtual void ShowScoreText()
+    protected virtual void ShowScore()
     {
-        // 점수 올라가는 텍스트 생성
-        GameObject temp = DictionaryPool.Inst.Instantiate(scorePrefab, cam.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("UI").transform);
-        scoreText = temp.GetComponent<TextMeshProUGUI>();
-        if (addedScore >= 0)
+        // 점수 올라가는 이미지 생성
+        DictionaryPool.Inst.Instantiate(scorePrefab, transform.position, Quaternion.identity,DictionaryPool.Inst.transform);
+        
+        // 폭탄 풍선일 때
+        if (addedScore < 0)
         {
-            scoreText.text = "+" + addedScore;
-        }
-        else
-        {
-            scoreText.text = addedScore.ToString();
             SoundManager.Inst.PlaySFX("BombSFX");
         }
-
+        
         // 게임매니저에서 관리하는 점수 올리기
         GameManager.Inst.score += addedScore;
         // UI 텍스트 점수 변경

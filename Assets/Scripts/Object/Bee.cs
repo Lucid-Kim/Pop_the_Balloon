@@ -52,6 +52,5 @@ public class Bee : MonoBehaviour
         float ranX = Random.Range(-8.0f, 8.0f); // 생성 될 x좌표
         int ranIdx = Random.Range(0, 3);
         GameObject thisBlooming = Instantiate(blooming[ranIdx], new Vector2(ranX, -4), Quaternion.identity);
-        GameManager.Inst.ListEnqueue(thisBlooming); // 피어난 꽃을 카운트 하기위하여 리스트에 추가
     }
 }
