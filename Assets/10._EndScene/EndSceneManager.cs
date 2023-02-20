@@ -53,7 +53,7 @@ public class EndSceneManager : MonoBehaviour
             case (< 300):
                 rewardStar = 5;
                 break;
-            case (<450):
+            case (< 450):
                 rewardStar = 8;
                 break;
             default:
