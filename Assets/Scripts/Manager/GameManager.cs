@@ -14,9 +14,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject balloonSpawner; // 협동모드 풍선 생성기
     [SerializeField] GameObject personalSpawner; // 개인모드 풍선 생성기
     [SerializeField] GameObject feverSpawner; // 피버타임 생성기
-    [SerializeField] GameObject witheredPrefab; // 시든 꽃 프리팹
     int region2Count; // 2구역 풍선 갯수
-    
+    int bestScore = 0; // 최고점수
     public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     GameObject targetBlooming; // bloom 리스트에서 가장 먼저 추가된 피어있는 꽃(시든 꽃으로 변하기 위한 변수)
@@ -68,7 +67,7 @@ public class GameManager : Singleton<GameManager>
         isGameover = true;
         balloonSpawner.SetActive(false);
         personalSpawner.SetActive(false);
-        UIManager.Inst.GameoverOn(true);
+        GameoverOn();
     }
 
     /// <summary>
@@ -169,5 +168,28 @@ public class GameManager : Singleton<GameManager>
         else return false;
     }
 
+    /// <summary>
+    /// 현재 점수가 최고 점수보다 높으면 최고점수를 바꿔주는 함수
+    /// </summary>
+    /// <param name="curScore"></param>
+    public void ScoreSet(int curScore)
+    {
+        bestScore = PlayerPrefs.GetInt("BestScore");
 
+        if (curScore > bestScore)
+        {
+            bestScore = curScore;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+        }
+    }
+
+
+    /// <summary>
+    /// 게임 오버시 실행되는 함수
+    /// </summary>
+    public void GameoverOn()
+    {
+        GameDatas.Inst.score = score;
+        SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
+    }
 }

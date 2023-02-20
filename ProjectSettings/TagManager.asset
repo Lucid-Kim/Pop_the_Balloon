@@ -54,3 +54,6 @@ TagManager:
   - name: Withered
     uniqueID: 499998239
     locked: 0
+  - name: UI
+    uniqueID: 925157095
+    locked: 0

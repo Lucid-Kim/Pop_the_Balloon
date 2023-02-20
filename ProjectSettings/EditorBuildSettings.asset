@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2.PersonalGameScene.unity
     guid: 248c7a9ea6017904bbc3a2bd65a6300d
+  - enabled: 1
+    path: Assets/Scenes/Additive_EndScene.unity
+    guid: 609aec8b3453bce4ea8111aa4147b5fa
   m_configObjects: {}

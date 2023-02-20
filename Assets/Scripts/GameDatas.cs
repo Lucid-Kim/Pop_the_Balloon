@@ -22,7 +22,7 @@ public class GameDatas : MonoBehaviour
 
     public DIFFICULTY difficulty;
     public Mode mode;
-    public float time;
+    public int score;
 
     private void Awake()
     {

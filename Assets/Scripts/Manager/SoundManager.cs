@@ -78,7 +78,7 @@ public class SoundManager : MonoBehaviour
     }
     public void setSFXVolume(float value)
     {
-        for (int i = 0; i < sfxPlayer.Length; i++)
+        for(int i = 0; i < sfxPlayer.Length; i++)
         {
             sfxPlayer[i].volume = value;
         }
