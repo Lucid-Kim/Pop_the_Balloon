@@ -638,8 +638,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 94562636148115335}
+  m_Children: []
   m_Father: {fileID: 94562635605885373}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -775,6 +774,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 94562635170517151}
+  - {fileID: 94562636148115335}
   - {fileID: 94562636392265622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -858,6 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TownPackageName: com.DefaultCompany.MinigameTownTest
+  startSceneName: 0.SelectModeScene
   UIPanel: {fileID: 94562636148115334}
   TogleImages:
   - {fileID: 1050821527, guid: 5d688f4f24f86bb4db317aa0a1d129ff, type: 3}
@@ -1113,12 +1114,12 @@ RectTransform:
   - {fileID: 94562634596180628}
   - {fileID: 94562635883360730}
   - {fileID: 94562634760743991}
-  m_Father: {fileID: 94562635170517151}
-  m_RootOrder: 0
+  m_Father: {fileID: 94562635605885373}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 842, y: -438.2509}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &94562636148115329
@@ -1324,7 +1325,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 94562635605885373}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

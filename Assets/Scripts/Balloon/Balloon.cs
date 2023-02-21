@@ -25,7 +25,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
 
     private void OnEnable()
     {
-        Floating();
+        //Floating();
     }
 
     private void Start()

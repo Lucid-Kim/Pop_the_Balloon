@@ -7,7 +7,7 @@ public class Balloon_Flower : Balloon
     [SerializeField] GameObject[] flowerPrefab; // 터치시 나타나는 오브젝트(예: 2구역 꽃풍선, 3구역 꽃)
     private void OnEnable()
     {
-        base.Floating();
+        //base.Floating();
     }
 
     protected override void Update()

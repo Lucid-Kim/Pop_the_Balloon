@@ -6,7 +6,7 @@ public class Balloon_Butterfly : Balloon
 {
     private void OnEnable()
     {
-        Floating();
+        //Floating();
     }
     protected override void Update()
     {
