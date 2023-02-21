@@ -122,7 +122,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     public bool Region2Spawned()
     {
-        if (region2Count < 8) return true;
+        if (region2Count < 12) return true;
         else return false;
     }
 

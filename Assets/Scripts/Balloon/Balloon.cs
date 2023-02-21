@@ -34,25 +34,27 @@ public class Balloon : MonoBehaviour, Object_Interactable
         {
             if (collaborationIdx == 1)
             {
-                speed = 2;
+                speed = 1.5f;
             }
         }
         else // 개인 모드 일 경우
         {
             if (addedScore < 0) // 폭탄 풍선일 경우
             {
-                switch (GameDatas.Inst.difficulty)
-                {
-                    case DIFFICULTY.NORMAL:
-                        speed = 4;
-                        break;
-                    case DIFFICULTY.HARD:
-                        speed = 3;
-                        break;
-                    case DIFFICULTY.MASTER:
-                        speed = 2;
-                        break;
-                }
+                speed = 2;
+                if (GameDatas.Inst.difficulty == DIFFICULTY.NORMAL) GetComponent<SpriteRenderer>().sortingOrder = 1;
+                //switch (GameDatas.Inst.difficulty)
+                //{
+                //    case DIFFICULTY.NORMAL:
+                //        speed = 4;
+                //        break;
+                //    case DIFFICULTY.HARD:
+                //        speed = 3;
+                //        break;
+                //    case DIFFICULTY.MASTER:
+                //        speed = 2;
+                //        break;
+                //}
             }
             else // 일반 풍선일 경우
             {
@@ -62,13 +64,13 @@ public class Balloon : MonoBehaviour, Object_Interactable
                         speed = 2;
                         break;
                     case DIFFICULTY.NORMAL:
-                        speed = 3;
+                        speed = 2.5f;
                         break;
                     case DIFFICULTY.HARD:
-                        speed = 4;
+                        speed = 3.5f;
                         break;
                     case DIFFICULTY.MASTER:
-                        speed = 5;
+                        speed = 4.5f;
                         break;
                 }
             }
@@ -94,6 +96,7 @@ public class Balloon : MonoBehaviour, Object_Interactable
         // 협동모드이며 2구역 & 개인모드 풍선이라면
         else if (GameDatas.Inst.mode == Mode.PERSONAL || collaborationIdx == 2)
         {
+            if (addedScore < 0) SoundManager.Inst.PlaySFX("BombSFX");
             // 1번 오브젝트 위치및 회전값 설정
             GameObject obj1 = DictionaryPool.Inst.Instantiate(effect, new Vector3(ranPosX, -4, 0), Quaternion.identity, DictionaryPool.Inst.transform);
             obj1.transform.position = objPosition;
@@ -152,12 +155,6 @@ public class Balloon : MonoBehaviour, Object_Interactable
     {
         // 점수 올라가는 이미지 생성
         DictionaryPool.Inst.Instantiate(scorePrefab, transform.position, Quaternion.identity,DictionaryPool.Inst.transform);
-        
-        // 폭탄 풍선일 때
-        if (addedScore < 0)
-        {
-            SoundManager.Inst.PlaySFX("BombSFX");
-        }
         
         // 게임매니저에서 관리하는 점수 올리기
         GameManager.Inst.score += addedScore;

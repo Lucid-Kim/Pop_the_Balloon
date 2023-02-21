@@ -54,7 +54,6 @@ public class CommonUI : MonoBehaviour
             //UI가 필요없는 씬 (난이도 선택 씬 등)
             case "01. StartScene":
             case "Additive_EndScene":
-            case "11. LoadScene":
                 Group_Town.SetActive(false);
                 Group_Setting.SetActive(false);
                 break;

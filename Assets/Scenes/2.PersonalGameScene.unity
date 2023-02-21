@@ -1318,15 +1318,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 60
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d373f6c2e08d4c54baaeb77295e304d6, type: 2}
+  m_sharedMaterial: {fileID: 4003543749313522711, guid: d373f6c2e08d4c54baaeb77295e304d6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294443263
+  m_fontColor: {r: 1, g: 0, b: 0.972549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1343,8 +1343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2879,6 +2879,7 @@ MonoBehaviour:
   - {fileID: 9056243567346716219, guid: f8022c338d1fdc547a3df8530046ede1, type: 3}
   - {fileID: 9056243567346716219, guid: d9bcd34750d63b44da734d5b9e400df9, type: 3}
   butterfly: {fileID: 9056243567346716219, guid: 77da02f55ca324c449bcc093ca8d8420, type: 3}
+  spawnCycle: 0.5
 --- !u!4 &2108578270
 Transform:
   m_ObjectHideFlags: 0
@@ -2980,8 +2981,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
