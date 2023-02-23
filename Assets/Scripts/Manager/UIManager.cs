@@ -12,8 +12,6 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] TextMeshProUGUI addedScore;  // 풍선을 터치했을 때 나오는 텍스트
     
     [Header("게임오버")]
-    [SerializeField] TextMeshProUGUI gameoverScore; // 게임 종료시 점수를 나타내는 텍스트
-    [SerializeField] TextMeshProUGUI gameoverBestScore; // 게임 종료시 최고 점수를 나타내는 텍스트
     [SerializeField] GameObject restartBtn; // 재시작 버튼
     
     Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
@@ -24,7 +22,7 @@ public class UIManager : Singleton<UIManager>
     string keyName = "BestScore";
     int bestScore = 0;
 
-    [SerializeField] TextMeshProUGUI feverText; // 피버타임을 알려주는 텍스트
+    [SerializeField] Image feverText; // 피버타임을 알려주는 텍스트
 
     /// <summary>
     /// 인게임에서 스코어를 나타내는 함수

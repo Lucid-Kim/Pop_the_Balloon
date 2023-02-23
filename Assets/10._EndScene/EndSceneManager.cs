@@ -31,12 +31,83 @@ public class EndSceneManager : MonoBehaviour
             myScoreNameText.text = "최고기록";
             scoreText.text = $"{bestScore}";
             nameTMP.text = $"이번 기록 : {GameDatas.Inst.score}";
+            switch (GameDatas.Inst.score)
+            {
+                case (< 650):
+                    rewardStar = 5;
+                    break;
+                case (< 700):
+                    rewardStar = 8;
+                    break;
+                default:
+                    rewardStar = 12;
+                    break;
+            }
         }
-        else
+        else // 개인모드일 때
         {
             myScoreNameText.text = "내점수";
             scoreText.text = $"{GameDatas.Inst.score}";
             nameTMP.text = "아이디가 나와라";
+            switch (GameDatas.Inst.difficulty)
+            {
+                case DIFFICULTY.EASY:
+                    switch (GameDatas.Inst.score)
+                    {
+                        case (< 850):
+                            rewardStar = 5;
+                            break;
+                        case (< 1000):
+                            rewardStar = 8;
+                            break;
+                        default:
+                            rewardStar = 12;
+                            break;
+                    }
+                    break;
+                case DIFFICULTY.NORMAL:
+                    switch (GameDatas.Inst.score)
+                    {
+                        case (< 1000):
+                            rewardStar = 5;
+                            break;
+                        case (< 1300):
+                            rewardStar = 8;
+                            break;
+                        default:
+                            rewardStar = 12;
+                            break;
+                    }
+                    break;
+                case DIFFICULTY.HARD:
+                    switch (GameDatas.Inst.score)
+                    {
+                        case (< 1100):
+                            rewardStar = 5;
+                            break;
+                        case (< 1300):
+                            rewardStar = 8;
+                            break;
+                        default:
+                            rewardStar = 12;
+                            break;
+                    }
+                    break;
+                case DIFFICULTY.MASTER:
+                    switch (GameDatas.Inst.score)
+                    {
+                        case (< 1000):
+                            rewardStar = 5;
+                            break;
+                        case (< 1200):
+                            rewardStar = 8;
+                            break;
+                        default:
+                            rewardStar = 12;
+                            break;
+                    }
+                    break;
+            }
         }
         
         
@@ -46,20 +117,8 @@ public class EndSceneManager : MonoBehaviour
         bool isHighScore = false;
         HighScoreImage.SetActive(isHighScore);
 
-
-        //보상 변경은 여기서 
-        switch(GameDatas.Inst.score)
-        {
-            case (< 300):
-                rewardStar = 5;
-                break;
-            case (< 450):
-                rewardStar = 8;
-                break;
-            default:
-                rewardStar = 12;
-                break;
-        }
+        
+        
 
         rewardStarText.text = "X"+rewardStar;
         //reward 실제 변경 함수는 이쪽에 추가
