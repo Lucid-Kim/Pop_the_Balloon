@@ -37,7 +37,7 @@ public class PersonalSpawner : MonoBehaviour
     float ranX = 0;                                // 스폰할 랜덤한 위치
     float spawnPosY = -4;                          // 풍선의 생성되는 y좌표
     int balloonIdx = 0;                            // 스폰될 풍선의 인덱스
-    int layerIdx = 0;
+    
 
 
     private void Start()

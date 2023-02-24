@@ -14,14 +14,9 @@ public class UIManager : Singleton<UIManager>
     [Header("게임오버")]
     [SerializeField] GameObject restartBtn; // 재시작 버튼
     
-    Coroutine rankWindowOn; // 랭크를 나타내는 코루틴
-
     [Header("점수")]
     [SerializeField] TextMeshProUGUI bestScoreText; // 최고점수를 나타내는 텍스트
     
-    string keyName = "BestScore";
-    int bestScore = 0;
-
     [SerializeField] Image feverText; // 피버타임을 알려주는 텍스트
 
     /// <summary>
@@ -37,9 +32,4 @@ public class UIManager : Singleton<UIManager>
     {
         feverText.gameObject.SetActive(isOn);
     }
-
-    
-    
-
-
 }

@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.timeScale == 0) return;
         // 터치가 10개까지 따로 설정 가능하게 설정
         if (Input.touchCount > 0)
         {

@@ -11,6 +11,7 @@ public class EndSceneManager : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] Text rewardStarText;
     [SerializeField] Text myScoreNameText;
+    [SerializeField] Button btn_Exit;
 
     public string startSceneName = "0.SelectModeScene";
     //highscore일때만 보여주는거
@@ -22,6 +23,7 @@ public class EndSceneManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(CO_ActiveButton());
         GetComponent<Canvas>().worldCamera = Camera.main;
         GetComponent<Canvas>().sortingLayerName = "UI";
 
@@ -131,5 +133,13 @@ public class EndSceneManager : MonoBehaviour
         SceneManager.LoadScene(startSceneName);   
     }
 
-
+    /// <summary>
+    /// 5초 후에 버튼 활성화되는 코루틴
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator CO_ActiveButton()
+    {
+        yield return new WaitForSeconds(5f);
+        btn_Exit.interactable = true;
+    }
 }
