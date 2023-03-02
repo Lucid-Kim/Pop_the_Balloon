@@ -15,13 +15,14 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject personalSpawner; // 개인모드 풍선 생성기
     [SerializeField] GameObject feverSpawner; // 피버타임 생성기
     int region2Count; // 2구역 풍선 갯수
-    int bestScore = 0; // 최고점수
+    int region2Max = int.Parse(GameDatas.Inst.objectData[2]); // 2구역 풍선 최대 갯수
+    public int bestScore = 0; // 최고점수
     public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     
     public bool isGameover; // 게임 종료를 나타내는 bool 값
     public bool isFeverTime; // 피버타임을 나타내는 bool 값
-    Coroutine withered; // 꽃이 시들게 만드는 코루틴 변수
+    
 
 
     private void OnEnable()
@@ -122,7 +123,7 @@ public class GameManager : Singleton<GameManager>
     /// <returns></returns>
     public bool Region2Spawned()
     {
-        if (region2Count < 12) return true;
+        if (region2Count < region2Max) return true;
         else return false;
     }
 

@@ -17,7 +17,8 @@ public class EndSceneManager : MonoBehaviour
     //highscore일때만 보여주는거
     public GameObject HighScoreImage;
     int bestScore;
-
+    int minScore;
+    int middleScore;
     public int rewardStar;
 
 
@@ -26,90 +27,28 @@ public class EndSceneManager : MonoBehaviour
         StartCoroutine(CO_ActiveButton());
         GetComponent<Canvas>().worldCamera = Camera.main;
         GetComponent<Canvas>().sortingLayerName = "UI";
-
+        minScore = int.Parse(GameDatas.Inst.objectData[3]);
+        middleScore = int.Parse(GameDatas.Inst.objectData[4]);
         if (GameDatas.Inst.mode == Mode.COLLABORATION)
         {
             GameManager.Inst.ScoreSet(GameDatas.Inst.score);
+            bestScore = GameManager.Inst.bestScore;
             myScoreNameText.text = "최고기록";
             scoreText.text = $"{bestScore}";
             nameTMP.text = $"이번 기록 : {GameDatas.Inst.score}";
-            switch (GameDatas.Inst.score)
-            {
-                case (< 650):
-                    rewardStar = 5;
-                    break;
-                case (< 700):
-                    rewardStar = 8;
-                    break;
-                default:
-                    rewardStar = 12;
-                    break;
-            }
+            
+            if (GameDatas.Inst.score < minScore) rewardStar = 5;
+            else if (GameDatas.Inst.score < middleScore) rewardStar = 8;
+            else rewardStar = 12;
         }
         else // 개인모드일 때
         {
             myScoreNameText.text = "내점수";
             scoreText.text = $"{GameDatas.Inst.score}";
             nameTMP.text = "아이디가 나와라";
-            switch (GameDatas.Inst.difficulty)
-            {
-                case DIFFICULTY.EASY:
-                    switch (GameDatas.Inst.score)
-                    {
-                        case (< 850):
-                            rewardStar = 5;
-                            break;
-                        case (< 1000):
-                            rewardStar = 8;
-                            break;
-                        default:
-                            rewardStar = 12;
-                            break;
-                    }
-                    break;
-                case DIFFICULTY.NORMAL:
-                    switch (GameDatas.Inst.score)
-                    {
-                        case (< 1000):
-                            rewardStar = 5;
-                            break;
-                        case (< 1300):
-                            rewardStar = 8;
-                            break;
-                        default:
-                            rewardStar = 12;
-                            break;
-                    }
-                    break;
-                case DIFFICULTY.HARD:
-                    switch (GameDatas.Inst.score)
-                    {
-                        case (< 1100):
-                            rewardStar = 5;
-                            break;
-                        case (< 1300):
-                            rewardStar = 8;
-                            break;
-                        default:
-                            rewardStar = 12;
-                            break;
-                    }
-                    break;
-                case DIFFICULTY.MASTER:
-                    switch (GameDatas.Inst.score)
-                    {
-                        case (< 1000):
-                            rewardStar = 5;
-                            break;
-                        case (< 1200):
-                            rewardStar = 8;
-                            break;
-                        default:
-                            rewardStar = 12;
-                            break;
-                    }
-                    break;
-            }
+            if (GameDatas.Inst.score < minScore) rewardStar = 5;
+            else if (GameDatas.Inst.score < middleScore) rewardStar = 8;
+            else rewardStar = 12;
         }
         
         

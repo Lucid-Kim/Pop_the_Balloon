@@ -24,10 +24,15 @@ public class GameDatas : MonoBehaviour
     public Mode mode;
     public int score;
 
+    public List<string> dataList = new List<string>();
+    public List<string> layerList = new List<string>();
+    public string[] objectData = null;
+    public string[] layerData = null;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (Inst == null) Inst = this;
         else Destroy(gameObject);
     }
+
 }

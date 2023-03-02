@@ -9,7 +9,7 @@ public class BalloonSpawner : MonoBehaviour
     [SerializeField] GameObject[] balloonFlower1;  // 1구역 꽃 풍선
     [SerializeField] GameObject butterfly;         // 나비 오브젝트
     [Header("생성 주기(초)")]
-    [SerializeField] float spawnCycle = 0.5f;        // 생성주기
+    [SerializeField] float spawnCycle = float.Parse(GameDatas.Inst.objectData[1]);    // 생성주기
     float time;                                    // 지나가는 시간을 나타내는 변수
     float ranX = 0;                                // 1구역(왼쪽) 랜덤 x좌표
     float centerX = 1f;                            // 중앙선을 닿지 않게 선정한 x좌표

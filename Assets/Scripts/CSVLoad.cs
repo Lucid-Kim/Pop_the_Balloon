@@ -7,30 +7,26 @@ public class CSVLoad : MonoBehaviour
 {
     
 
-    public static void LoadData(string fileName)
+    public static List<string> LoadData(string fileName)
     {
         //저장할 Path 설정
         string filePath = Application.dataPath + "\\" + fileName;
 
         TextReader tr = new StreamReader(filePath);
-        if (tr == null) return;
+        if (tr == null) return null;
 
-        List<ObjectData> dataLis = new List<ObjectData>();
-
-        string line = tr.ReadLine();//첫줄은 Properties이므로 따로 처리안함
-        string[] tok;
+        List<string> dataList = new List<string>();
+        string line = tr.ReadLine(); //첫줄은 Properties이므로 따로 처리안함
+        
 
         while (line != null)
         {
             line = tr.ReadLine();
+            dataList.Add(line);
             if (line == null) break;
-
-            tok = line.Split(",");
         }
 
-        tr.Close();
-
-        return;
+        return dataList;
     }
 
 }

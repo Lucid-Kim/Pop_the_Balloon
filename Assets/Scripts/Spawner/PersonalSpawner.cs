@@ -17,17 +17,17 @@ public class PersonalSpawner : MonoBehaviour
     [SerializeField] GameObject[] period3BalloonLayer2; // 3구간 생성되는 레이어 2 풍선들(꽃, 물, 해)
     [SerializeField] GameObject[] period3BalloonLayer3; // 3구간 생성되는 레이어 3 풍선들(꽃, 물, 해)
     [Header("레이어 별 생성 주기")]
-    [SerializeField] float spawnCycle1 = 1.5f;                      // 레이어 1 풍선들의 생성 주기
-    [SerializeField] float spawnCycle2 = 2.5f;                      // 레이어 2 풍선들의 생성 주기
-    [SerializeField] float spawnCycle3 = 3.5f;                      // 레이어 3 풍선들의 생성 주기
+    [SerializeField] float spawnCycle1 = float.Parse(GameDatas.Inst.layerData[0]);           // 레이어 1 풍선들의 생성 주기
+    [SerializeField] float spawnCycle2 = float.Parse(GameDatas.Inst.layerData[1]);           // 레이어 2 풍선들의 생성 주기
+    [SerializeField] float spawnCycle3 = float.Parse(GameDatas.Inst.layerData[2]);           // 레이어 3 풍선들의 생성 주기
     [Header("폭탄 오브젝트")]
     [SerializeField] GameObject balloonBombA;                       // 레이어 1 폭탄
     [SerializeField] GameObject balloonBombB;                       // 레이어 2 폭탄
     [SerializeField] GameObject balloonBombC;                       // 레이어 3 폭탄
     [Header("레이어 별 폭탄 주기")]
-    [SerializeField] float bombCycle1 = 5f;                         // 레이어 1 폭탄들의 생성 주기
-    [SerializeField] float bombCycle2 = 6f;                         // 레이어 2 폭탄들의 생성 주기
-    [SerializeField] float bombCycle3 = 7f;                         // 레이어 3 폭탄들의 생성 주기
+    [SerializeField] float bombCycle1 = float.Parse(GameDatas.Inst.layerData[3]);           // 레이어 1 폭탄들의 생성 주기
+    [SerializeField] float bombCycle2 = float.Parse(GameDatas.Inst.layerData[4]);           // 레이어 2 폭탄들의 생성 주기
+    [SerializeField] float bombCycle3 = float.Parse(GameDatas.Inst.layerData[5]);           // 레이어 3 폭탄들의 생성 주기
     float time1;                                   // 지나가는 시간을 나타내는 변수1
     float time2;                                   // 지나가는 시간을 나타내는 변수2
     float time3;                                   // 지나가는 시간을 나타내는 변수3

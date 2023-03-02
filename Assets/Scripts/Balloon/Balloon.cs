@@ -34,45 +34,20 @@ public class Balloon : MonoBehaviour, Object_Interactable
         {
             if (collaborationIdx == 1)
             {
-                speed = 1.5f;
+                speed = float.Parse(GameDatas.Inst.objectData[0]);
             }
         }
         else // 개인 모드 일 경우
         {
             if (addedScore < 0) // 폭탄 풍선일 경우
             {
-                speed = 2;
+                speed = float.Parse(GameDatas.Inst.objectData[2]);
                 if (GameDatas.Inst.difficulty == DIFFICULTY.NORMAL) GetComponent<SpriteRenderer>().sortingOrder = 1;
-                //switch (GameDatas.Inst.difficulty)
-                //{
-                //    case DIFFICULTY.NORMAL:
-                //        speed = 4;
-                //        break;
-                //    case DIFFICULTY.HARD:
-                //        speed = 3;
-                //        break;
-                //    case DIFFICULTY.MASTER:
-                //        speed = 2;
-                //        break;
-                //}
+                
             }
             else // 일반 풍선일 경우
             {
-                switch (GameDatas.Inst.difficulty)
-                {
-                    case DIFFICULTY.EASY:
-                        speed = 2;
-                        break;
-                    case DIFFICULTY.NORMAL:
-                        speed = 2.5f;
-                        break;
-                    case DIFFICULTY.HARD:
-                        speed = 3.5f;
-                        break;
-                    case DIFFICULTY.MASTER:
-                        speed = 4.5f;
-                        break;
-                }
+                speed = float.Parse(GameDatas.Inst.objectData[1]);
             }
         }
     }
