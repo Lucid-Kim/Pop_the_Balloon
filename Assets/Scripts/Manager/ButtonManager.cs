@@ -49,8 +49,8 @@ public class ButtonManager : MonoBehaviour
     {
         SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.mode = Mode.PERSONAL;
-        GameDatas.Inst.dataList = CSVLoad.LoadData("PersonalData.csv");
-        GameDatas.Inst.layerList = CSVLoad.LoadData("LayerData.csv");
+        GameDatas.Inst.dataList = CSVLoad.LoadData("PersonalData");
+        GameDatas.Inst.layerList = CSVLoad.LoadData("LayerData");
         GameDatas.Inst.layerData = GameDatas.Inst.layerList[0].Split(",");
         SceneManager.LoadScene(selectLevelScene);
     }
@@ -59,7 +59,7 @@ public class ButtonManager : MonoBehaviour
     {
         SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.mode = Mode.COLLABORATION;
-        GameDatas.Inst.dataList = CSVLoad.LoadData("CollaborationData.csv");
+        GameDatas.Inst.dataList = CSVLoad.LoadData("CollaborationData");
         GameDatas.Inst.objectData = GameDatas.Inst.dataList[0].Split(","); // 협동모드 데이터
         SceneManager.LoadScene(collaborationScene);
     }

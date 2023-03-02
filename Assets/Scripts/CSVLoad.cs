@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class CSVLoad : MonoBehaviour
 {
-    
-
     public static List<string> LoadData(string fileName)
     {
         //저장할 Path 설정
-        string filePath = Application.dataPath + "\\" + fileName;
+        TextAsset filePath = Resources.Load<TextAsset>(fileName);
 
-        TextReader tr = new StreamReader(filePath);
+        StringReader tr = new StringReader(filePath.text);
         if (tr == null) return null;
 
         List<string> dataList = new List<string>();
@@ -25,7 +23,7 @@ public class CSVLoad : MonoBehaviour
             dataList.Add(line);
             if (line == null) break;
         }
-
+        tr.Close();
         return dataList;
     }
 
