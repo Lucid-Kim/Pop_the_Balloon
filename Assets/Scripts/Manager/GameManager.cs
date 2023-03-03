@@ -17,7 +17,6 @@ public class GameManager : Singleton<GameManager>
     int region2Count; // 2구역 풍선 갯수
     int region2Max = int.Parse(GameDatas.Inst.objectData[2]); // 2구역 풍선 최대 갯수
     public int bestScore = 0; // 최고점수
-    public List<GameObject> bloom = new List<GameObject>(); // 스코어 산정을 위한 피어있는 꽃 리스트
     public int score; // 실시간 점수와 최종 점수를 나타내는 변수
     
     public bool isGameover; // 게임 종료를 나타내는 bool 값
@@ -97,16 +96,6 @@ public class GameManager : Singleton<GameManager>
         isFeverTime = false;
     }
 
-    /// <summary>
-    /// 피어있는 꽃 리스트에서 제일 먼저 들어간 꽃을 가져오는 함수
-    /// </summary>
-    /// <returns></returns>
-    public GameObject ListDequeue()
-    {
-        GameObject selectObj = bloom[0];
-        bloom.RemoveAt(0);
-        return selectObj;
-    }
 
     /// <summary>
     /// 2구역 풍선의 갯수를 추가하는 함수
