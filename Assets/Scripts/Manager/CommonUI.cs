@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CommonUI : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class CommonUI : MonoBehaviour
     [SerializeField] Image Image_BGM;
     [SerializeField] Image Image_SFX;
 
-
     public static CommonUI Inst;
 
 
@@ -31,6 +31,7 @@ public class CommonUI : MonoBehaviour
         if (Inst == null)
         {
             Inst = this;
+
             SceneManager.sceneLoaded += changeBtnStatus;
             DontDestroyOnLoad(gameObject);
         }

@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &186111161
 Transform:
   m_ObjectHideFlags: 0
@@ -202,6 +202,26 @@ PrefabInstance:
     - target: {fileID: 94562635605885360, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
       propertyPath: m_Name
       value: Canvas_CommonBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 94562635605885361, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 94562635605885363, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94562635605885363, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 94562635605885363, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 94562635605885372, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 94562635605885373, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
       propertyPath: m_Pivot.x
@@ -653,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1000164931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +689,10 @@ MonoBehaviour:
   difficulty: 0
   mode: 0
   score: 0
+  dataList: []
+  layerList: []
+  objectData: []
+  layerData: []
 --- !u!4 &1000164932
 Transform:
   m_ObjectHideFlags: 0

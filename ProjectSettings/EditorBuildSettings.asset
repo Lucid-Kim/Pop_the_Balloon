@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Atlas/PlayerConfirm.unity
+    guid: ede50ab33a2f88648ae0d32c63ed73c8
+  - enabled: 1
     path: Assets/Scenes/0.SelectModeScene.unity
     guid: 79e8e4e8ced723d4992828645a7aa478
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Additive_EndScene.unity
     guid: 609aec8b3453bce4ea8111aa4147b5fa
+  - enabled: 1
+    path: Assets/Atlas/New Scene.unity
+    guid: bcff778e9a33e8c4c826265aaff16edb
   m_configObjects: {}

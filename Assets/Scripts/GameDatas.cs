@@ -23,6 +23,7 @@ public class GameDatas : MonoBehaviour
     public DIFFICULTY difficulty;
     public Mode mode;
     public int score;
+    public string id;
 
     public List<string> dataList = new List<string>();
     public List<string> layerList = new List<string>();
