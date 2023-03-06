@@ -19,11 +19,9 @@ public class InGameRanking : MonoBehaviour
     #region Refrence Member
 
     [Header("======Ref Ui======")]
-    [SerializeField] private ResultWindow resultWindow = null;
     [SerializeField] private GameObject rankingBoard = null;
-    
+    [SerializeField] private EndSceneManager endSceneManager = null;
 
-    public static InGameRanking Inst;
 
     #endregion
 
@@ -40,43 +38,52 @@ public class InGameRanking : MonoBehaviour
 
     #endregion
 
-    private void Start()
+    public void EndingSceneSequnce(int curScore, int star, int curGameNum, DIFFICULTY dif)
     {
-        Inst = this;
+        endSceneManager.nameTMP.text = "불러오는 중...1";
 
-        StartCoroutine(CompareUserID());
+        StartCoroutine(CompareUserID(curScore, star, curGameNum, dif));
     }
 
-    IEnumerator CompareUserID()
+    IEnumerator CompareUserID(int curScore, int star, int curGameNum, DIFFICULTY dif)
     {
-        GameDatas.Inst.id = LoginSave.Get().id;
+        string idStr = LoginSave.Get().id;
+        endSceneManager.nameTMP.text = "불러오는 중...2";
 
-        yield return new WaitUntil(() =>GameDatas.Inst.id!=null);
+       yield return new WaitUntil(() => idStr != null);
 
-        SetGameInfo(GameDatas.Inst.id, GameDatas.Inst.score, 8, 0, 0);
-        SaveScore(_id);
+
+        SetGameInfo(idStr,curScore, star,curGameNum,dif);
     }
-
-
-
-
 
     ///////////////////////////현재 게임 상태 세팅///////////////////////////////////////////// step 1
-    public void SetGameInfo(string id ,int curScore, int star ,int curGameNum, int curDifNum) 
+    private void SetGameInfo(string id ,int curScore, int star ,int curGameNum, DIFFICULTY dif) 
     {
+        int difNum = 0;
+
+        switch (dif)
+        {
+            case DIFFICULTY.EASY: difNum = 0; break;
+            case DIFFICULTY.NORMAL: difNum = 1; break;
+            case DIFFICULTY.HARD: difNum = 2; break;
+            case DIFFICULTY.MASTER: difNum = 3; break;
+        }
+
         this._id = id;
         this.star = star;
         this.curScore = curScore;
         this.curGameNum = curGameNum;
-        this.curDifNum = curDifNum;
+        this.curDifNum = difNum;
+        endSceneManager.nameTMP.text = "불러오는 중...3";
+
+        SaveScore();
     }
 
-    
+
 
     ///////////////////////////랭킹 저장 및 갱신할 때///////////////////////////////////////////// step 2
-    public void SaveScore(string id)
+    private void SaveScore()
     {
-        _id = id;
         StartCoroutine(SaveScoreFromDatabase());
     }
     ///////////////////////////전체 랭킹 불러올 때//////////////////////////////////////////////// ui클릭 시
@@ -90,19 +97,18 @@ public class InGameRanking : MonoBehaviour
     //데이터 세이브 및 Ui표시 로직
     private IEnumerator SaveScoreFromDatabase()
     {
-        bool saveCheck = false;
+        endSceneManager.nameTMP.text = "불러오는 중...4";
 
-        resultWindow.gameObject.SetActive(true);
-        resultWindow.SetCurScore(curScore);
-        resultWindow.SetStartCount(star);
+        bool saveCheck = false;
 
         TypeOfGameRangking.Inst.GetUserData_FromDatabase(_id);
 
         yield return new WaitUntil(() => !TypeOfGameRangking.Inst.isProcessing);
 
-        float score = float.Parse(TypeOfGameRangking.Inst.loginUser.score[curGameNum * 4 + curDifNum]);
+        endSceneManager.nameTMP.text = TypeOfGameRangking.Inst.loginUser.nickname;
 
-        resultWindow.SetBeforeScoreText(score);
+
+        float score = float.Parse(TypeOfGameRangking.Inst.loginUser.score[curGameNum * 4 + curDifNum]);
 
         if (curGameNum == 1 || curGameNum == 3)
         {
@@ -124,7 +130,7 @@ public class InGameRanking : MonoBehaviour
 
         if (saveCheck)
         {
-          resultWindow.Actvie_UpRank();
+            endSceneManager.HighScoreImage.SetActive(true);
         }
         else
         {
@@ -132,8 +138,6 @@ public class InGameRanking : MonoBehaviour
         }
 
         TypeOfGameRangking.Inst.Save_FromDatabase(_id, curScore, star, curGameNum, curDifNum);
-
-        yield return new WaitUntil(() => !TypeOfGameRangking.Inst.isProcessing);
 
     }
  

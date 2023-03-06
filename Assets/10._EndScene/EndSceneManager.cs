@@ -22,11 +22,16 @@ public class EndSceneManager : MonoBehaviour
     public int rewardStar;
 
 
+    public InGameRanking inGameRanking;
+
     private void Start()
     {
         StartCoroutine(CO_ActiveButton());
         GetComponent<Canvas>().worldCamera = Camera.main;
         GetComponent<Canvas>().sortingLayerName = "UI";
+
+
+
         minScore = int.Parse(GameDatas.Inst.objectData[3]);
         middleScore = int.Parse(GameDatas.Inst.objectData[4]);
 
@@ -51,23 +56,10 @@ public class EndSceneManager : MonoBehaviour
             else if (GameDatas.Inst.score < middleScore) rewardStar = 8;
             else rewardStar = 12;
 
-            int dif = 0;
+            nameTMP.text = "불러오는 중...0";
 
-            switch (GameDatas.Inst.difficulty)
-            {
-                case DIFFICULTY.EASY: dif = 0; break;
-                case DIFFICULTY.NORMAL: dif = 1; break;
-                case DIFFICULTY.MASTER: dif = 2; break;
-                case DIFFICULTY.HARD: dif = 3; break;
-            }
-
-            InGameRanking.Inst.SetGameInfo(GameDatas.Inst.id, GameDatas.Inst.score, rewardStar, 0, dif);
-            InGameRanking.Inst.SaveScore(GameDatas.Inst.id);
-
+            inGameRanking.EndingSceneSequnce(GameDatas.Inst.score, rewardStar, 0, GameDatas.Inst.difficulty);
         }
-
-
-
 
         rewardStarText.text = "X"+rewardStar;
         //reward 실제 변경 함수는 이쪽에 추가

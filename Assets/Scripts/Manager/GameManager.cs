@@ -138,6 +138,6 @@ public class GameManager : Singleton<GameManager>
     public void GameoverOn()
     {
         GameDatas.Inst.score = score;
-        SceneManager.LoadScene("New Scene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
     }
 }

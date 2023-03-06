@@ -41,11 +41,15 @@ public class LoginSave
         string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Saves/";
         string fileName = "/Save01.json";
 #elif UNITY_ANDROID
-            string path = "/storage/emulated/0/Save";
+         string path = "/storage/emulated/0/Save";
          string fileName = "/Save.json"; 
 #endif
 
         LoginPlayerData data = JsonUtility.FromJson<LoginPlayerData>(File.ReadAllText(path + fileName));
+
+
+        if (data.id == null)
+            data.id = path + fileName;
 
         return data;
     }

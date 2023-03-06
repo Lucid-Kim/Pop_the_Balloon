@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Additive_EndScene.unity
     guid: 609aec8b3453bce4ea8111aa4147b5fa
-  - enabled: 1
-    path: Assets/Atlas/New Scene.unity
+  - enabled: 0
+    path: Assets/Scenes/New Scene.unity
     guid: bcff778e9a33e8c4c826265aaff16edb
   m_configObjects: {}

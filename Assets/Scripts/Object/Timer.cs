@@ -6,7 +6,7 @@ using System;
 
 public class Timer : MonoBehaviour
 {
-    float secs = 60;
+    float secs = 5;
     TextMeshProUGUI text_Time;
     private void Awake()
     {
