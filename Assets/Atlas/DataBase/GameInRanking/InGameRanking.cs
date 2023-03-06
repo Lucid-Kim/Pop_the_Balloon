@@ -53,7 +53,7 @@ public class InGameRanking : MonoBehaviour
 
         yield return new WaitUntil(() =>GameDatas.Inst.id!=null);
 
-        SetGameInfo(GameDatas.Inst.id, 8, 8, 0, 0);
+        SetGameInfo(GameDatas.Inst.id, GameDatas.Inst.score, 8, 0, 0);
         SaveScore(_id);
     }
 
