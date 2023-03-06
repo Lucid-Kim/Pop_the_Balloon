@@ -43,11 +43,23 @@ public class InGameRanking : MonoBehaviour
     private void Start()
     {
         Inst = this;
-        //ex)
-        SetGameInfo(GameDatas.Inst.id,8,120,0,0);
-        SaveScore(_id);
-         
+
+        StartCoroutine(CompareUserID());
     }
+
+    IEnumerator CompareUserID()
+    {
+        GameDatas.Inst.id = LoginSave.Get().id;
+
+        yield return new WaitUntil(() =>GameDatas.Inst.id!=null);
+
+        SetGameInfo(GameDatas.Inst.id, 8, 8, 0, 0);
+        SaveScore(_id);
+    }
+
+
+
+
 
     ///////////////////////////현재 게임 상태 세팅///////////////////////////////////////////// step 1
     public void SetGameInfo(string id ,int curScore, int star ,int curGameNum, int curDifNum) 

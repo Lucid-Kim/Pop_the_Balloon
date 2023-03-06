@@ -18,8 +18,8 @@ public class LoginSave
         string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Saves/";
         string fileName = "/Save01.json";
 #elif UNITY_ANDROID
-       string path = "/storage/emulated/0/Android/data/com.DefaultCompany.MiniGameTown";
-         string fileName = "/Save.json";    
+          string path = "/storage/emulated/0/Save";
+         string fileName = "/Save.json";   
 #endif
         if (Directory.Exists(path) == false) // There's no directory
         {
@@ -41,8 +41,8 @@ public class LoginSave
         string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Saves/";
         string fileName = "/Save01.json";
 #elif UNITY_ANDROID
-         string path = "/storage/emulated/0/Android/data/com.DefaultCompany.MiniGameTown";
-         string fileName = "/Save.json";
+            string path = "/storage/emulated/0/Save";
+         string fileName = "/Save.json"; 
 #endif
 
         LoginPlayerData data = JsonUtility.FromJson<LoginPlayerData>(File.ReadAllText(path + fileName));

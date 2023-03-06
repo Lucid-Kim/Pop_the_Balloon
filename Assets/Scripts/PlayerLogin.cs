@@ -10,22 +10,22 @@ public class PlayerLogin
     /// <returns></returns>
     static string getFilePath()
     {
-        string path = Application.persistentDataPath;
+        string path = "/storage/emulated/0/PlayerData.csv";
 
-        string[] tok = path.Split("/");
+        //string[] tok = path.Split("/");
 
-        StringBuilder sb = new StringBuilder();
+        //StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < tok.Length - 2; i++)
-        {
-            sb.Append(tok[i]);
-            sb.Append("/");
-        }
-        sb.Append("PlayerData.csv");
+        //for (int i = 0; i < tok.Length - 2; i++)
+        //{
+        //    sb.Append(tok[i]);
+        //    sb.Append("/");
+        //}
+        //sb.Append("PlayerData.csv");
 
-        Debug.Log(sb.ToString());
+        //Debug.Log(sb.ToString());
 
-        return sb.ToString();
+        return path;
     }
     /// <summary>
     /// persistentDataPath의 PlayerData로부터 Player의 Name을 가져옵니다. 이미 생성되어 있는 파일이 없었다면, null을 반환합니다.
@@ -52,7 +52,7 @@ public class PlayerLogin
         catch
         {
             Debug.Log("noData");
-            return "testPlayer";
+            return path;
         }
 
 
