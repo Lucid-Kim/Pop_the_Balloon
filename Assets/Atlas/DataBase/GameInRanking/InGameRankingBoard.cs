@@ -56,7 +56,7 @@ public class InGameRankingBoard : MonoBehaviour
         UserInfo.sortingIdx = gameNum * 4 + difficulty;
         userdata.Sort();
 
-        if (gameNum != 1 || gameNum != 3)
+        if (gameNum != 1 && gameNum != 3)
             userdata.Reverse();
 
         int instNum = 0;

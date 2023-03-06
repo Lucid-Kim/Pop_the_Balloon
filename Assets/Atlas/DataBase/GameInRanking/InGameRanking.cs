@@ -40,7 +40,7 @@ public class InGameRanking : MonoBehaviour
 
     public void EndingSceneSequnce(int curScore, int star, int curGameNum, DIFFICULTY dif)
     {
-        endSceneManager.nameTMP.text = "불러오는 중...1";
+        endSceneManager.nameTMP.text = "불러오는 중...";
 
         StartCoroutine(CompareUserID(curScore, star, curGameNum, dif));
     }
@@ -48,7 +48,6 @@ public class InGameRanking : MonoBehaviour
     IEnumerator CompareUserID(int curScore, int star, int curGameNum, DIFFICULTY dif)
     {
         string idStr = LoginSave.Get().id;
-        endSceneManager.nameTMP.text = "불러오는 중...2";
 
        yield return new WaitUntil(() => idStr != null);
 
@@ -74,7 +73,6 @@ public class InGameRanking : MonoBehaviour
         this.curScore = curScore;
         this.curGameNum = curGameNum;
         this.curDifNum = difNum;
-        endSceneManager.nameTMP.text = "불러오는 중...3";
 
         SaveScore();
     }
@@ -97,8 +95,6 @@ public class InGameRanking : MonoBehaviour
     //데이터 세이브 및 Ui표시 로직
     private IEnumerator SaveScoreFromDatabase()
     {
-        endSceneManager.nameTMP.text = "불러오는 중...4";
-
         bool saveCheck = false;
 
         TypeOfGameRangking.Inst.GetUserData_FromDatabase(_id);
